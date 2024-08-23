@@ -1,0 +1,23 @@
+#+title: Creating tag functions for MediaWiki
+#+author: Mark A. Hershberger
+#+date: 2021-04-28
+
+This composer package---known as the Tag Builder (TB)---is intended to make it easy to set up [[https://www.mediawiki.org/wiki/Manual:Tag_extensions][MediaWiki tags]].
+
+To use this package:
+- decide what you are going to call your extension and the PHP namespace it will use
+- decide your tag name, what attributes it will handle and what it will do
+- illustrate what you want your parser functions should do
+- use the wikitext to html transformations to create run parser tests to verify your extension works as expected
+- initialize your =composer.json= and =extension.json= files for your new MediaWiki extension
+- make this package a requirement for your extension in its =composer.json=
+- in your =extension.json=, set up the =ParserFirstCallInit= hook to call the =registerFunction= method in the class you have set up for each parser function
+- write an =execute= method and a =getValue= method for each class that you have desigated for each parser function
+- create a page on MediaWiki.org describing your extension
+* Rewriting (an) IFrame extension
+I had a couple of tag extensions that I was working on.  One of these was yet-another IFrame extension.  I'll use my work on the IFrame extension to demonstrate how to use the Tag Builder.
+
+** Deciding what to call it and the PHP namespace
+This part was easy since I was working with an existing extension.  The extension already has a name.
+
+MediaWiki extensions that I write are in the =MediaWiki\Extension\= namespace followed by the extension name.  That means this extension's namespace will be =MediaWiki\Extension\IFrame=.

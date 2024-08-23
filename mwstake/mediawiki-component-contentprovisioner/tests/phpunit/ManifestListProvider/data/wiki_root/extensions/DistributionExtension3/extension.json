@@ -1,0 +1,11 @@
+{
+	"attributes": {
+		"MWStakeContentProvisioner": {
+			"ContentManifests": {
+				"DifferentManifestsKey": [
+					"path/to/manifest5.json"
+				]
+			}
+		}
+	}
+}

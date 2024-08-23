@@ -1,0 +1,9 @@
+[
+	{
+		"path": "/mws/v1/dummy-store",
+		"class": "DummyStore",
+		"services": [
+			"HookContainer"
+		]
+	}
+]
