@@ -41,6 +41,7 @@ abstract class TitleEvent extends NotificationEvent implements ITitleEvent {
 	/**
 	 * @return Message
 	 */
+
 	/**
 	 * @param IChannel $forChannel
 	 * @return Message
@@ -65,7 +66,7 @@ abstract class TitleEvent extends NotificationEvent implements ITitleEvent {
 	 */
 	protected function getTitleAnchor( Title $title, IChannel $forChannel, ?string $label = null ): string {
 		$label = $label ?? $this->getTitleDisplayText( $title );
-		if (  $forChannel instanceof IExternalChannel  ) {
+		if ( $forChannel instanceof IExternalChannel ) {
 			return '[' . $title->getFullURL() . ' ' . $label . ']';
 		}
 
@@ -106,7 +107,7 @@ abstract class TitleEvent extends NotificationEvent implements ITitleEvent {
 			new EventLink(
 				$forChannel instanceof IExternalChannel ?
 					$this->getTitle()->getFullURL() : $this->getTitle()->getLocalURL(),
-				Message::newFromKey( 'ext-notifications-link-label-view-page' )
+				Message::newFromKey( 'ext-notifyme-link-label-view-page' )
 			)
 		];
 	}

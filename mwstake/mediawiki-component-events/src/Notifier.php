@@ -18,6 +18,9 @@ class Notifier {
 	/** @var array */
 	private $queued = [];
 
+	/** @var bool */
+	private $inhibited = false;
+
 	/**
 	 * @param array $consumers
 	 */
@@ -33,8 +36,19 @@ class Notifier {
 	 * @throws \Exception
 	 */
 	public function emit( INotificationEvent $event ) {
+		if ( $this->inhibited ) {
+			return;
+		}
 		$signature = $this->getEventSignature( $event );
 		$this->queued[$signature] = $event;
+	}
+
+	public function inhibit() {
+		$this->inhibited = true;
+	}
+
+	public function restore() {
+		$this->inhibited = false;
 	}
 
 	/**

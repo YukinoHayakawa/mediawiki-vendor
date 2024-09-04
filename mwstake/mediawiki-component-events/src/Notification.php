@@ -4,7 +4,6 @@ namespace MWStake\MediaWiki\Component\Events;
 
 use MWStake\MediaWiki\Component\Events\Delivery\IChannel;
 use MWStake\MediaWiki\Component\Events\Delivery\NotificationStatus;
-use MWStake\MediaWiki\Component\Events\INotificationEvent;
 use User;
 
 final class Notification {

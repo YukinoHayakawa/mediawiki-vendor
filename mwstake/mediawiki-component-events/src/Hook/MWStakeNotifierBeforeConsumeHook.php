@@ -2,8 +2,8 @@
 
 namespace MWStake\MediaWiki\Component\Events\Hook;
 
-use MWStake\MediaWiki\Component\Events\INotificationEventConsumer;
 use MWStake\MediaWiki\Component\Events\INotificationEvent;
+use MWStake\MediaWiki\Component\Events\INotificationEventConsumer;
 
 interface MWStakeNotifierBeforeConsumeHook {
 	/**
