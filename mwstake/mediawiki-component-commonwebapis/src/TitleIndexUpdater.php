@@ -87,12 +87,15 @@ class TitleIndexUpdater implements
 	 * @param PageIdentity $page
 	 * @param int|null $forceId (optional)
 	 *
-	 * @return bool|void
+	 * @return bool
 	 */
 	private function insert( PageIdentity $page, $forceId = null ) {
 		$db = $this->lb->getConnection( DB_PRIMARY );
+		if ( !$db->tableExists( 'mws_title_index' ) ) {
+			return false;
+		}
 		if ( !$page->exists() ) {
-			return;
+			return false;
 		}
 		// Cheaper to delete and insert, then to check if it exists
 		$db->delete(
@@ -124,6 +127,10 @@ class TitleIndexUpdater implements
 	 */
 	private function delete( int $namespace, string $title ) {
 		$db = $this->lb->getConnection( DB_PRIMARY );
+		$db = $this->lb->getConnection( DB_PRIMARY );
+		if ( !$db->tableExists( 'mws_title_index' ) ) {
+			return false;
+		}
 		return $db->delete(
 			'mws_title_index',
 			[

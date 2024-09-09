@@ -4,7 +4,7 @@ if ( defined( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONWEBAPIS_VERSION' ) ) {
 	return;
 }
 
-define( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONWEBAPIS_VERSION', '2.0.25' );
+define( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONWEBAPIS_VERSION', '2.0.26' );
 
 MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 	->register( 'commonwebapis', static function () {
@@ -53,9 +53,6 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 				);
 				$updater->addPostDatabaseUpdateMaintenance(
 					\MWStake\MediaWiki\Component\CommonWebAPIs\Maintenance\PopulateTitleIndex::class
-				);
-				$updater->addPostDatabaseUpdateMaintenance(
-					\MWStake\MediaWiki\Component\CommonWebAPIs\Maintenance\UpdateTitleIndexDisplayTitle::class
 				);
 				$updater->addPostDatabaseUpdateMaintenance(
 					\MWStake\MediaWiki\Component\CommonWebAPIs\Maintenance\PopulateCategoryIndex::class

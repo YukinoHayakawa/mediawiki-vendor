@@ -129,6 +129,9 @@ class CategoryIndexUpdater implements
 	 */
 	private function delete( string $categoryKey ) {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		if ( !$dbw->tableExists( 'mws_category_index' ) ) {
+			return;
+		}
 		$dbw->delete( 'mws_category_index', [
 			'mci_title' => mb_strtolower( str_replace( '_', ' ', $categoryKey ) )
 		] );
@@ -162,6 +165,9 @@ class CategoryIndexUpdater implements
 	 */
 	private function insert( array $info ) {
 		$dbw = $this->lb->getConnectionRef( DB_PRIMARY );
+		if ( !$dbw->tableExists( 'mws_category_index' ) ) {
+			return;
+		}
 		$dbw->insert( 'mws_category_index', $info, __METHOD__, [ 'IGNORE' ] );
 	}
 }

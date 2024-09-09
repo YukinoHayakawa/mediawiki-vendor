@@ -26,6 +26,9 @@ class UserIndexUpdater {
 	 */
 	public function store( User $user ) {
 		$db = $this->lb->getConnection( DB_PRIMARY );
+		if ( !$db->tableExists( 'mws_user_index' ) ) {
+			return false;
+		}
 		$data = [
 			'mui_user_id' => $user->getId(),
 			'mui_user_name' => mb_strtolower( $user->getName() ),
@@ -47,6 +50,9 @@ class UserIndexUpdater {
 	 */
 	public function delete( User $user ) {
 		$db = $this->lb->getConnection( DB_PRIMARY );
+		if ( !$db->tableExists( 'mws_user_index' ) ) {
+			return false;
+		}
 
 		return $db->delete(
 			'mws_user_index',

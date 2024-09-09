@@ -2,18 +2,23 @@
 
 namespace MWStake\MediaWiki\Component\CommonWebAPIs\Maintenance;
 
-class PopulateTitleIndex extends \LoggedUpdateMaintenance {
+use MediaWiki\MediaWikiServices;
+
+class PopulateTitleIndex extends \Maintenance {
 	/**
 	 * @return bool
 	 */
-	protected function doDBUpdates() {
+	public function execute() {
 		$db = $this->getDB( DB_REPLICA );
+		$db->delete( 'mws_title_index', '*', __METHOD__ );
 
 		$titles = $db->select(
-			'page',
-			[ 'page_id', 'page_namespace', 'page_title' ],
+			[ 'p' => 'page', 'pp' => 'page_props' ],
+			[ 'page_id', 'page_namespace', 'page_title', 'pp_value' ],
 			[],
-			__METHOD__
+			__METHOD__,
+			[],
+			[ 'pp' => [ 'LEFT OUTER JOIN', [ 'p.page_id = pp.pp_page', 'pp.pp_propname' => 'displaytitle' ] ] ]
 		);
 
 		$toInsert = [];
@@ -23,7 +28,8 @@ class PopulateTitleIndex extends \LoggedUpdateMaintenance {
 			$toInsert[] = [
 				'mti_page_id' => $title->page_id,
 				'mti_namespace' => mb_strtolower( $title->page_namespace ),
-				'mti_title' => mb_strtolower( str_replace( '_', ' ', $title->page_title ) )
+				'mti_title' => mb_strtolower( str_replace( '_', ' ', $title->page_title ) ),
+				'mti_displaytitle' => mb_strtolower( str_replace( '_', ' ', $title->pp_value ?? '' ) ),
 			];
 			if ( $cnt % $batch === 0 ) {
 				$this->insertBatch( $toInsert );
@@ -51,12 +57,5 @@ class PopulateTitleIndex extends \LoggedUpdateMaintenance {
 			__METHOD__,
 			[ 'IGNORE' ]
 		);
-	}
-
-	/**
-	 * @return string
-	 */
-	protected function getUpdateKey() {
-		return 'mws-title-index-init';
 	}
 }

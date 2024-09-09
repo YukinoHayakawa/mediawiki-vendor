@@ -63,7 +63,7 @@ function querySingle( store, property, value, cacheKey, recache ) {
 
 function queryStore( store, params, cacheKey ) {
 	var dfd = $.Deferred();
-	$.ajax( {
+	var req = $.ajax( {
 		method: 'GET',
 		url: mw.util.wikiScript( 'rest' ) + '/mws/v1/' + store,
 		data: params
@@ -91,7 +91,7 @@ function queryStore( store, params, cacheKey ) {
 	} ).fail( function( err ) {
 		dfd.resolve( err );
 	} );
-	return dfd.promise();
+	return dfd.promise( { abort: function() { req.abort(); } } );
 }
 
 mws = window.mws || {};
