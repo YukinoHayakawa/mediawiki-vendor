@@ -19,6 +19,7 @@
 		if ( !this.returnKey && this.returnType === mw.ext.forms.widget.edit.Multiplier.static.RETURN_TYPE_OBJECT ) {
 			this.returnType = mw.ext.forms.widget.edit.Multiplier.static.RETURN_TYPE_ARRAY;
 		}
+		this.wrapInHorizontal = cfg.wrapInHorizontal || false;
 
 		this.items = {};
 		this.layouts = {};
@@ -68,6 +69,11 @@
 			data: {},
 			classes: [ 'multiplier-item' ]
 		} );
+		if ( this.wrapInHorizontal ) {
+			itemLayout = new OO.ui.HorizontalLayout( {
+				classes: [ 'multiplier-item' ]
+			} );
+		}
 		var parsedItems = this.form.parseItems( item, itemLayout, true );
 		this.attachChangeListeners( parsedItems );
 		var itemName =  this.form.getRandomName( 'multiplier', Math.floor( Math.random() * (9999 - 100) + 100) );

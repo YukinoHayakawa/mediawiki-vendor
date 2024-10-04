@@ -23,6 +23,7 @@ use PHPStan\PhpDocParser\Ast\PhpDoc\ParamLaterInvokedCallableTagValueNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\ParamTagValueNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocTagNode;
+use PHPStan\PhpDocParser\Ast\PhpDoc\PureUnlessCallableIsImpureTagValueNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\ReturnTagValueNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\TemplateTagValueNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\TypeAliasImportTagValueNode;
@@ -947,6 +948,12 @@ class PrinterTest extends TestCase
 			$addTemplateTagBound,
 		];
 
+		yield [
+			'/** @template T super string */',
+			'/** @template T of int super string */',
+			$addTemplateTagBound,
+		];
+
 		$removeTemplateTagBound = new class extends AbstractNodeVisitor {
 
 			public function enterNode(Node $node)
@@ -964,6 +971,56 @@ class PrinterTest extends TestCase
 			'/** @template T of int */',
 			'/** @template T */',
 			$removeTemplateTagBound,
+		];
+
+		$addTemplateTagLowerBound = new class extends AbstractNodeVisitor {
+
+			public function enterNode(Node $node)
+			{
+				if ($node instanceof TemplateTagValueNode) {
+					$node->lowerBound = new IdentifierTypeNode('int');
+				}
+
+				return $node;
+			}
+
+		};
+
+		yield [
+			'/** @template T */',
+			'/** @template T super int */',
+			$addTemplateTagLowerBound,
+		];
+
+		yield [
+			'/** @template T super string */',
+			'/** @template T super int */',
+			$addTemplateTagLowerBound,
+		];
+
+		yield [
+			'/** @template T of string */',
+			'/** @template T of string super int */',
+			$addTemplateTagLowerBound,
+		];
+
+		$removeTemplateTagLowerBound = new class extends AbstractNodeVisitor {
+
+			public function enterNode(Node $node)
+			{
+				if ($node instanceof TemplateTagValueNode) {
+					$node->lowerBound = null;
+				}
+
+				return $node;
+			}
+
+		};
+
+		yield [
+			'/** @template T super int */',
+			'/** @template T */',
+			$removeTemplateTagLowerBound,
 		];
 
 		$addKeyNameToArrayShapeItemNode = new class extends AbstractNodeVisitor {
@@ -1727,6 +1784,24 @@ class PrinterTest extends TestCase
 		];
 
 		yield [
+			'/** @pure-unless-callable-is-impure $foo test */',
+			'/** @pure-unless-callable-is-impure $bar foo */',
+			new class extends AbstractNodeVisitor {
+
+				public function enterNode(Node $node)
+				{
+					if ($node instanceof PureUnlessCallableIsImpureTagValueNode) {
+						$node->parameterName = '$bar';
+						$node->description = 'foo';
+					}
+
+					return $node;
+				}
+
+			},
+		];
+
+		yield [
 			'/** @return Foo[abc] */',
 			'/** @return self::FOO[abc] */',
 			new class extends AbstractNodeVisitor {
@@ -2009,6 +2084,36 @@ class PrinterTest extends TestCase
 				new IdentifierTypeNode('int')
 			),
 			'self::TYPES[int]',
+		];
+		yield [
+			new ArrayShapeNode([
+				new ArrayShapeItemNode(
+					new IdentifierTypeNode('name'),
+					false,
+					new IdentifierTypeNode('string')
+				),
+				new ArrayShapeItemNode(
+					new QuoteAwareConstExprStringNode('Full Name', QuoteAwareConstExprStringNode::SINGLE_QUOTED),
+					false,
+					new IdentifierTypeNode('string')
+				),
+			]),
+			"array{name: string, 'Full Name': string}",
+		];
+		yield [
+			new ObjectShapeNode([
+				new ObjectShapeItemNode(
+					new IdentifierTypeNode('name'),
+					false,
+					new IdentifierTypeNode('string')
+				),
+				new ObjectShapeItemNode(
+					new QuoteAwareConstExprStringNode('Full Name', QuoteAwareConstExprStringNode::SINGLE_QUOTED),
+					false,
+					new IdentifierTypeNode('string')
+				),
+			]),
+			"object{name: string, 'Full Name': string}",
 		];
 	}
 

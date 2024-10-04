@@ -33,7 +33,6 @@ class ComposerStaticInit_mediawiki_vendor
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'c50606d667a3fde2b80a955639479d3d' => __DIR__ . '/..' . '/wikimedia/timestamp/src/defines.php',
         'a84de8315bd92c71bcb39ff2ace7383d' => __DIR__ . '/..' . '/giorgiosironi/eris/src/Generator/functions.php',
-        'b132fa83088803c4ec005da9be2cb320' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/includes/GlobalFunctions.php',
         '1983c13b69e495399f39e129bef37a19' => __DIR__ . '/..' . '/mwstake/mediawiki-component-alertbanners/bootstrap.php',
         '54b5b4fa498e570138b0c96a5a5c74f1' => __DIR__ . '/..' . '/mwstake/mediawiki-component-commonuserinterface/bootstrap.php',
         'e88301dfa829b6392faf3213d53f4383' => __DIR__ . '/..' . '/mwstake/mediawiki-component-commonwebapis/bootstrap.php',
@@ -47,6 +46,7 @@ class ComposerStaticInit_mediawiki_vendor
         '5897ea0ac4cccf14d323035e65887801' => __DIR__ . '/..' . '/symfony/polyfill-php82/bootstrap.php',
         '662a729f963d39afe703c9d9b7ab4a8c' => __DIR__ . '/..' . '/symfony/polyfill-php83/bootstrap.php',
         'f561fce1a79dcb2fea71b5c1921cce53' => __DIR__ . '/../..' . '/extensions/SemanticCite/SemanticCite.php',
+        'c0171ab5c691e8cea980323fd07edbe4' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/includes/GlobalFunctions.php',
         '6e34e14285f2ef7d187014f2888f15e2' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
         '228bb15c3eaa7fe8028741119398e3a1' => __DIR__ . '/..' . '/wmde/hamcrest-html-matchers/src/functions.php',
     );
@@ -117,10 +117,13 @@ class ComposerStaticInit_mediawiki_vendor
             'Serializers\\' => 12,
             'Seld\\JsonLint\\' => 14,
             'SecurityCheckPlugin\\' => 20,
+            'ScssPhp\\ScssPhp\\' => 16,
             'Sabre\\Event\\' => 12,
             'SMW\\Tests\\' => 10,
             'SMW\\Maintenance\\' => 16,
             'SMW\\' => 4,
+            'SCSS\\Tests\\' => 11,
+            'SCSS\\' => 5,
             'SCI\\' => 4,
         ),
         'R' => 
@@ -264,6 +267,8 @@ class ComposerStaticInit_mediawiki_vendor
         'B' => 
         array (
             'Brick\\Math\\' => 11,
+            'Bootstrap\\Tests\\' => 16,
+            'Bootstrap\\' => 10,
             'BlueSpice\\WikiExplorer\\' => 23,
             'BlueSpice\\WatchList\\Tests\\' => 26,
             'BlueSpice\\WatchList\\' => 20,
@@ -503,6 +508,10 @@ class ComposerStaticInit_mediawiki_vendor
         array (
             0 => __DIR__ . '/..' . '/mediawiki/phan-taint-check-plugin/src',
         ),
+        'ScssPhp\\ScssPhp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/scssphp/scssphp/src',
+        ),
         'Sabre\\Event\\' => 
         array (
             0 => __DIR__ . '/..' . '/sabre/event/lib',
@@ -521,6 +530,14 @@ class ComposerStaticInit_mediawiki_vendor
         array (
             0 => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src',
             1 => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src',
+        ),
+        'SCSS\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mediawiki/scss/tests/phpunit',
+        ),
+        'SCSS\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mediawiki/scss/src',
         ),
         'SCI\\' => 
         array (
@@ -928,6 +945,16 @@ class ComposerStaticInit_mediawiki_vendor
         'Brick\\Math\\' => 
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
+        ),
+        'Bootstrap\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/extensions/Bootstrap/tests/phpunit',
+            1 => __DIR__ . '/../..' . '/extensions/Bootstrap/tests/phpunit',
+        ),
+        'Bootstrap\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/extensions/Bootstrap/src',
+            1 => __DIR__ . '/../..' . '/extensions/Bootstrap/src',
         ),
         'BlueSpice\\WikiExplorer\\' => 
         array (
@@ -1944,6 +1971,11 @@ class ComposerStaticInit_mediawiki_vendor
         'BlueSpice\\WikiExplorer\\Extension' => __DIR__ . '/../..' . '/extensions/BlueSpiceWikiExplorer/src/Extension.php',
         'BlueSpice\\WikiExplorer\\GlobalActionsOverview' => __DIR__ . '/../..' . '/extensions/BlueSpiceWikiExplorer/src/GlobalActionsOverview.php',
         'BlueSpice\\WikiExplorer\\HookHandler\\CommonUserInterface' => __DIR__ . '/../..' . '/extensions/BlueSpiceWikiExplorer/src/HookHandler/CommonUserInterface.php',
+        'Bootstrap\\Bootstrap' => __DIR__ . '/../..' . '/extensions/Bootstrap/src/Bootstrap.php',
+        'Bootstrap\\BootstrapManager' => __DIR__ . '/../..' . '/extensions/Bootstrap/src/BootstrapManager.php',
+        'Bootstrap\\Definition\\ModuleDefinition' => __DIR__ . '/../..' . '/extensions/Bootstrap/src/Definition/ModuleDefinition.php',
+        'Bootstrap\\Definition\\V4ModuleDefinition' => __DIR__ . '/../..' . '/extensions/Bootstrap/src/Definition/V4ModuleDefinition.php',
+        'Bootstrap\\Hooks\\SetupAfterCache' => __DIR__ . '/../..' . '/extensions/Bootstrap/src/Hooks/SetupAfterCache.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
         'Brick\\Math\\BigNumber' => __DIR__ . '/..' . '/brick/math/src/BigNumber.php',
@@ -4764,6 +4796,7 @@ class ComposerStaticInit_mediawiki_vendor
         'PHPStan\\PhpDocParser\\Ast\\PhpDoc\\PhpDocTagValueNode' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/PhpDoc/PhpDocTagValueNode.php',
         'PHPStan\\PhpDocParser\\Ast\\PhpDoc\\PhpDocTextNode' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/PhpDoc/PhpDocTextNode.php',
         'PHPStan\\PhpDocParser\\Ast\\PhpDoc\\PropertyTagValueNode' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/PhpDoc/PropertyTagValueNode.php',
+        'PHPStan\\PhpDocParser\\Ast\\PhpDoc\\PureUnlessCallableIsImpureTagValueNode' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/PhpDoc/PureUnlessCallableIsImpureTagValueNode.php',
         'PHPStan\\PhpDocParser\\Ast\\PhpDoc\\RequireExtendsTagValueNode' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/PhpDoc/RequireExtendsTagValueNode.php',
         'PHPStan\\PhpDocParser\\Ast\\PhpDoc\\RequireImplementsTagValueNode' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/PhpDoc/RequireImplementsTagValueNode.php',
         'PHPStan\\PhpDocParser\\Ast\\PhpDoc\\ReturnTagValueNode' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/PhpDoc/ReturnTagValueNode.php',
@@ -7029,6 +7062,7 @@ class ComposerStaticInit_mediawiki_vendor
         'SCI\\Specials\\CitableMetadata\\HtmlResponseParserRenderer' => __DIR__ . '/../..' . '/extensions/SemanticCite/src/Specials/CitableMetadata/HtmlResponseParserRenderer.php',
         'SCI\\Specials\\CitableMetadata\\PageBuilder' => __DIR__ . '/../..' . '/extensions/SemanticCite/src/Specials/CitableMetadata/PageBuilder.php',
         'SCI\\Specials\\SpecialFindCitableMetadata' => __DIR__ . '/../..' . '/extensions/SemanticCite/src/Specials/SpecialFindCitableMetadata.php',
+        'SCSS\\ResourceLoaderSCSSModule' => __DIR__ . '/..' . '/mediawiki/scss/src/ResourceLoaderSCSSModule.php',
         'SMWCategoryResultPrinter' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/includes/IdeAliases.php',
         'SMWConceptValue' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/includes/datavalues/SMW_DV_Concept.php',
         'SMWDIBlob' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/includes/dataitems/SMW_DI_Blob.php',
@@ -9150,6 +9184,56 @@ class ComposerStaticInit_mediawiki_vendor
         'Sabre\\Event\\Version' => __DIR__ . '/..' . '/sabre/event/lib/Version.php',
         'Sabre\\Event\\WildcardEmitter' => __DIR__ . '/..' . '/sabre/event/lib/WildcardEmitter.php',
         'Sabre\\Event\\WildcardEmitterTrait' => __DIR__ . '/..' . '/sabre/event/lib/WildcardEmitterTrait.php',
+        'ScssPhp\\ScssPhp\\Base\\Range' => __DIR__ . '/..' . '/scssphp/scssphp/src/Base/Range.php',
+        'ScssPhp\\ScssPhp\\Block' => __DIR__ . '/..' . '/scssphp/scssphp/src/Block.php',
+        'ScssPhp\\ScssPhp\\Block\\AtRootBlock' => __DIR__ . '/..' . '/scssphp/scssphp/src/Block/AtRootBlock.php',
+        'ScssPhp\\ScssPhp\\Block\\CallableBlock' => __DIR__ . '/..' . '/scssphp/scssphp/src/Block/CallableBlock.php',
+        'ScssPhp\\ScssPhp\\Block\\ContentBlock' => __DIR__ . '/..' . '/scssphp/scssphp/src/Block/ContentBlock.php',
+        'ScssPhp\\ScssPhp\\Block\\DirectiveBlock' => __DIR__ . '/..' . '/scssphp/scssphp/src/Block/DirectiveBlock.php',
+        'ScssPhp\\ScssPhp\\Block\\EachBlock' => __DIR__ . '/..' . '/scssphp/scssphp/src/Block/EachBlock.php',
+        'ScssPhp\\ScssPhp\\Block\\ElseBlock' => __DIR__ . '/..' . '/scssphp/scssphp/src/Block/ElseBlock.php',
+        'ScssPhp\\ScssPhp\\Block\\ElseifBlock' => __DIR__ . '/..' . '/scssphp/scssphp/src/Block/ElseifBlock.php',
+        'ScssPhp\\ScssPhp\\Block\\ForBlock' => __DIR__ . '/..' . '/scssphp/scssphp/src/Block/ForBlock.php',
+        'ScssPhp\\ScssPhp\\Block\\IfBlock' => __DIR__ . '/..' . '/scssphp/scssphp/src/Block/IfBlock.php',
+        'ScssPhp\\ScssPhp\\Block\\MediaBlock' => __DIR__ . '/..' . '/scssphp/scssphp/src/Block/MediaBlock.php',
+        'ScssPhp\\ScssPhp\\Block\\NestedPropertyBlock' => __DIR__ . '/..' . '/scssphp/scssphp/src/Block/NestedPropertyBlock.php',
+        'ScssPhp\\ScssPhp\\Block\\WhileBlock' => __DIR__ . '/..' . '/scssphp/scssphp/src/Block/WhileBlock.php',
+        'ScssPhp\\ScssPhp\\Cache' => __DIR__ . '/..' . '/scssphp/scssphp/src/Cache.php',
+        'ScssPhp\\ScssPhp\\Colors' => __DIR__ . '/..' . '/scssphp/scssphp/src/Colors.php',
+        'ScssPhp\\ScssPhp\\CompilationResult' => __DIR__ . '/..' . '/scssphp/scssphp/src/CompilationResult.php',
+        'ScssPhp\\ScssPhp\\Compiler' => __DIR__ . '/..' . '/scssphp/scssphp/src/Compiler.php',
+        'ScssPhp\\ScssPhp\\Compiler\\CachedResult' => __DIR__ . '/..' . '/scssphp/scssphp/src/Compiler/CachedResult.php',
+        'ScssPhp\\ScssPhp\\Compiler\\Environment' => __DIR__ . '/..' . '/scssphp/scssphp/src/Compiler/Environment.php',
+        'ScssPhp\\ScssPhp\\Exception\\CompilerException' => __DIR__ . '/..' . '/scssphp/scssphp/src/Exception/CompilerException.php',
+        'ScssPhp\\ScssPhp\\Exception\\ParserException' => __DIR__ . '/..' . '/scssphp/scssphp/src/Exception/ParserException.php',
+        'ScssPhp\\ScssPhp\\Exception\\RangeException' => __DIR__ . '/..' . '/scssphp/scssphp/src/Exception/RangeException.php',
+        'ScssPhp\\ScssPhp\\Exception\\SassException' => __DIR__ . '/..' . '/scssphp/scssphp/src/Exception/SassException.php',
+        'ScssPhp\\ScssPhp\\Exception\\SassScriptException' => __DIR__ . '/..' . '/scssphp/scssphp/src/Exception/SassScriptException.php',
+        'ScssPhp\\ScssPhp\\Exception\\ServerException' => __DIR__ . '/..' . '/scssphp/scssphp/src/Exception/ServerException.php',
+        'ScssPhp\\ScssPhp\\Formatter' => __DIR__ . '/..' . '/scssphp/scssphp/src/Formatter.php',
+        'ScssPhp\\ScssPhp\\Formatter\\Compact' => __DIR__ . '/..' . '/scssphp/scssphp/src/Formatter/Compact.php',
+        'ScssPhp\\ScssPhp\\Formatter\\Compressed' => __DIR__ . '/..' . '/scssphp/scssphp/src/Formatter/Compressed.php',
+        'ScssPhp\\ScssPhp\\Formatter\\Crunched' => __DIR__ . '/..' . '/scssphp/scssphp/src/Formatter/Crunched.php',
+        'ScssPhp\\ScssPhp\\Formatter\\Debug' => __DIR__ . '/..' . '/scssphp/scssphp/src/Formatter/Debug.php',
+        'ScssPhp\\ScssPhp\\Formatter\\Expanded' => __DIR__ . '/..' . '/scssphp/scssphp/src/Formatter/Expanded.php',
+        'ScssPhp\\ScssPhp\\Formatter\\Nested' => __DIR__ . '/..' . '/scssphp/scssphp/src/Formatter/Nested.php',
+        'ScssPhp\\ScssPhp\\Formatter\\OutputBlock' => __DIR__ . '/..' . '/scssphp/scssphp/src/Formatter/OutputBlock.php',
+        'ScssPhp\\ScssPhp\\Logger\\LoggerInterface' => __DIR__ . '/..' . '/scssphp/scssphp/src/Logger/LoggerInterface.php',
+        'ScssPhp\\ScssPhp\\Logger\\QuietLogger' => __DIR__ . '/..' . '/scssphp/scssphp/src/Logger/QuietLogger.php',
+        'ScssPhp\\ScssPhp\\Logger\\StreamLogger' => __DIR__ . '/..' . '/scssphp/scssphp/src/Logger/StreamLogger.php',
+        'ScssPhp\\ScssPhp\\Node' => __DIR__ . '/..' . '/scssphp/scssphp/src/Node.php',
+        'ScssPhp\\ScssPhp\\Node\\Number' => __DIR__ . '/..' . '/scssphp/scssphp/src/Node/Number.php',
+        'ScssPhp\\ScssPhp\\OutputStyle' => __DIR__ . '/..' . '/scssphp/scssphp/src/OutputStyle.php',
+        'ScssPhp\\ScssPhp\\Parser' => __DIR__ . '/..' . '/scssphp/scssphp/src/Parser.php',
+        'ScssPhp\\ScssPhp\\SourceMap\\Base64' => __DIR__ . '/..' . '/scssphp/scssphp/src/SourceMap/Base64.php',
+        'ScssPhp\\ScssPhp\\SourceMap\\Base64VLQ' => __DIR__ . '/..' . '/scssphp/scssphp/src/SourceMap/Base64VLQ.php',
+        'ScssPhp\\ScssPhp\\SourceMap\\SourceMapGenerator' => __DIR__ . '/..' . '/scssphp/scssphp/src/SourceMap/SourceMapGenerator.php',
+        'ScssPhp\\ScssPhp\\Type' => __DIR__ . '/..' . '/scssphp/scssphp/src/Type.php',
+        'ScssPhp\\ScssPhp\\Util' => __DIR__ . '/..' . '/scssphp/scssphp/src/Util.php',
+        'ScssPhp\\ScssPhp\\Util\\Path' => __DIR__ . '/..' . '/scssphp/scssphp/src/Util/Path.php',
+        'ScssPhp\\ScssPhp\\ValueConverter' => __DIR__ . '/..' . '/scssphp/scssphp/src/ValueConverter.php',
+        'ScssPhp\\ScssPhp\\Version' => __DIR__ . '/..' . '/scssphp/scssphp/src/Version.php',
+        'ScssPhp\\ScssPhp\\Warn' => __DIR__ . '/..' . '/scssphp/scssphp/src/Warn.php',
         'SebastianBergmann\\CliParser\\AmbiguousOptionException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/AmbiguousOptionException.php',
         'SebastianBergmann\\CliParser\\Exception' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/Exception.php',
         'SebastianBergmann\\CliParser\\OptionDoesNotAllowArgumentException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/OptionDoesNotAllowArgumentException.php',

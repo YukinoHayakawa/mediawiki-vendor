@@ -46,6 +46,7 @@ return array(
     '5897ea0ac4cccf14d323035e65887801' => $vendorDir . '/symfony/polyfill-php82/bootstrap.php',
     '662a729f963d39afe703c9d9b7ab4a8c' => $vendorDir . '/symfony/polyfill-php83/bootstrap.php',
     'f561fce1a79dcb2fea71b5c1921cce53' => $baseDir . '/extensions/SemanticCite/SemanticCite.php',
+    'c0171ab5c691e8cea980323fd07edbe4' => $baseDir . '/extensions/SemanticMediaWiki/includes/GlobalFunctions.php',
     '6e34e14285f2ef7d187014f2888f15e2' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
     '228bb15c3eaa7fe8028741119398e3a1' => $vendorDir . '/wmde/hamcrest-html-matchers/src/functions.php',
 );

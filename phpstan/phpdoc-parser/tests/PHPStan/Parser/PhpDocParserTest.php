@@ -38,6 +38,7 @@ use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocTagNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocTextNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\PropertyTagValueNode;
+use PHPStan\PhpDocParser\Ast\PhpDoc\PureUnlessCallableIsImpureTagValueNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\RequireExtendsTagValueNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\RequireImplementsTagValueNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\ReturnTagValueNode;
@@ -104,6 +105,7 @@ class PhpDocParserTest extends TestCase
 	 * @dataProvider provideParamLaterInvokedCallableTagsData
 	 * @dataProvider provideTypelessParamTagsData
 	 * @dataProvider provideParamClosureThisTagsData
+	 * @dataProvider providePureUnlessCallableIsImpureTagsData
 	 * @dataProvider provideVarTagsData
 	 * @dataProvider provideReturnTagsData
 	 * @dataProvider provideThrowsTagsData
@@ -730,6 +732,37 @@ class PhpDocParserTest extends TestCase
 						new IdentifierTypeNode('Foo'),
 						'$a',
 						'test'
+					)
+				),
+			]),
+		];
+	}
+
+	public function providePureUnlessCallableIsImpureTagsData(): Iterator
+	{
+		yield [
+			'OK',
+			'/** @pure-unless-callable-is-impure $foo */',
+			new PhpDocNode([
+				new PhpDocTagNode(
+					'@pure-unless-callable-is-impure',
+					new PureUnlessCallableIsImpureTagValueNode(
+						'$foo',
+						''
+					)
+				),
+			]),
+		];
+
+		yield [
+			'OK with description',
+			'/** @pure-unless-callable-is-impure $foo test two three */',
+			new PhpDocNode([
+				new PhpDocTagNode(
+					'@pure-unless-callable-is-impure',
+					new PureUnlessCallableIsImpureTagValueNode(
+						'$foo',
+						'test two three'
 					)
 				),
 			]),
@@ -3881,6 +3914,46 @@ some text in the middle'
 				new PhpDocTextNode('test'),
 			]),
 		];
+
+		yield [
+			'Real-world test case multiline PHPDoc',
+			'/**' . PHP_EOL .
+			' *' . PHP_EOL .
+			' * MultiLine' . PHP_EOL .
+			' * description' . PHP_EOL .
+			' * @param bool $a' . PHP_EOL .
+			' *' . PHP_EOL .
+			' * @return void' . PHP_EOL .
+			' *' . PHP_EOL .
+			' * @throws \Exception' . PHP_EOL .
+			' *' . PHP_EOL .
+			' */',
+			new PhpDocNode([
+				new PhpDocTextNode(''),
+				new PhpDocTextNode(
+					'MultiLine' . PHP_EOL .
+					'description'
+				),
+				new PhpDocTagNode('@param', new ParamTagValueNode(
+					new IdentifierTypeNode('bool'),
+					false,
+					'$a',
+					'',
+					false
+				)),
+				new PhpDocTextNode(''),
+				new PhpDocTagNode('@return', new ReturnTagValueNode(
+					new IdentifierTypeNode('void'),
+					''
+				)),
+				new PhpDocTextNode(''),
+				new PhpDocTagNode('@throws', new ThrowsTagValueNode(
+					new IdentifierTypeNode('\Exception'),
+					''
+				)),
+				new PhpDocTextNode(''),
+			]),
+		];
 	}
 
 	public function provideTemplateTagsData(): Iterator
@@ -3946,7 +4019,7 @@ some text in the middle'
 		];
 
 		yield [
-			'OK with bound and description',
+			'OK with upper bound and description',
 			'/** @template T of DateTime the value type */',
 			new PhpDocNode([
 				new PhpDocTagNode(
@@ -3961,22 +4034,41 @@ some text in the middle'
 		];
 
 		yield [
-			'OK with bound and description',
-			'/** @template T as DateTime the value type */',
+			'OK with lower bound and description',
+			'/** @template T super DateTimeImmutable the value type */',
 			new PhpDocNode([
 				new PhpDocTagNode(
 					'@template',
 					new TemplateTagValueNode(
 						'T',
-						new IdentifierTypeNode('DateTime'),
-						'the value type'
+						null,
+						'the value type',
+						null,
+						new IdentifierTypeNode('DateTimeImmutable')
 					)
 				),
 			]),
 		];
 
 		yield [
-			'invalid without bound and description',
+			'OK with both bounds and description',
+			'/** @template T of DateTimeInterface super DateTimeImmutable the value type */',
+			new PhpDocNode([
+				new PhpDocTagNode(
+					'@template',
+					new TemplateTagValueNode(
+						'T',
+						new IdentifierTypeNode('DateTimeInterface'),
+						'the value type',
+						null,
+						new IdentifierTypeNode('DateTimeImmutable')
+					)
+				),
+			]),
+		];
+
+		yield [
+			'invalid without bounds and description',
 			'/** @template */',
 			new PhpDocNode([
 				new PhpDocTagNode(
@@ -7580,6 +7672,45 @@ Finder::findFiles('*.php')
   Symfony\'s polyfill.'
 					)
 				),
+			]),
+		];
+
+		yield [
+			'/**' . PHP_EOL .
+			' *' . PHP_EOL .
+			' * MultiLine' . PHP_EOL .
+			' * description' . PHP_EOL .
+			' * @param bool $a' . PHP_EOL .
+			' *' . PHP_EOL .
+			' * @return void' . PHP_EOL .
+			' *' . PHP_EOL .
+			' * @throws \Exception' . PHP_EOL .
+			' *' . PHP_EOL .
+			' */',
+			new PhpDocNode([
+				new PhpDocTextNode(
+					PHP_EOL .
+					'MultiLine' . PHP_EOL .
+					'description'
+				),
+				new PhpDocTagNode('@param', new ParamTagValueNode(
+					new IdentifierTypeNode('bool'),
+					false,
+					'$a',
+					'',
+					false
+				)),
+				new PhpDocTextNode(''),
+				new PhpDocTagNode('@return', new ReturnTagValueNode(
+					new IdentifierTypeNode('void'),
+					''
+				)),
+				new PhpDocTextNode(''),
+				new PhpDocTagNode('@throws', new ThrowsTagValueNode(
+					new IdentifierTypeNode('\Exception'),
+					''
+				)),
+				new PhpDocTextNode(''),
 			]),
 		];
 	}
