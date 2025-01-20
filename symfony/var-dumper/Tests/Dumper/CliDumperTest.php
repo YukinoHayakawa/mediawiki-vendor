@@ -21,6 +21,7 @@ use Symfony\Component\VarDumper\Cloner\VarCloner;
 use Symfony\Component\VarDumper\Dumper\AbstractDumper;
 use Symfony\Component\VarDumper\Dumper\CliDumper;
 use Symfony\Component\VarDumper\Test\VarDumperTestTrait;
+use Symfony\Component\VarDumper\Tests\Fixtures\VirtualProperty;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
@@ -304,6 +305,21 @@ EOTXT
         putenv('DUMP_STRING_LENGTH=');
     }
 
+    /**
+     * @requires PHP 8.4
+     */
+    public function testVirtualProperties()
+    {
+        $this->assertDumpEquals(<<<EODUMP
+            Symfony\Component\VarDumper\Tests\Fixtures\VirtualProperty {
+              +firstName: "John"
+              +lastName: "Doe"
+              +fullName: ~ string
+              -noType: ~
+            }
+            EODUMP, new VirtualProperty());
+    }
+
     public function testThrowingCaster()
     {
         $out = fopen('php://memory', 'r+');
@@ -503,7 +519,7 @@ EOTXT
     public function testFileLinkFormat()
     {
         if (!class_exists(FileLinkFormatter::class)) {
-            $this->markTestSkipped(sprintf('Class "%s" is required to run this test.', FileLinkFormatter::class));
+            $this->markTestSkipped(\sprintf('Class "%s" is required to run this test.', FileLinkFormatter::class));
         }
 
         $data = new Data([

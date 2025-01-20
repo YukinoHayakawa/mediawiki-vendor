@@ -16,22 +16,22 @@ use PHPStan\PhpDocParser\Ast\ConstExpr\ConstExprTrueNode;
 use PHPStan\PhpDocParser\Ast\ConstExpr\ConstFetchNode;
 use PHPStan\PhpDocParser\Ast\NodeTraverser;
 use PHPStan\PhpDocParser\Lexer\Lexer;
+use PHPStan\PhpDocParser\ParserConfig;
 use PHPUnit\Framework\TestCase;
 
 class ConstExprParserTest extends TestCase
 {
 
-	/** @var Lexer */
-	private $lexer;
+	private Lexer $lexer;
 
-	/** @var ConstExprParser */
-	private $constExprParser;
+	private ConstExprParser $constExprParser;
 
 	protected function setUp(): void
 	{
 		parent::setUp();
-		$this->lexer = new Lexer();
-		$this->constExprParser = new ConstExprParser(true);
+		$config = new ParserConfig([]);
+		$this->lexer = new Lexer($config);
+		$this->constExprParser = new ConstExprParser($config);
 	}
 
 
@@ -65,16 +65,15 @@ class ConstExprParserTest extends TestCase
 	 * @dataProvider provideStringNodeParseData
 	 * @dataProvider provideArrayNodeParseData
 	 * @dataProvider provideFetchNodeParseData
-	 *
-	 * @dataProvider provideWithTrimStringsStringNodeParseData
 	 */
 	public function testVerifyAttributes(string $input): void
 	{
 		$tokens = new TokenIterator($this->lexer->tokenize($input));
-		$constExprParser = new ConstExprParser(true, true, [
+		$config = new ParserConfig([
 			'lines' => true,
 			'indexes' => true,
 		]);
+		$constExprParser = new ConstExprParser($config);
 		$visitor = new NodeCollectingVisitor();
 		$traverser = new NodeTraverser([$visitor]);
 		$traverser->traverse([$constExprParser->parse($tokens)]);
@@ -312,22 +311,32 @@ class ConstExprParserTest extends TestCase
 	{
 		yield [
 			'"foo"',
-			new ConstExprStringNode('"foo"'),
+			new ConstExprStringNode('foo', ConstExprStringNode::DOUBLE_QUOTED),
 		];
 
 		yield [
 			'"Foo \\n\\"\\r Bar"',
-			new ConstExprStringNode('"Foo \\n\\"\\r Bar"'),
+			new ConstExprStringNode("Foo \n\"\r Bar", ConstExprStringNode::DOUBLE_QUOTED),
 		];
 
 		yield [
 			'\'bar\'',
-			new ConstExprStringNode('\'bar\''),
+			new ConstExprStringNode('bar', ConstExprStringNode::SINGLE_QUOTED),
 		];
 
 		yield [
 			'\'Foo \\\' Bar\'',
-			new ConstExprStringNode('\'Foo \\\' Bar\''),
+			new ConstExprStringNode('Foo \' Bar', ConstExprStringNode::SINGLE_QUOTED),
+		];
+
+		yield [
+			'"\u{1f601}"',
+			new ConstExprStringNode("\u{1f601}", ConstExprStringNode::DOUBLE_QUOTED),
+		];
+
+		yield [
+			'"\u{ffffffff}"',
+			new ConstExprStringNode("\u{fffd}", ConstExprStringNode::DOUBLE_QUOTED),
 		];
 	}
 
@@ -344,7 +353,7 @@ class ConstExprParserTest extends TestCase
 			new ConstExprArrayNode([
 				new ConstExprArrayItemNode(
 					null,
-					new ConstExprIntegerNode('123')
+					new ConstExprIntegerNode('123'),
 				),
 			]),
 		];
@@ -354,15 +363,15 @@ class ConstExprParserTest extends TestCase
 			new ConstExprArrayNode([
 				new ConstExprArrayItemNode(
 					null,
-					new ConstExprIntegerNode('1')
+					new ConstExprIntegerNode('1'),
 				),
 				new ConstExprArrayItemNode(
 					null,
-					new ConstExprIntegerNode('2')
+					new ConstExprIntegerNode('2'),
 				),
 				new ConstExprArrayItemNode(
 					null,
-					new ConstExprIntegerNode('3')
+					new ConstExprIntegerNode('3'),
 				),
 			]),
 		];
@@ -372,15 +381,15 @@ class ConstExprParserTest extends TestCase
 			new ConstExprArrayNode([
 				new ConstExprArrayItemNode(
 					null,
-					new ConstExprIntegerNode('1')
+					new ConstExprIntegerNode('1'),
 				),
 				new ConstExprArrayItemNode(
 					null,
-					new ConstExprIntegerNode('2')
+					new ConstExprIntegerNode('2'),
 				),
 				new ConstExprArrayItemNode(
 					null,
-					new ConstExprIntegerNode('3')
+					new ConstExprIntegerNode('3'),
 				),
 			]),
 		];
@@ -390,7 +399,7 @@ class ConstExprParserTest extends TestCase
 			new ConstExprArrayNode([
 				new ConstExprArrayItemNode(
 					new ConstExprIntegerNode('1'),
-					new ConstExprIntegerNode('2')
+					new ConstExprIntegerNode('2'),
 				),
 			]),
 		];
@@ -400,11 +409,11 @@ class ConstExprParserTest extends TestCase
 			new ConstExprArrayNode([
 				new ConstExprArrayItemNode(
 					new ConstExprIntegerNode('1'),
-					new ConstExprIntegerNode('2')
+					new ConstExprIntegerNode('2'),
 				),
 				new ConstExprArrayItemNode(
 					null,
-					new ConstExprIntegerNode('3')
+					new ConstExprIntegerNode('3'),
 				),
 			]),
 		];
@@ -414,20 +423,20 @@ class ConstExprParserTest extends TestCase
 			new ConstExprArrayNode([
 				new ConstExprArrayItemNode(
 					null,
-					new ConstExprIntegerNode('1')
+					new ConstExprIntegerNode('1'),
 				),
 				new ConstExprArrayItemNode(
 					null,
 					new ConstExprArrayNode([
 						new ConstExprArrayItemNode(
 							null,
-							new ConstExprIntegerNode('2')
+							new ConstExprIntegerNode('2'),
 						),
 						new ConstExprArrayItemNode(
 							null,
-							new ConstExprIntegerNode('3')
+							new ConstExprIntegerNode('3'),
 						),
-					])
+					]),
 				),
 			]),
 		];
@@ -454,52 +463,6 @@ class ConstExprParserTest extends TestCase
 		yield [
 			'self::CLASS_CONSTANT',
 			new ConstFetchNode('self', 'CLASS_CONSTANT'),
-		];
-	}
-
-	/**
-	 * @dataProvider provideWithTrimStringsStringNodeParseData
-	 */
-	public function testParseWithTrimStrings(string $input, ConstExprNode $expectedExpr, int $nextTokenType = Lexer::TOKEN_END): void
-	{
-		$tokens = new TokenIterator($this->lexer->tokenize($input));
-		$exprNode = $this->constExprParser->parse($tokens, true);
-
-		$this->assertSame((string) $expectedExpr, (string) $exprNode);
-		$this->assertEquals($expectedExpr, $exprNode);
-		$this->assertSame($nextTokenType, $tokens->currentTokenType());
-	}
-
-	public function provideWithTrimStringsStringNodeParseData(): Iterator
-	{
-		yield [
-			'"foo"',
-			new ConstExprStringNode('foo'),
-		];
-
-		yield [
-			'"Foo \\n\\"\\r Bar"',
-			new ConstExprStringNode("Foo \n\"\r Bar"),
-		];
-
-		yield [
-			'\'bar\'',
-			new ConstExprStringNode('bar'),
-		];
-
-		yield [
-			'\'Foo \\\' Bar\'',
-			new ConstExprStringNode('Foo \' Bar'),
-		];
-
-		yield [
-			'"\u{1f601}"',
-			new ConstExprStringNode("\u{1f601}"),
-		];
-
-		yield [
-			'"\u{ffffffff}"',
-			new ConstExprStringNode("\u{fffd}"),
 		];
 	}
 

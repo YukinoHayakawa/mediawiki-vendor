@@ -163,7 +163,7 @@ class NodeTraverserTest extends TestCase
 
 		$this->assertEquals(
 			[$strStart, $strR1, $strR2, $strEnd],
-			$traverser->traverse([$strStart, $strMiddle, $strEnd])
+			$traverser->traverse([$strStart, $strMiddle, $strEnd]),
 		);
 	}
 
@@ -393,7 +393,7 @@ class NodeTraverserTest extends TestCase
 			['enterNode', $expr, new ConstExprIntegerNode('42')],
 		]);
 		$visitor8 = new NodeVisitorForTesting([
-			['enterNode', $num, new ReturnTagValueNode(new ConstTypeNode(new ConstExprStringNode('foo')), '')],
+			['enterNode', $num, new ReturnTagValueNode(new ConstTypeNode(new ConstExprStringNode('foo', ConstExprStringNode::SINGLE_QUOTED)), '')],
 		]);
 
 		return [

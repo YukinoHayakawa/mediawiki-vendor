@@ -28,6 +28,11 @@ class UserSchema extends Schema {
 				self::SORTABLE => true,
 				self::TYPE => FieldType::STRING
 			],
+			UserRecord::USER_EMAIL => [
+				self::FILTERABLE => true,
+				self::SORTABLE => true,
+				self::TYPE => FieldType::STRING
+			],
 			UserRecord::USER_EDITCOUNT => [
 				self::FILTERABLE => false,
 				self::SORTABLE => true,
@@ -35,6 +40,11 @@ class UserSchema extends Schema {
 			],
 			UserRecord::GROUPS => [
 				self::FILTERABLE => false,
+				self::SORTABLE => false ,
+				self::TYPE => FieldType::LISTVALUE
+			],
+			UserRecord::GROUPS_RAW => [
+				self::FILTERABLE => true,
 				self::SORTABLE => false ,
 				self::TYPE => FieldType::LISTVALUE
 			],

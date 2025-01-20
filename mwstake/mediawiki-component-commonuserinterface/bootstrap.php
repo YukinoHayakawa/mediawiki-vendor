@@ -8,7 +8,7 @@ if ( defined( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONUSERINTERFACE_VERSION' ) ) {
 	return;
 }
 
-define( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONUSERINTERFACE_VERSION', '5.0.1' );
+define( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONUSERINTERFACE_VERSION', '5.1.3' );
 
 MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 ->register( 'commonuserinterface', static function () {
@@ -159,12 +159,13 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 
 	$GLOBALS['wgServiceWiringFiles'][] = __DIR__ . '/includes/ServiceWiring.php';
 
-	$GLOBALS['wgHooks']['BeforePageDisplay'][]
-		= 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onBeforePageDisplay';
-	$GLOBALS['wgHooks']['SiteNoticeAfter'][]
-		= 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onSiteNoticeAfter';
-	$GLOBALS['wgHooks']['SkinAfterContent'][]
-		= 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onSkinAfterContent';
+	$GLOBALS['wgExtensionFunctions'][] = static function() {
+		$hookContainer = \MediaWiki\MediaWikiServices::getInstance()->getHookContainer();
+		$runner = new \MWStake\MediaWiki\Component\CommonUserInterface\Setup();
+		$hookContainer->register( 'SiteNoticeAfter', [ $runner, 'onSiteNoticeAfter' ] );
+		$hookContainer->register( 'BeforePageDisplay', [ $runner, 'onBeforePageDisplay' ] );
+		$hookContainer->register( 'SkinAfterContent', [ $runner, 'onSkinAfterContent' ] );
+	};
 
 	$GLOBALS['wgResourceModules']['mwstake.component.commonui.tree-component'] = [
 		'localBasePath' => __DIR__ . "/resources/tree/",

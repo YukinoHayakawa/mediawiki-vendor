@@ -58,31 +58,31 @@ class TypeToStringTest extends TestCase
 		];
 
 		yield from [
-			['array{}', new ArrayShapeNode([])],
-			['array{...}', new ArrayShapeNode([], false)],
+			['array{}', ArrayShapeNode::createSealed([])],
+			['array{...}', ArrayShapeNode::createUnsealed([], null)],
 			[
 				'array{string, int, ...}',
-				new ArrayShapeNode([
+				ArrayShapeNode::createUnsealed([
 					new ArrayShapeItemNode(null, false, new IdentifierTypeNode('string')),
 					new ArrayShapeItemNode(null, false, new IdentifierTypeNode('int')),
-				], false),
+				], null),
 			],
 			[
-				'array{foo: Foo, bar?: Bar, 1: Baz}',
-				new ArrayShapeNode([
-					new ArrayShapeItemNode(new ConstExprStringNode('foo'), false, new IdentifierTypeNode('Foo')),
-					new ArrayShapeItemNode(new ConstExprStringNode('bar'), true, new IdentifierTypeNode('Bar')),
+				'array{\'foo\': Foo, \'bar\'?: Bar, 1: Baz}',
+				ArrayShapeNode::createSealed([
+					new ArrayShapeItemNode(new ConstExprStringNode('foo', ConstExprStringNode::SINGLE_QUOTED), false, new IdentifierTypeNode('Foo')),
+					new ArrayShapeItemNode(new ConstExprStringNode('bar', ConstExprStringNode::SINGLE_QUOTED), true, new IdentifierTypeNode('Bar')),
 					new ArrayShapeItemNode(new ConstExprIntegerNode('1'), false, new IdentifierTypeNode('Baz')),
 				]),
 			],
-			['list{}', new ArrayShapeNode([], true, 'list')],
-			['list{...}', new ArrayShapeNode([], false, 'list')],
+			['list{}', ArrayShapeNode::createSealed([], 'list')],
+			['list{...}', ArrayShapeNode::createUnsealed([], null, 'list')],
 			[
 				'list{string, int, ...}',
-				new ArrayShapeNode([
+				ArrayShapeNode::createUnsealed([
 					new ArrayShapeItemNode(null, false, new IdentifierTypeNode('string')),
 					new ArrayShapeItemNode(null, false, new IdentifierTypeNode('int')),
-				], false, 'list'),
+				], null, 'list'),
 			],
 		];
 	}
@@ -92,34 +92,34 @@ class TypeToStringTest extends TestCase
 		yield from [
 			[
 				'\\Closure(): string',
-				new CallableTypeNode(new IdentifierTypeNode('\Closure'), [], new IdentifierTypeNode('string')),
+				new CallableTypeNode(new IdentifierTypeNode('\Closure'), [], new IdentifierTypeNode('string'), []),
 			],
 			[
 				'callable(int, int $foo): void',
 				new CallableTypeNode(new IdentifierTypeNode('callable'), [
 					new CallableTypeParameterNode(new IdentifierTypeNode('int'), false, false, '', false),
 					new CallableTypeParameterNode(new IdentifierTypeNode('int'), false, false, '$foo', false),
-				], new IdentifierTypeNode('void')),
+				], new IdentifierTypeNode('void'), []),
 			],
 			[
 				'callable(int=, int $foo=): void',
 				new CallableTypeNode(new IdentifierTypeNode('callable'), [
 					new CallableTypeParameterNode(new IdentifierTypeNode('int'), false, false, '', true),
 					new CallableTypeParameterNode(new IdentifierTypeNode('int'), false, false, '$foo', true),
-				], new IdentifierTypeNode('void')),
+				], new IdentifierTypeNode('void'), []),
 			],
 			[
 				'callable(int &, int &$foo): void',
 				new CallableTypeNode(new IdentifierTypeNode('callable'), [
 					new CallableTypeParameterNode(new IdentifierTypeNode('int'), true, false, '', false),
 					new CallableTypeParameterNode(new IdentifierTypeNode('int'), true, false, '$foo', false),
-				], new IdentifierTypeNode('void')),
+				], new IdentifierTypeNode('void'), []),
 			],
 			[
 				'callable(string ...$foo): void',
 				new CallableTypeNode(new IdentifierTypeNode('callable'), [
 					new CallableTypeParameterNode(new IdentifierTypeNode('string'), false, true, '$foo', false),
-				], new IdentifierTypeNode('void')),
+				], new IdentifierTypeNode('void'), []),
 			],
 		];
 	}
@@ -136,7 +136,7 @@ class TypeToStringTest extends TestCase
 				new GenericTypeNode(
 					new IdentifierTypeNode('array'),
 					[new IdentifierTypeNode('string'), new IdentifierTypeNode('int')],
-					[GenericTypeNode::VARIANCE_INVARIANT, GenericTypeNode::VARIANCE_BIVARIANT]
+					[GenericTypeNode::VARIANCE_INVARIANT, GenericTypeNode::VARIANCE_BIVARIANT],
 				),
 			],
 			[
@@ -144,7 +144,7 @@ class TypeToStringTest extends TestCase
 				new GenericTypeNode(
 					new IdentifierTypeNode('Foo\\Bar'),
 					[new IdentifierTypeNode('string'), new IdentifierTypeNode('int')],
-					[GenericTypeNode::VARIANCE_COVARIANT, GenericTypeNode::VARIANCE_CONTRAVARIANT]
+					[GenericTypeNode::VARIANCE_COVARIANT, GenericTypeNode::VARIANCE_CONTRAVARIANT],
 				),
 			],
 		];
@@ -160,7 +160,7 @@ class TypeToStringTest extends TestCase
 					new IdentifierTypeNode('int'),
 					new GenericTypeNode(new IdentifierTypeNode('list'), [new IdentifierTypeNode('int')]),
 					new GenericTypeNode(new IdentifierTypeNode('list'), [new IdentifierTypeNode('string')]),
-					false
+					false,
 				),
 			],
 			[
@@ -170,7 +170,7 @@ class TypeToStringTest extends TestCase
 					new IdentifierTypeNode('array'),
 					new IdentifierTypeNode('int'),
 					new ArrayTypeNode(new IdentifierTypeNode('int')),
-					true
+					true,
 				),
 			],
 			[
@@ -180,7 +180,7 @@ class TypeToStringTest extends TestCase
 					new IdentifierTypeNode('Exception'),
 					new IdentifierTypeNode('never'),
 					new IdentifierTypeNode('string'),
-					false
+					false,
 				),
 			],
 			[
@@ -190,7 +190,7 @@ class TypeToStringTest extends TestCase
 					new IdentifierTypeNode('Exception'),
 					new IdentifierTypeNode('string'),
 					new IdentifierTypeNode('never'),
-					true
+					true,
 				),
 			],
 		];

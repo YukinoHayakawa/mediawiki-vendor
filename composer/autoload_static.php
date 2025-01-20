@@ -15,7 +15,6 @@ class ComposerStaticInit_mediawiki_vendor
         'd81bab31d3feb45bfe2f283ea3c8fdf7' => __DIR__ . '/..' . '/sabre/event/lib/Loop/functions.php',
         'a1cce3d26cc15c00fcd0b3354bd72c88' => __DIR__ . '/..' . '/sabre/event/lib/Promise/functions.php',
         '6714be961f4a45ae8b9a99d5d55c5d07' => __DIR__ . '/..' . '/tysonandre/var_representation_polyfill/src/var_representation.php',
-        'af3cc937b8a54e5b4209c82d6cfe8889' => __DIR__ . '/..' . '/param-processor/param-processor/DefaultConfig.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
@@ -24,21 +23,22 @@ class ComposerStaticInit_mediawiki_vendor
         'c3f7f0e81464740a933532e81fa26cc7' => __DIR__ . '/..' . '/wikimedia/base-convert/src/Functions.php',
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        '94e265ce14c952a920a4ea5f7e8e9baa' => __DIR__ . '/..' . '/mediawiki/parser-hooks/ParserHooks.php',
         '10a542061c80b3639afb5868667e9583' => __DIR__ . '/..' . '/mwstake/mediawiki-component-datastore/bootstrap.php',
         'aee3df8238f2131f3ed1cf1c93bae858' => __DIR__ . '/..' . '/mwstake/mediawiki-component-manifestregistry/bootstrap.php',
         '23c5449715806cf29062abde4a042613' => __DIR__ . '/..' . '/mwstake/mediawiki-component-utils/bootstrap.php',
+        'af3cc937b8a54e5b4209c82d6cfe8889' => __DIR__ . '/..' . '/param-processor/param-processor/DefaultConfig.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'c50606d667a3fde2b80a955639479d3d' => __DIR__ . '/..' . '/wikimedia/timestamp/src/defines.php',
         'a84de8315bd92c71bcb39ff2ace7383d' => __DIR__ . '/..' . '/giorgiosironi/eris/src/Generator/functions.php',
-        'b132fa83088803c4ec005da9be2cb320' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/includes/GlobalFunctions.php',
+        '94e265ce14c952a920a4ea5f7e8e9baa' => __DIR__ . '/..' . '/mediawiki/parser-hooks/ParserHooks.php',
         '1983c13b69e495399f39e129bef37a19' => __DIR__ . '/..' . '/mwstake/mediawiki-component-alertbanners/bootstrap.php',
         '54b5b4fa498e570138b0c96a5a5c74f1' => __DIR__ . '/..' . '/mwstake/mediawiki-component-commonuserinterface/bootstrap.php',
         'e88301dfa829b6392faf3213d53f4383' => __DIR__ . '/..' . '/mwstake/mediawiki-component-commonwebapis/bootstrap.php',
         '7fd731f274b981c7fe86f42af6d7a5a0' => __DIR__ . '/..' . '/mwstake/mediawiki-component-contentprovisioner/bootstrap.php',
         '4c4cd977692004fea9f68cd0a1410561' => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicconfig/bootstrap.php',
+        '26f133245c878f6605653c89cf062385' => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicfiledispatcher/bootstrap.php',
         'ba2d8993296fb4095ebfbf8931e43e31' => __DIR__ . '/..' . '/mwstake/mediawiki-component-events/bootstrap.php',
         '8e06efb3ebaf2e2398db173c978b5819' => __DIR__ . '/..' . '/mwstake/mediawiki-component-formengine/bootstrap.php',
         'ddf173dd25d1002cda4244fda8b1d3ac' => __DIR__ . '/..' . '/mwstake/mediawiki-component-runjobstrigger/bootstrap.php',
@@ -47,24 +47,25 @@ class ComposerStaticInit_mediawiki_vendor
         '5897ea0ac4cccf14d323035e65887801' => __DIR__ . '/..' . '/symfony/polyfill-php82/bootstrap.php',
         '662a729f963d39afe703c9d9b7ab4a8c' => __DIR__ . '/..' . '/symfony/polyfill-php83/bootstrap.php',
         'f561fce1a79dcb2fea71b5c1921cce53' => __DIR__ . '/../..' . '/extensions/SemanticCite/SemanticCite.php',
+        'c0171ab5c691e8cea980323fd07edbe4' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/includes/GlobalFunctions.php',
         '6e34e14285f2ef7d187014f2888f15e2' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
         '228bb15c3eaa7fe8028741119398e3a1' => __DIR__ . '/..' . '/wmde/hamcrest-html-matchers/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
-        'p' =>
+        'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
-        'j' =>
+        'j' => 
         array (
             'jakobo\\HOTP\\' => 12,
         ),
-        'Z' =>
+        'Z' => 
         array (
             'ZipStream\\' => 10,
         ),
-        'W' =>
+        'W' => 
         array (
             'Wikimedia\\Zest\\' => 15,
             'Wikimedia\\XMPReader\\' => 20,
@@ -94,14 +95,14 @@ class ComposerStaticInit_mediawiki_vendor
             'Webmozart\\Assert\\' => 17,
             'WMDE\\HamcrestHtml\\' => 18,
         ),
-        'V' =>
+        'V' => 
         array (
             'VarRepresentation\\' => 18,
             'ValueValidators\\' => 16,
             'ValueParsers\\' => 13,
             'ValueFormatters\\' => 16,
         ),
-        'S' =>
+        'S' => 
         array (
             'Symfony\\Polyfill\\Php83\\' => 23,
             'Symfony\\Polyfill\\Php82\\' => 23,
@@ -126,13 +127,13 @@ class ComposerStaticInit_mediawiki_vendor
             'SCSS\\' => 5,
             'SCI\\' => 4,
         ),
-        'R' =>
+        'R' => 
         array (
             'React\\Promise\\' => 14,
             'Ramsey\\Uuid\\' => 12,
             'Ramsey\\Collection\\' => 18,
         ),
-        'P' =>
+        'P' => 
         array (
             'Psy\\' => 4,
             'Psr\\SimpleCache\\' => 16,
@@ -152,7 +153,7 @@ class ComposerStaticInit_mediawiki_vendor
             'PHPStan\\PhpDocParser\\' => 21,
             'PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 57,
         ),
-        'O' =>
+        'O' => 
         array (
             'OpenSearch\\' => 11,
             'Onoi\\Tesa\\' => 10,
@@ -164,11 +165,11 @@ class ComposerStaticInit_mediawiki_vendor
             'Onoi\\Cache\\' => 11,
             'Onoi\\BlobStore\\' => 15,
         ),
-        'N' =>
+        'N' => 
         array (
             'NicheWork\\MW\\' => 13,
         ),
-        'M' =>
+        'M' => 
         array (
             'Monolog\\' => 8,
             'ModernTimeline\\Tests\\' => 21,
@@ -195,6 +196,8 @@ class ComposerStaticInit_mediawiki_vendor
             'MWStake\\MediaWiki\\Component\\FormEngine\\' => 39,
             'MWStake\\MediaWiki\\Component\\Events\\Tests\\' => 41,
             'MWStake\\MediaWiki\\Component\\Events\\' => 35,
+            'MWStake\\MediaWiki\\Component\\DynamicFileDispatcher\\Tests\\' => 56,
+            'MWStake\\MediaWiki\\Component\\DynamicFileDispatcher\\' => 50,
             'MWStake\\MediaWiki\\Component\\DynamicConfig\\Tests\\' => 48,
             'MWStake\\MediaWiki\\Component\\DynamicConfig\\' => 42,
             'MWStake\\MediaWiki\\Component\\DataStore\\Tests\\' => 44,
@@ -210,20 +213,20 @@ class ComposerStaticInit_mediawiki_vendor
             'MWStake\\MediaWiki\\ComponentLoader\\Tests\\' => 40,
             'MWStake\\MediaWiki\\ComponentLoader\\' => 34,
         ),
-        'L' =>
+        'L' => 
         array (
             'LightnCandy\\' => 12,
         ),
-        'J' =>
+        'J' => 
         array (
             'JsonSchema\\' => 11,
             'JohnKary\\PHPUnit\\Listener\\' => 26,
         ),
-        'H' =>
+        'H' => 
         array (
             'HtmlFormatter\\' => 14,
         ),
-        'G' =>
+        'G' => 
         array (
             'GuzzleHttp\\Stream\\' => 18,
             'GuzzleHttp\\Ring\\' => 16,
@@ -231,17 +234,17 @@ class ComposerStaticInit_mediawiki_vendor
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
         ),
-        'F' =>
+        'F' => 
         array (
             'FileFetcher\\' => 12,
         ),
-        'E' =>
+        'E' => 
         array (
             'EventSauce\\EventSourcing\\' => 25,
             'Eris\\' => 5,
             'Endroid\\QrCode\\' => 15,
         ),
-        'D' =>
+        'D' => 
         array (
             'Doctrine\\SqlFormatter\\' => 22,
             'Doctrine\\Instantiator\\' => 22,
@@ -254,7 +257,7 @@ class ComposerStaticInit_mediawiki_vendor
             'DataValues\\' => 11,
             'DASPRiD\\Enum\\' => 13,
         ),
-        'C' =>
+        'C' => 
         array (
             'Composer\\XdebugHandler\\' => 23,
             'Composer\\Spdx\\' => 14,
@@ -264,7 +267,7 @@ class ComposerStaticInit_mediawiki_vendor
             'Complex\\' => 8,
             'CLDRPluralRuleParser\\' => 21,
         ),
-        'B' =>
+        'B' => 
         array (
             'Brick\\Math\\' => 11,
             'Bootstrap\\Tests\\' => 16,
@@ -298,124 +301,124 @@ class ComposerStaticInit_mediawiki_vendor
             'BS\\ExtendedSearch\\Tests\\' => 24,
             'BS\\ExtendedSearch\\' => 18,
         ),
-        'A' =>
+        'A' => 
         array (
             'AdvancedJsonRpc\\' => 16,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'phpDocumentor\\Reflection\\' =>
+        'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
-        'jakobo\\HOTP\\' =>
+        'jakobo\\HOTP\\' => 
         array (
             0 => __DIR__ . '/..' . '/jakobo/hotp-php/src',
         ),
-        'ZipStream\\' =>
+        'ZipStream\\' => 
         array (
             0 => __DIR__ . '/..' . '/maennchen/zipstream-php/src',
         ),
-        'Wikimedia\\Zest\\' =>
+        'Wikimedia\\Zest\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/zest-css/src',
         ),
-        'Wikimedia\\XMPReader\\' =>
+        'Wikimedia\\XMPReader\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/xmp-reader/src',
         ),
-        'Wikimedia\\WikiPEG\\' =>
+        'Wikimedia\\WikiPEG\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/wikipeg/src',
         ),
-        'Wikimedia\\Timestamp\\' =>
+        'Wikimedia\\Timestamp\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/timestamp/src',
         ),
-        'Wikimedia\\Services\\' =>
+        'Wikimedia\\Services\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/services/src',
         ),
-        'Wikimedia\\RequestTimeout\\' =>
+        'Wikimedia\\RequestTimeout\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/request-timeout/src',
         ),
-        'Wikimedia\\RemexHtml\\' =>
+        'Wikimedia\\RemexHtml\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/remex-html/src',
         ),
-        'Wikimedia\\Purtle\\Tests\\' =>
+        'Wikimedia\\Purtle\\Tests\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/purtle/tests/phpunit',
         ),
-        'Wikimedia\\Purtle\\' =>
+        'Wikimedia\\Purtle\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/purtle/src',
         ),
-        'Wikimedia\\Parsoid\\' =>
+        'Wikimedia\\Parsoid\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/parsoid/src',
         ),
-        'Wikimedia\\ObjectFactory\\' =>
+        'Wikimedia\\ObjectFactory\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/object-factory/src',
         ),
-        'Wikimedia\\NormalizedException\\' =>
+        'Wikimedia\\NormalizedException\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/normalized-exception/src',
         ),
-        'Wikimedia\\Minify\\' =>
+        'Wikimedia\\Minify\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/minify/src',
         ),
-        'Wikimedia\\LangConv\\' =>
+        'Wikimedia\\LangConv\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/langconv/src',
         ),
-        'Wikimedia\\JsonCodec\\' =>
+        'Wikimedia\\JsonCodec\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/json-codec/src',
         ),
-        'Wikimedia\\IDLeDOM\\' =>
+        'Wikimedia\\IDLeDOM\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/idle-dom/src',
         ),
-        'Wikimedia\\Equivset\\' =>
+        'Wikimedia\\Equivset\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/equivset/src',
         ),
-        'Wikimedia\\Composer\\Merge\\V2\\' =>
+        'Wikimedia\\Composer\\Merge\\V2\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/composer-merge-plugin/src',
         ),
-        'Wikimedia\\CommonPasswords\\' =>
+        'Wikimedia\\CommonPasswords\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/common-passwords/src',
         ),
-        'Wikimedia\\CSS\\' =>
+        'Wikimedia\\CSS\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/css-sanitizer/src',
         ),
-        'Wikimedia\\Bcp47Code\\' =>
+        'Wikimedia\\Bcp47Code\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/bcp-47-code/src',
         ),
-        'Wikimedia\\AtEase\\' =>
+        'Wikimedia\\AtEase\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/at-ease/src/Wikimedia/AtEase',
         ),
-        'Wikimedia\\Assert\\' =>
+        'Wikimedia\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/assert/src',
         ),
-        'Wikimedia\\Alea\\' =>
+        'Wikimedia\\Alea\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/alea/src',
         ),
-        'Wikimedia\\' =>
+        'Wikimedia\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/ip-utils/src',
             1 => __DIR__ . '/..' . '/wikimedia/relpath/src',
@@ -425,734 +428,737 @@ class ComposerStaticInit_mediawiki_vendor
             5 => __DIR__ . '/..' . '/wikimedia/wait-condition-loop/src',
             6 => __DIR__ . '/..' . '/wikimedia/wrappedstring/src',
         ),
-        'Webmozart\\Assert\\' =>
+        'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
-        'WMDE\\HamcrestHtml\\' =>
+        'WMDE\\HamcrestHtml\\' => 
         array (
             0 => __DIR__ . '/..' . '/wmde/hamcrest-html-matchers/src',
         ),
-        'VarRepresentation\\' =>
+        'VarRepresentation\\' => 
         array (
             0 => __DIR__ . '/..' . '/tysonandre/var_representation_polyfill/src/VarRepresentation',
         ),
-        'ValueValidators\\' =>
+        'ValueValidators\\' => 
         array (
             0 => __DIR__ . '/..' . '/data-values/interfaces/src/ValueValidators',
             1 => __DIR__ . '/..' . '/data-values/validators/src',
         ),
-        'ValueParsers\\' =>
+        'ValueParsers\\' => 
         array (
             0 => __DIR__ . '/..' . '/data-values/common/src/ValueParsers',
             1 => __DIR__ . '/..' . '/data-values/interfaces/src/ValueParsers',
         ),
-        'ValueFormatters\\' =>
+        'ValueFormatters\\' => 
         array (
             0 => __DIR__ . '/..' . '/data-values/common/src/ValueFormatters',
             1 => __DIR__ . '/..' . '/data-values/interfaces/src/ValueFormatters',
         ),
-        'Symfony\\Polyfill\\Php83\\' =>
+        'Symfony\\Polyfill\\Php83\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php83',
         ),
-        'Symfony\\Polyfill\\Php82\\' =>
+        'Symfony\\Polyfill\\Php82\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php82',
         ),
-        'Symfony\\Polyfill\\Php81\\' =>
+        'Symfony\\Polyfill\\Php81\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php81',
         ),
-        'Symfony\\Polyfill\\Php80\\' =>
+        'Symfony\\Polyfill\\Php80\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
         ),
-        'Symfony\\Contracts\\Service\\' =>
+        'Symfony\\Contracts\\Service\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/service-contracts',
         ),
-        'Symfony\\Component\\Yaml\\' =>
+        'Symfony\\Component\\Yaml\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/yaml',
         ),
-        'Symfony\\Component\\VarDumper\\' =>
+        'Symfony\\Component\\VarDumper\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/var-dumper',
         ),
-        'Symfony\\Component\\String\\' =>
+        'Symfony\\Component\\String\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/string',
         ),
-        'Symfony\\Component\\CssSelector\\' =>
+        'Symfony\\Component\\CssSelector\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/css-selector',
         ),
-        'Symfony\\Component\\Console\\' =>
+        'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
-        'Shellbox\\' =>
+        'Shellbox\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/shellbox/src',
         ),
-        'Serializers\\' =>
+        'Serializers\\' => 
         array (
             0 => __DIR__ . '/..' . '/serialization/serialization/src/Serializers',
         ),
-        'Seld\\JsonLint\\' =>
+        'Seld\\JsonLint\\' => 
         array (
             0 => __DIR__ . '/..' . '/seld/jsonlint/src/Seld/JsonLint',
         ),
-        'SecurityCheckPlugin\\' =>
+        'SecurityCheckPlugin\\' => 
         array (
             0 => __DIR__ . '/..' . '/mediawiki/phan-taint-check-plugin/src',
         ),
-        'ScssPhp\\ScssPhp\\' =>
+        'ScssPhp\\ScssPhp\\' => 
         array (
             0 => __DIR__ . '/..' . '/scssphp/scssphp/src',
         ),
-        'Sabre\\Event\\' =>
+        'Sabre\\Event\\' => 
         array (
             0 => __DIR__ . '/..' . '/sabre/event/lib',
         ),
-        'SMW\\Tests\\' =>
+        'SMW\\Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit',
-            1 => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit',
         ),
-        'SMW\\Maintenance\\' =>
+        'SMW\\Maintenance\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/maintenance',
-            1 => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/maintenance',
         ),
-        'SMW\\' =>
+        'SMW\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src',
-            1 => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src',
         ),
-        'SCSS\\Tests\\' =>
+        'SCSS\\Tests\\' => 
         array (
             0 => __DIR__ . '/..' . '/mediawiki/scss/tests/phpunit',
         ),
-        'SCSS\\' =>
+        'SCSS\\' => 
         array (
             0 => __DIR__ . '/..' . '/mediawiki/scss/src',
         ),
-        'SCI\\' =>
+        'SCI\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/SemanticCite/src',
         ),
-        'React\\Promise\\' =>
+        'React\\Promise\\' => 
         array (
             0 => __DIR__ . '/..' . '/react/promise/src',
         ),
-        'Ramsey\\Uuid\\' =>
+        'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
         ),
-        'Ramsey\\Collection\\' =>
+        'Ramsey\\Collection\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/collection/src',
         ),
-        'Psy\\' =>
+        'Psy\\' => 
         array (
             0 => __DIR__ . '/..' . '/psy/psysh/src',
         ),
-        'Psr\\SimpleCache\\' =>
+        'Psr\\SimpleCache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/simple-cache/src',
         ),
-        'Psr\\Log\\' =>
+        'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
-        'Psr\\Http\\Message\\' =>
+        'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-factory/src',
             1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
-        'Psr\\Http\\Client\\' =>
+        'Psr\\Http\\Client\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-client/src',
         ),
-        'Psr\\Container\\' =>
+        'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
-        'Psr\\Cache\\' =>
+        'Psr\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
-        'PhpParser\\' =>
+        'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
-        'PhpOffice\\PhpSpreadsheet\\' =>
+        'PhpOffice\\PhpSpreadsheet\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet',
         ),
-        'Phan\\' =>
+        'Phan\\' => 
         array (
             0 => __DIR__ . '/..' . '/phan/phan/src/Phan',
         ),
-        'Peast\\' =>
+        'Peast\\' => 
         array (
             0 => __DIR__ . '/..' . '/mck89/peast/lib/Peast',
         ),
-        'ParserHooks\\' =>
+        'ParserHooks\\' => 
         array (
             0 => __DIR__ . '/..' . '/mediawiki/parser-hooks/src',
         ),
-        'ParamProcessor\\' =>
+        'ParamProcessor\\' => 
         array (
             0 => __DIR__ . '/..' . '/param-processor/param-processor/src',
         ),
-        'PHP_Parallel_Lint\\PhpConsoleHighlighter\\' =>
+        'PHP_Parallel_Lint\\PhpConsoleHighlighter\\' => 
         array (
             0 => __DIR__ . '/..' . '/php-parallel-lint/php-console-highlighter/src',
         ),
-        'PHP_Parallel_Lint\\PhpConsoleColor\\' =>
+        'PHP_Parallel_Lint\\PhpConsoleColor\\' => 
         array (
             0 => __DIR__ . '/..' . '/php-parallel-lint/php-console-color/src',
         ),
-        'PHPStan\\PhpDocParser\\' =>
+        'PHPStan\\PhpDocParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src',
         ),
-        'PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' =>
+        'PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 
         array (
             0 => __DIR__ . '/..' . '/dealerdirect/phpcodesniffer-composer-installer/src',
         ),
-        'OpenSearch\\' =>
+        'OpenSearch\\' => 
         array (
             0 => __DIR__ . '/..' . '/opensearch-project/opensearch-php/src/OpenSearch',
         ),
-        'Onoi\\Tesa\\' =>
+        'Onoi\\Tesa\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src',
-            1 => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src',
+            0 => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src',
         ),
-        'Onoi\\Remi\\' =>
+        'Onoi\\Remi\\' => 
         array (
             0 => __DIR__ . '/..' . '/onoi/remi/src',
         ),
-        'Onoi\\MessageReporter\\' =>
+        'Onoi\\MessageReporter\\' => 
         array (
             0 => __DIR__ . '/..' . '/onoi/message-reporter/src',
         ),
-        'Onoi\\HttpRequest\\' =>
+        'Onoi\\HttpRequest\\' => 
         array (
             0 => __DIR__ . '/..' . '/mediawiki/http-request/src',
         ),
-        'Onoi\\EventDispatcher\\' =>
+        'Onoi\\EventDispatcher\\' => 
         array (
             0 => __DIR__ . '/..' . '/onoi/event-dispatcher/src',
         ),
-        'Onoi\\CallbackContainer\\' =>
+        'Onoi\\CallbackContainer\\' => 
         array (
             0 => __DIR__ . '/..' . '/onoi/callback-container/src',
         ),
-        'Onoi\\Cache\\' =>
+        'Onoi\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/onoi/cache/src',
         ),
-        'Onoi\\BlobStore\\' =>
+        'Onoi\\BlobStore\\' => 
         array (
             0 => __DIR__ . '/..' . '/onoi/blob-store/src',
         ),
-        'NicheWork\\MW\\' =>
+        'NicheWork\\MW\\' => 
         array (
             0 => __DIR__ . '/..' . '/nichework/tag-builder/src',
         ),
-        'Monolog\\' =>
+        'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
-        'ModernTimeline\\Tests\\' =>
+        'ModernTimeline\\Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/ModernTimeline/tests',
         ),
-        'ModernTimeline\\' =>
+        'ModernTimeline\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/ModernTimeline/src',
         ),
-        'Microsoft\\PhpParser\\' =>
+        'Microsoft\\PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/microsoft/tolerant-php-parser/src',
         ),
-        'MediaWiki\\Sniffs\\Tests\\' =>
+        'MediaWiki\\Sniffs\\Tests\\' => 
         array (
             0 => __DIR__ . '/..' . '/mediawiki/mediawiki-codesniffer/MediaWiki/Tests',
         ),
-        'MediaWiki\\Sniffs\\' =>
+        'MediaWiki\\Sniffs\\' => 
         array (
             0 => __DIR__ . '/..' . '/mediawiki/mediawiki-codesniffer/MediaWiki/Sniffs',
         ),
-        'MediaWiki\\Extension\\IFrameTag\\' =>
+        'MediaWiki\\Extension\\IFrameTag\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/IframeTag/src',
         ),
-        'MediaWiki\\Extension\\ExtJSBase\\Tests\\' =>
+        'MediaWiki\\Extension\\ExtJSBase\\Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/ExtJSBase/tests/phpunit',
         ),
-        'MediaWiki\\Extension\\ExtJSBase\\' =>
+        'MediaWiki\\Extension\\ExtJSBase\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/ExtJSBase/src',
         ),
-        'MediaWiki\\Composer\\' =>
+        'MediaWiki\\Composer\\' => 
         array (
             0 => __DIR__ . '/../..' . '/includes/composer',
         ),
-        'MediaWikiPhanConfig\\' =>
+        'MediaWikiPhanConfig\\' => 
         array (
             0 => __DIR__ . '/..' . '/mediawiki/mediawiki-phan-config/src',
         ),
-        'Matrix\\' =>
+        'Matrix\\' => 
         array (
             0 => __DIR__ . '/..' . '/markbaker/matrix/classes/src',
         ),
-        'MWStake\\MediaWiki\\Lib\\Nodes\\' =>
+        'MWStake\\MediaWiki\\Lib\\Nodes\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-lib-nodes/src',
         ),
-        'MWStake\\MediaWiki\\Component\\Wikitext\\Tests\\' =>
+        'MWStake\\MediaWiki\\Component\\Wikitext\\Tests\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-wikitext/tests/phpunit',
         ),
-        'MWStake\\MediaWiki\\Component\\Wikitext\\' =>
+        'MWStake\\MediaWiki\\Component\\Wikitext\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-wikitext/src',
         ),
-        'MWStake\\MediaWiki\\Component\\Utils\\Tests\\' =>
+        'MWStake\\MediaWiki\\Component\\Utils\\Tests\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-utils/tests/phpunit',
         ),
-        'MWStake\\MediaWiki\\Component\\Utils\\' =>
+        'MWStake\\MediaWiki\\Component\\Utils\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-utils/src',
         ),
-        'MWStake\\MediaWiki\\Component\\RunJobsTrigger\\Tests\\' =>
+        'MWStake\\MediaWiki\\Component\\RunJobsTrigger\\Tests\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-runjobstrigger/tests/phpunit',
         ),
-        'MWStake\\MediaWiki\\Component\\RunJobsTrigger\\' =>
+        'MWStake\\MediaWiki\\Component\\RunJobsTrigger\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-runjobstrigger/src',
         ),
-        'MWStake\\MediaWiki\\Component\\ManifestRegistry\\Tests\\' =>
+        'MWStake\\MediaWiki\\Component\\ManifestRegistry\\Tests\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-manifestregistry/tests',
         ),
-        'MWStake\\MediaWiki\\Component\\ManifestRegistry\\' =>
+        'MWStake\\MediaWiki\\Component\\ManifestRegistry\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-manifestregistry/src',
         ),
-        'MWStake\\MediaWiki\\Component\\FormEngine\\Tests\\' =>
+        'MWStake\\MediaWiki\\Component\\FormEngine\\Tests\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-formengine/tests/phpunit',
         ),
-        'MWStake\\MediaWiki\\Component\\FormEngine\\' =>
+        'MWStake\\MediaWiki\\Component\\FormEngine\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-formengine/src',
         ),
-        'MWStake\\MediaWiki\\Component\\Events\\Tests\\' =>
+        'MWStake\\MediaWiki\\Component\\Events\\Tests\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-events/tests/phpunit',
         ),
-        'MWStake\\MediaWiki\\Component\\Events\\' =>
+        'MWStake\\MediaWiki\\Component\\Events\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-events/src',
         ),
-        'MWStake\\MediaWiki\\Component\\DynamicConfig\\Tests\\' =>
+        'MWStake\\MediaWiki\\Component\\DynamicFileDispatcher\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicfiledispatcher/tests',
+        ),
+        'MWStake\\MediaWiki\\Component\\DynamicFileDispatcher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicfiledispatcher/src',
+        ),
+        'MWStake\\MediaWiki\\Component\\DynamicConfig\\Tests\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicconfig/tests/phpunit',
         ),
-        'MWStake\\MediaWiki\\Component\\DynamicConfig\\' =>
+        'MWStake\\MediaWiki\\Component\\DynamicConfig\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicconfig/src',
         ),
-        'MWStake\\MediaWiki\\Component\\DataStore\\Tests\\' =>
+        'MWStake\\MediaWiki\\Component\\DataStore\\Tests\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-datastore/tests/phpunit',
         ),
-        'MWStake\\MediaWiki\\Component\\DataStore\\' =>
+        'MWStake\\MediaWiki\\Component\\DataStore\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-datastore/src',
         ),
-        'MWStake\\MediaWiki\\Component\\ContentProvisioner\\Tests\\' =>
+        'MWStake\\MediaWiki\\Component\\ContentProvisioner\\Tests\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-contentprovisioner/tests/phpunit',
         ),
-        'MWStake\\MediaWiki\\Component\\ContentProvisioner\\' =>
+        'MWStake\\MediaWiki\\Component\\ContentProvisioner\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-contentprovisioner/src',
         ),
-        'MWStake\\MediaWiki\\Component\\CommonWebAPIs\\Tests\\' =>
+        'MWStake\\MediaWiki\\Component\\CommonWebAPIs\\Tests\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-commonwebapis/tests/phpunit',
         ),
-        'MWStake\\MediaWiki\\Component\\CommonWebAPIs\\' =>
+        'MWStake\\MediaWiki\\Component\\CommonWebAPIs\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-commonwebapis/src',
         ),
-        'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Tests\\' =>
+        'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Tests\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-commonuserinterface/tests/phpunit',
         ),
-        'MWStake\\MediaWiki\\Component\\CommonUserInterface\\' =>
+        'MWStake\\MediaWiki\\Component\\CommonUserInterface\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-commonuserinterface/src',
         ),
-        'MWStake\\MediaWiki\\Component\\AlertBanners\\Tests\\' =>
+        'MWStake\\MediaWiki\\Component\\AlertBanners\\Tests\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-alertbanners/tests',
         ),
-        'MWStake\\MediaWiki\\Component\\AlertBanners\\' =>
+        'MWStake\\MediaWiki\\Component\\AlertBanners\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-component-alertbanners/src',
         ),
-        'MWStake\\MediaWiki\\ComponentLoader\\Tests\\' =>
+        'MWStake\\MediaWiki\\ComponentLoader\\Tests\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-componentloader/tests',
         ),
-        'MWStake\\MediaWiki\\ComponentLoader\\' =>
+        'MWStake\\MediaWiki\\ComponentLoader\\' => 
         array (
             0 => __DIR__ . '/..' . '/mwstake/mediawiki-componentloader/src',
         ),
-        'LightnCandy\\' =>
+        'LightnCandy\\' => 
         array (
             0 => __DIR__ . '/..' . '/zordius/lightncandy/src',
         ),
-        'JsonSchema\\' =>
+        'JsonSchema\\' => 
         array (
             0 => __DIR__ . '/..' . '/justinrainbow/json-schema/src/JsonSchema',
         ),
-        'JohnKary\\PHPUnit\\Listener\\' =>
+        'JohnKary\\PHPUnit\\Listener\\' => 
         array (
             0 => __DIR__ . '/..' . '/johnkary/phpunit-speedtrap/src',
         ),
-        'HtmlFormatter\\' =>
+        'HtmlFormatter\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/html-formatter/src',
         ),
-        'GuzzleHttp\\Stream\\' =>
+        'GuzzleHttp\\Stream\\' => 
         array (
             0 => __DIR__ . '/..' . '/ezimuel/guzzlestreams/src',
         ),
-        'GuzzleHttp\\Ring\\' =>
+        'GuzzleHttp\\Ring\\' => 
         array (
             0 => __DIR__ . '/..' . '/ezimuel/ringphp/src',
         ),
-        'GuzzleHttp\\Psr7\\' =>
+        'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
         ),
-        'GuzzleHttp\\Promise\\' =>
+        'GuzzleHttp\\Promise\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
         ),
-        'GuzzleHttp\\' =>
+        'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
-        'FileFetcher\\' =>
+        'FileFetcher\\' => 
         array (
             0 => __DIR__ . '/..' . '/jeroen/file-fetcher/src',
         ),
-        'EventSauce\\EventSourcing\\' =>
+        'EventSauce\\EventSourcing\\' => 
         array (
             0 => __DIR__ . '/..' . '/eventsauce/eventsauce/src',
         ),
-        'Eris\\' =>
+        'Eris\\' => 
         array (
             0 => __DIR__ . '/..' . '/giorgiosironi/eris/src',
         ),
-        'Endroid\\QrCode\\' =>
+        'Endroid\\QrCode\\' => 
         array (
             0 => __DIR__ . '/..' . '/endroid/qr-code/src',
         ),
-        'Doctrine\\SqlFormatter\\' =>
+        'Doctrine\\SqlFormatter\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/sql-formatter/src',
         ),
-        'Doctrine\\Instantiator\\' =>
+        'Doctrine\\Instantiator\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
         ),
-        'Doctrine\\Deprecations\\' =>
+        'Doctrine\\Deprecations\\' => 
         array (
-            0 => __DIR__ . '/..' . '/doctrine/deprecations/lib/Doctrine/Deprecations',
+            0 => __DIR__ . '/..' . '/doctrine/deprecations/src',
         ),
-        'Doctrine\\DBAL\\' =>
+        'Doctrine\\DBAL\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/dbal/src',
         ),
-        'Doctrine\\Common\\Cache\\' =>
+        'Doctrine\\Common\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache',
         ),
-        'Doctrine\\Common\\' =>
+        'Doctrine\\Common\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/event-manager/src',
         ),
-        'Deserializers\\' =>
+        'Deserializers\\' => 
         array (
             0 => __DIR__ . '/..' . '/serialization/serialization/src/Deserializers',
         ),
-        'DeepCopy\\' =>
+        'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
-        'DataValues\\' =>
+        'DataValues\\' => 
         array (
             0 => __DIR__ . '/..' . '/data-values/common/src/DataValues',
             1 => __DIR__ . '/..' . '/data-values/data-values/src',
         ),
-        'DASPRiD\\Enum\\' =>
+        'DASPRiD\\Enum\\' => 
         array (
             0 => __DIR__ . '/..' . '/dasprid/enum/src',
         ),
-        'Composer\\XdebugHandler\\' =>
+        'Composer\\XdebugHandler\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/xdebug-handler/src',
         ),
-        'Composer\\Spdx\\' =>
+        'Composer\\Spdx\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/spdx-licenses/src',
         ),
-        'Composer\\Semver\\' =>
+        'Composer\\Semver\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/semver/src',
         ),
-        'Composer\\Pcre\\' =>
+        'Composer\\Pcre\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/pcre/src',
         ),
-        'Composer\\Installers\\' =>
+        'Composer\\Installers\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
         ),
-        'Complex\\' =>
+        'Complex\\' => 
         array (
             0 => __DIR__ . '/..' . '/markbaker/complex/classes/src',
         ),
-        'CLDRPluralRuleParser\\' =>
+        'CLDRPluralRuleParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/cldr-plural-rule-parser/src',
         ),
-        'Brick\\Math\\' =>
+        'Brick\\Math\\' => 
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
-        'Bootstrap\\Tests\\' =>
+        'Bootstrap\\Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/Bootstrap/tests/phpunit',
             1 => __DIR__ . '/../..' . '/extensions/Bootstrap/tests/phpunit',
         ),
-        'Bootstrap\\' =>
+        'Bootstrap\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/Bootstrap/src',
             1 => __DIR__ . '/../..' . '/extensions/Bootstrap/src',
         ),
-        'BlueSpice\\WikiExplorer\\' =>
+        'BlueSpice\\WikiExplorer\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceWikiExplorer/src',
         ),
-        'BlueSpice\\WatchList\\Tests\\' =>
+        'BlueSpice\\WatchList\\Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceWatchList/tests/phpunit',
         ),
-        'BlueSpice\\WatchList\\' =>
+        'BlueSpice\\WatchList\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceWatchList/src',
         ),
-        'BlueSpice\\UserManager\\Tests\\' =>
+        'BlueSpice\\UserManager\\Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceUserManager/tests/phpunit',
         ),
-        'BlueSpice\\UserManager\\' =>
+        'BlueSpice\\UserManager\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceUserManager/src',
         ),
-        'BlueSpice\\UEModuleTable2Excel\\' =>
+        'BlueSpice\\UEModuleTable2Excel\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceUEModuleTable2Excel/src',
         ),
-        'BlueSpice\\UEModulePDFSubpages\\' =>
+        'BlueSpice\\UEModulePDFSubpages\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceUEModulePDFSubpages/src',
         ),
-        'BlueSpice\\UEModulePDFRecursive\\' =>
+        'BlueSpice\\UEModulePDFRecursive\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceUEModulePDFRecursive/src',
         ),
-        'BlueSpice\\UEModuleBookPDF\\' =>
+        'BlueSpice\\UEModuleBookPDF\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceUEModuleBookPDF/src',
         ),
-        'BlueSpice\\Social\\Profile\\' =>
+        'BlueSpice\\Social\\Profile\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceSocialProfile/src',
         ),
-        'BlueSpice\\Social\\' =>
+        'BlueSpice\\Social\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src',
         ),
-        'BlueSpice\\SMWConnector\\Tests\\' =>
+        'BlueSpice\\SMWConnector\\Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceSMWConnector/tests/phpunit',
         ),
-        'BlueSpice\\SMWConnector\\' =>
+        'BlueSpice\\SMWConnector\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceSMWConnector/src',
         ),
-        'BlueSpice\\Reminder\\' =>
+        'BlueSpice\\Reminder\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceReminder/src',
         ),
-        'BlueSpice\\ReadConfirmation\\Tests\\' =>
+        'BlueSpice\\ReadConfirmation\\Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceReadConfirmation/tests/phpunit',
         ),
-        'BlueSpice\\ReadConfirmation\\' =>
+        'BlueSpice\\ReadConfirmation\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceReadConfirmation/src',
         ),
-        'BlueSpice\\PermissionManager\\' =>
+        'BlueSpice\\PermissionManager\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src',
         ),
-        'BlueSpice\\PageTemplates\\' =>
+        'BlueSpice\\PageTemplates\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpicePageTemplates/src',
         ),
-        'BlueSpice\\PageFormsConnector\\' =>
+        'BlueSpice\\PageFormsConnector\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpicePageFormsConnector/src',
         ),
-        'BlueSpice\\ExtendedStatistics\\Tests\\' =>
+        'BlueSpice\\ExtendedStatistics\\Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedStatistics/tests/phpunit',
         ),
-        'BlueSpice\\ExtendedStatistics\\' =>
+        'BlueSpice\\ExtendedStatistics\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedStatistics/src',
         ),
-        'BlueSpice\\ContextMenu\\' =>
+        'BlueSpice\\ContextMenu\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceContextMenu/src',
         ),
-        'BlueSpice\\Bookshelf\\' =>
+        'BlueSpice\\Bookshelf\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceBookshelf/src',
         ),
-        'BlueSpice\\Authors\\' =>
+        'BlueSpice\\Authors\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceAuthors/src',
         ),
-        'Base32\\' =>
+        'Base32\\' => 
         array (
             0 => __DIR__ . '/..' . '/christian-riesen/base32/src',
         ),
-        'BaconQrCode\\' =>
+        'BaconQrCode\\' => 
         array (
             0 => __DIR__ . '/..' . '/bacon/bacon-qr-code/src',
         ),
-        'BS\\ExtendedSearch\\Tests\\' =>
+        'BS\\ExtendedSearch\\Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedSearch/tests/phpunit',
         ),
-        'BS\\ExtendedSearch\\' =>
+        'BS\\ExtendedSearch\\' => 
         array (
             0 => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedSearch/src',
         ),
-        'AdvancedJsonRpc\\' =>
+        'AdvancedJsonRpc\\' => 
         array (
             0 => __DIR__ . '/..' . '/felixfbecker/advanced-json-rpc/lib',
         ),
     );
 
     public static $prefixesPsr0 = array (
-        'T' =>
+        'T' => 
         array (
-            'TextCat' =>
+            'TextCat' => 
             array (
                 0 => __DIR__ . '/..' . '/wikimedia/textcat/src',
             ),
         ),
-        'S' =>
+        'S' => 
         array (
-            'SemanticMediaWiki' =>
+            'SemanticMediaWiki' => 
             array (
                 0 => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/includes/SemanticMediaWiki.php',
-                1 => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/includes/SemanticMediaWiki.php',
             ),
         ),
-        'P' =>
+        'P' => 
         array (
-            'ParsedownExtra' =>
+            'ParsedownExtra' => 
             array (
                 0 => __DIR__ . '/..' . '/erusev/parsedown-extra',
             ),
-            'ParsedownExtended' =>
+            'ParsedownExtended' => 
             array (
                 0 => __DIR__ . '/..' . '/benjaminhoegh/parsedown-extended/src',
             ),
-            'Parsedown' =>
+            'Parsedown' => 
             array (
                 0 => __DIR__ . '/..' . '/erusev/parsedown',
             ),
         ),
-        'N' =>
+        'N' => 
         array (
-            'Net' =>
+            'Net' => 
             array (
                 0 => __DIR__ . '/..' . '/pear/net_smtp',
                 1 => __DIR__ . '/..' . '/pear/net_socket',
             ),
         ),
-        'M' =>
+        'M' => 
         array (
-            'Mail' =>
+            'Mail' => 
             array (
                 0 => __DIR__ . '/..' . '/pear/mail',
                 1 => __DIR__ . '/..' . '/pear/mail_mime',
             ),
         ),
-        'L' =>
+        'L' => 
         array (
-            'Liuggio' =>
+            'Liuggio' => 
             array (
                 0 => __DIR__ . '/..' . '/liuggio/statsd-php-client/src',
             ),
-            'Less' =>
+            'Less' => 
             array (
                 0 => __DIR__ . '/..' . '/wikimedia/less.php/lib',
             ),
         ),
-        'J' =>
+        'J' => 
         array (
-            'JsonMapper' =>
+            'JsonMapper' => 
             array (
                 0 => __DIR__ . '/..' . '/netresearch/jsonmapper/src',
             ),
         ),
-        'H' =>
+        'H' => 
         array (
-            'HTMLPurifier' =>
+            'HTMLPurifier' => 
             array (
                 0 => __DIR__ . '/..' . '/ezyang/htmlpurifier/library',
             ),
         ),
-        'C' =>
+        'C' => 
         array (
-            'Console' =>
+            'Console' => 
             array (
                 0 => __DIR__ . '/..' . '/pear/console_getopt',
             ),
-            'CSSMin' =>
+            'CSSMin' => 
             array (
                 0 => __DIR__ . '/..' . '/wikimedia/minify/src',
             ),
@@ -1234,6 +1240,7 @@ class ComposerStaticInit_mediawiki_vendor
         'BS\\ExtendedSearch\\MediaWiki\\Backend\\BlueSpiceSearch' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedSearch/src/MediaWiki/Backend/BlueSpiceSearch.php',
         'BS\\ExtendedSearch\\MediaWiki\\Backend\\BlueSpiceSearchResult' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedSearch/src/MediaWiki/Backend/BlueSpiceSearchResult.php',
         'BS\\ExtendedSearch\\MediaWiki\\Backend\\SearchResultSet' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedSearch/src/MediaWiki/Backend/SearchResultSet.php',
+        'BS\\ExtendedSearch\\MediaWiki\\Hook\\BSExtendedSearchGetLookupModifiers' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedSearch/src/MediaWiki/Hook/BSExtendedSearchGetLookupModifiers.php',
         'BS\\ExtendedSearch\\MediaWiki\\Hook\\BSExtendedSearchIndexDocumentSkipHook' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedSearch/src/MediaWiki/Hook/BSExtendedSearchIndexDocumentSkipHook.php',
         'BS\\ExtendedSearch\\MediaWiki\\Hook\\BSExtendedSearchRegisterPluginHook' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedSearch/src/MediaWiki/Hook/BSExtendedSearchRegisterPluginHook.php',
         'BS\\ExtendedSearch\\MediaWiki\\Hook\\BSExtendedSearchRepoFileGetFileHook' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedSearch/src/MediaWiki/Hook/BSExtendedSearchRepoFileGetFileHook.php',
@@ -1413,7 +1420,6 @@ class ComposerStaticInit_mediawiki_vendor
         'Base32\\Base32Hex' => __DIR__ . '/..' . '/christian-riesen/base32/src/Base32Hex.php',
         'BlueSpice\\Authors\\Api\\Store\\PageAuthors' => __DIR__ . '/../..' . '/extensions/BlueSpiceAuthors/src/Api/Store/PageAuthors.php',
         'BlueSpice\\Authors\\AuthorsList' => __DIR__ . '/../..' . '/extensions/BlueSpiceAuthors/src/AuthorsList.php',
-        'BlueSpice\\Authors\\ConfigDefinition\\AuthorsShow' => __DIR__ . '/../..' . '/extensions/BlueSpiceAuthors/src/ConfigDefinition/AuthorsShow.php',
         'BlueSpice\\Authors\\Data\\PageAuthors\\PrimaryDataProvider' => __DIR__ . '/../..' . '/extensions/BlueSpiceAuthors/src/Data/PageAuthors/PrimaryDataProvider.php',
         'BlueSpice\\Authors\\Data\\PageAuthors\\Reader' => __DIR__ . '/../..' . '/extensions/BlueSpiceAuthors/src/Data/PageAuthors/Reader.php',
         'BlueSpice\\Authors\\Data\\PageAuthors\\Record' => __DIR__ . '/../..' . '/extensions/BlueSpiceAuthors/src/Data/PageAuthors/Record.php',
@@ -1551,7 +1557,6 @@ class ComposerStaticInit_mediawiki_vendor
         'BlueSpice\\Bookshelf\\Rest\\GetBookMetadata' => __DIR__ . '/../..' . '/extensions/BlueSpiceBookshelf/src/Rest/GetBookMetadata.php',
         'BlueSpice\\Bookshelf\\Rest\\PostBookMetadata' => __DIR__ . '/../..' . '/extensions/BlueSpiceBookshelf/src/Rest/PostBookMetadata.php',
         'BlueSpice\\Bookshelf\\Special\\Books' => __DIR__ . '/../..' . '/extensions/BlueSpiceBookshelf/src/Special/Books.php',
-        'BlueSpice\\Bookshelf\\Special\\BookshelfBookEditor' => __DIR__ . '/../..' . '/extensions/BlueSpiceBookshelf/src/Special/BookshelfBookEditor.php',
         'BlueSpice\\Bookshelf\\TOCNumberation' => __DIR__ . '/../..' . '/extensions/BlueSpiceBookshelf/src/TOCNumberation.php',
         'BlueSpice\\Bookshelf\\Tag\\BookList' => __DIR__ . '/../..' . '/extensions/BlueSpiceBookshelf/src/Tag/BookList.php',
         'BlueSpice\\Bookshelf\\Tag\\BookListHandler' => __DIR__ . '/../..' . '/extensions/BlueSpiceBookshelf/src/Tag/BookListHandler.php',
@@ -1607,13 +1612,16 @@ class ComposerStaticInit_mediawiki_vendor
         'BlueSpice\\ExtendedStatistics\\IReport' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedStatistics/src/IReport.php',
         'BlueSpice\\ExtendedStatistics\\ISnapshotProvider' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedStatistics/src/ISnapshotProvider.php',
         'BlueSpice\\ExtendedStatistics\\ISnapshotStore' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedStatistics/src/ISnapshotStore.php',
+        'BlueSpice\\ExtendedStatistics\\PageHitsSnapshot' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedStatistics/src/PageHitsSnapshot.php',
         'BlueSpice\\ExtendedStatistics\\Snapshot' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedStatistics/src/Snapshot.php',
         'BlueSpice\\ExtendedStatistics\\SnapshotDate' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedStatistics/src/SnapshotDate.php',
         'BlueSpice\\ExtendedStatistics\\SnapshotDateRange' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedStatistics/src/SnapshotDateRange.php',
+        'BlueSpice\\ExtendedStatistics\\SnapshotFactory' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedStatistics/src/SnapshotFactory.php',
         'BlueSpice\\ExtendedStatistics\\SnapshotStore\\DatabaseStore' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedStatistics/src/SnapshotStore/DatabaseStore.php',
         'BlueSpice\\ExtendedStatistics\\Special\\AggregatedStatistic' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedStatistics/src/Special/AggregatedStatistic.php',
         'BlueSpice\\ExtendedStatistics\\Tag\\Progress' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedStatistics/src/Tag/Progress.php',
         'BlueSpice\\ExtendedStatistics\\Tag\\ProgressHandler' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedStatistics/src/Tag/ProgressHandler.php',
+        'BlueSpice\\ExtendedStatistics\\Tests\\DatabaseStoreTest' => __DIR__ . '/../..' . '/extensions/BlueSpiceExtendedStatistics/tests/phpunit/DatabaseStoreTest.php',
         'BlueSpice\\PageFormsConnector\\BreadcrumbDataProvider\\FormEditProvider' => __DIR__ . '/../..' . '/extensions/BlueSpicePageFormsConnector/src/BreadcrumbDataProvider/FormEditProvider.php',
         'BlueSpice\\PageFormsConnector\\Extension' => __DIR__ . '/../..' . '/extensions/BlueSpicePageFormsConnector/src/Extension.php',
         'BlueSpice\\PageFormsConnector\\Hook\\BeforePageDisplay\\AddModuleStyles' => __DIR__ . '/../..' . '/extensions/BlueSpicePageFormsConnector/src/Hook/BeforePageDisplay/AddModuleStyles.php',
@@ -1640,20 +1648,23 @@ class ComposerStaticInit_mediawiki_vendor
         'BlueSpice\\PageTemplates\\Tag\\PageTemplates' => __DIR__ . '/../..' . '/extensions/BlueSpicePageTemplates/src/Tag/PageTemplates.php',
         'BlueSpice\\PageTemplates\\Tag\\PageTemplatesHandler' => __DIR__ . '/../..' . '/extensions/BlueSpicePageTemplates/src/Tag/PageTemplatesHandler.php',
         'BlueSpice\\PermissionManager\\AdminTool' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/AdminTool.php',
-        'BlueSpice\\PermissionManager\\Api\\ApiPermissionManager' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Api/ApiPermissionManager.php',
-        'BlueSpice\\PermissionManager\\Api\\RolePermissionsStore' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Api/RolePermissionsStore.php',
         'BlueSpice\\PermissionManager\\ConfigDefinition\\PermissionManagerActivePresetConfig' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/ConfigDefinition/PermissionManagerActivePresetConfig.php',
-        'BlueSpice\\PermissionManager\\ConfigDefinition\\PermissionManagerMaxBackups' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/ConfigDefinition/PermissionManagerMaxBackups.php',
+        'BlueSpice\\PermissionManager\\DynamicConfig\\Groups' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/DynamicConfig/Groups.php',
         'BlueSpice\\PermissionManager\\DynamicConfig\\Roles' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/DynamicConfig/Roles.php',
         'BlueSpice\\PermissionManager\\Extension' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Extension.php',
         'BlueSpice\\PermissionManager\\GlobalActionsAdministration' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/GlobalActionsAdministration.php',
+        'BlueSpice\\PermissionManager\\GroupManager' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/GroupManager.php',
         'BlueSpice\\PermissionManager\\HookHandler\\CommonUserInterface' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/HookHandler/CommonUserInterface.php',
-        'BlueSpice\\PermissionManager\\Hook\\BSGroupManagerGroupDeleted\\UnassignRoles' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Hook/BSGroupManagerGroupDeleted/UnassignRoles.php',
-        'BlueSpice\\PermissionManager\\Hook\\BSGroupManagerGroupNameChanged\\ChangeGroupRoleAssignments' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Hook/BSGroupManagerGroupNameChanged/ChangeGroupRoleAssignments.php',
-        'BlueSpice\\PermissionManager\\Hook\\LoadExtensionSchemaUpdates\\MigratePmSettings' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Hook/LoadExtensionSchemaUpdates/MigratePmSettings.php',
+        'BlueSpice\\PermissionManager\\Hook\\BSPermissionManagerGroupAddedHook' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Hook/BSPermissionManagerGroupAddedHook.php',
+        'BlueSpice\\PermissionManager\\Hook\\BSPermissionManagerGroupDeletedHook' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Hook/BSPermissionManagerGroupDeletedHook.php',
+        'BlueSpice\\PermissionManager\\Hook\\BSPermissionManagerGroupEditedHook' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Hook/BSPermissionManagerGroupEditedHook.php',
+        'BlueSpice\\PermissionManager\\Hook\\MigrateSettings' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Hook/MigrateSettings.php',
+        'BlueSpice\\PermissionManager\\Hook\\ReactToGroupChanges' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Hook/ReactToGroupChanges.php',
         'BlueSpice\\PermissionManager\\Hook\\RegisterDynamicConfig' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Hook/RegisterDynamicConfig.php',
         'BlueSpice\\PermissionManager\\IPreset' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/IPreset.php',
         'BlueSpice\\PermissionManager\\Lockdown\\SpecialPages' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Lockdown/SpecialPages.php',
+        'BlueSpice\\PermissionManager\\Logging\\GroupManagerSpecialLogLogger' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Logging/GroupManagerSpecialLogLogger.php',
+        'BlueSpice\\PermissionManager\\Maintenance\\MigrateGmSettings' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Maintenance/MigrateGmSettings.php',
         'BlueSpice\\PermissionManager\\Maintenance\\MigratePmSettings' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Maintenance/MigratePmSettings.php',
         'BlueSpice\\PermissionManager\\PermissionManager' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/PermissionManager.php',
         'BlueSpice\\PermissionManager\\Preset\\CustomPreset' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Preset/CustomPreset.php',
@@ -1661,12 +1672,19 @@ class ComposerStaticInit_mediawiki_vendor
         'BlueSpice\\PermissionManager\\Preset\\PrivateWiki' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Preset/PrivateWiki.php',
         'BlueSpice\\PermissionManager\\Preset\\ProtectedWiki' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Preset/ProtectedWiki.php',
         'BlueSpice\\PermissionManager\\Preset\\PublicWiki' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Preset/PublicWiki.php',
+        'BlueSpice\\PermissionManager\\Rest\\AddGroup' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Rest/AddGroup.php',
+        'BlueSpice\\PermissionManager\\Rest\\DeleteGroup' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Rest/DeleteGroup.php',
+        'BlueSpice\\PermissionManager\\Rest\\EditGroup' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Rest/EditGroup.php',
+        'BlueSpice\\PermissionManager\\Rest\\PermissionMatrix' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Rest/PermissionMatrix.php',
+        'BlueSpice\\PermissionManager\\Rest\\RetrieveGroups' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Rest/RetrieveGroups.php',
+        'BlueSpice\\PermissionManager\\Rest\\SavePermissions' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Rest/SavePermissions.php',
         'BlueSpice\\PermissionManager\\RoleMatrixDiff' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/RoleMatrixDiff.php',
         'BlueSpice\\PermissionManager\\Special\\SpecialPermissionManager' => __DIR__ . '/../..' . '/extensions/BlueSpicePermissionManager/src/Special/SpecialPermissionManager.php',
         'BlueSpice\\ReadConfirmation\\AttentionIndicator\\ReadConfirmation' => __DIR__ . '/../..' . '/extensions/BlueSpiceReadConfirmation/src/AttentionIndicator/ReadConfirmation.php',
         'BlueSpice\\ReadConfirmation\\Event\\ConfirmationRemindEvent' => __DIR__ . '/../..' . '/extensions/BlueSpiceReadConfirmation/src/Event/ConfirmationRemindEvent.php',
         'BlueSpice\\ReadConfirmation\\Event\\ConfirmationRequestEvent' => __DIR__ . '/../..' . '/extensions/BlueSpiceReadConfirmation/src/Event/ConfirmationRequestEvent.php',
         'BlueSpice\\ReadConfirmation\\Extension' => __DIR__ . '/../..' . '/extensions/BlueSpiceReadConfirmation/src/Extension.php',
+        'BlueSpice\\ReadConfirmation\\HookHandler\\AddReadConfirmationInfoToPageAssignments' => __DIR__ . '/../..' . '/extensions/BlueSpiceReadConfirmation/src/HookHandler/AddReadConfirmationInfoToPageAssignments.php',
         'BlueSpice\\ReadConfirmation\\HookHandler\\Skin' => __DIR__ . '/../..' . '/extensions/BlueSpiceReadConfirmation/src/HookHandler/Skin.php',
         'BlueSpice\\ReadConfirmation\\HookHandler\\StandardDialogs' => __DIR__ . '/../..' . '/extensions/BlueSpiceReadConfirmation/src/HookHandler/StandardDialogs.php',
         'BlueSpice\\ReadConfirmation\\HookHandler\\UnifiedTaskOverview' => __DIR__ . '/../..' . '/extensions/BlueSpiceReadConfirmation/src/HookHandler/UnifiedTaskOverview.php',
@@ -1715,6 +1733,7 @@ class ComposerStaticInit_mediawiki_vendor
         'BlueSpice\\Reminder\\RunJobsTriggerHandler\\SendInOneWeekReminderNotification' => __DIR__ . '/../..' . '/extensions/BlueSpiceReminder/src/RunJobsTriggerHandler/SendInOneWeekReminderNotification.php',
         'BlueSpice\\Reminder\\RunJobsTriggerHandler\\SendNotificationBase' => __DIR__ . '/../..' . '/extensions/BlueSpiceReminder/src/RunJobsTriggerHandler/SendNotificationBase.php',
         'BlueSpice\\Reminder\\RunJobsTriggerHandler\\SendTodayReminderNotification' => __DIR__ . '/../..' . '/extensions/BlueSpiceReminder/src/RunJobsTriggerHandler/SendTodayReminderNotification.php',
+        'BlueSpice\\Reminder\\Special\\Reminder' => __DIR__ . '/../..' . '/extensions/BlueSpiceReminder/src/Special/Reminder.php',
         'BlueSpice\\SMWConnector\\Api\\Store\\Ask' => __DIR__ . '/../..' . '/extensions/BlueSpiceSMWConnector/src/Api/Store/Ask.php',
         'BlueSpice\\SMWConnector\\Api\\Store\\TreeAsk' => __DIR__ . '/../..' . '/extensions/BlueSpiceSMWConnector/src/Api/Store/TreeAsk.php',
         'BlueSpice\\SMWConnector\\AsyncAskHandler\\Grid' => __DIR__ . '/../..' . '/extensions/BlueSpiceSMWConnector/src/AsyncAskHandler/Grid.php',
@@ -1768,6 +1787,7 @@ class ComposerStaticInit_mediawiki_vendor
         'BlueSpice\\SMWConnector\\Query\\Language\\StoreFilter\\DateFilterDescription' => __DIR__ . '/../..' . '/extensions/BlueSpiceSMWConnector/src/Query/Language/StoreFilter/DateFilterDescription.php',
         'BlueSpice\\SMWConnector\\Query\\Language\\StoreFilter\\FilterDescription' => __DIR__ . '/../..' . '/extensions/BlueSpiceSMWConnector/src/Query/Language/StoreFilter/FilterDescription.php',
         'BlueSpice\\SMWConnector\\Query\\Language\\StoreFilter\\StringFilterDescription' => __DIR__ . '/../..' . '/extensions/BlueSpiceSMWConnector/src/Query/Language/StoreFilter/StringFilterDescription.php',
+        'BlueSpice\\SMWConnector\\ResourceModule\\SMWApiModule' => __DIR__ . '/../..' . '/extensions/BlueSpiceSMWConnector/src/ResourceModule/SMWApiModule.php',
         'BlueSpice\\SMWConnector\\SmartListMode\\DataQueryMode' => __DIR__ . '/../..' . '/extensions/BlueSpiceSMWConnector/src/SmartListMode/DataQueryMode.php',
         'BlueSpice\\SMWConnector\\Tag\\DataQuery' => __DIR__ . '/../..' . '/extensions/BlueSpiceSMWConnector/src/Tag/DataQuery.php',
         'BlueSpice\\SMWConnector\\Tag\\DecisionOverview' => __DIR__ . '/../..' . '/extensions/BlueSpiceSMWConnector/src/Tag/DecisionOverview.php',
@@ -1812,6 +1832,8 @@ class ComposerStaticInit_mediawiki_vendor
         'BlueSpice\\Social\\Entity\\ActionWikiPage' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Entity/ActionWikiPage.php',
         'BlueSpice\\Social\\Entity\\Page' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Entity/Page.php',
         'BlueSpice\\Social\\Entity\\Text' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Entity/Text.php',
+        'BlueSpice\\Social\\Event\\SocialEvent' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Event/SocialEvent.php',
+        'BlueSpice\\Social\\Event\\SocialTextEvent' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Event/SocialTextEvent.php',
         'BlueSpice\\Social\\ExtendedSearch\\Crawler\\Entity' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/ExtendedSearch/Crawler/Entity.php',
         'BlueSpice\\Social\\ExtendedSearch\\DocumentProvider\\Entity' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/ExtendedSearch/DocumentProvider/Entity.php',
         'BlueSpice\\Social\\ExtendedSearch\\Entities' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/ExtendedSearch/Entities.php',
@@ -1829,8 +1851,6 @@ class ComposerStaticInit_mediawiki_vendor
         'BlueSpice\\Social\\ExtendedSearch\\Updater\\Entity' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/ExtendedSearch/Updater/Entity.php',
         'BlueSpice\\Social\\Extension' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Extension.php',
         'BlueSpice\\Social\\HookHandler\\CommonUserInterface' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/HookHandler/CommonUserInterface.php',
-        'BlueSpice\\Social\\Hook\\BSEntityDeleteComplete\\NotifyUsers' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Hook/BSEntityDeleteComplete/NotifyUsers.php',
-        'BlueSpice\\Social\\Hook\\BSEntitySaveComplete\\NotifyUsers' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Hook/BSEntitySaveComplete/NotifyUsers.php',
         'BlueSpice\\Social\\Hook\\BSRSSFeederBeforeGetRecentChanges\\RCRemoveSocial' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Hook/BSRSSFeederBeforeGetRecentChanges/RCRemoveSocial.php',
         'BlueSpice\\Social\\Hook\\BSSocialEntityGetActions' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Hook/BSSocialEntityGetActions.php',
         'BlueSpice\\Social\\Hook\\BSSocialEntityListInitialized' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Hook/BSSocialEntityListInitialized.php',
@@ -1841,7 +1861,6 @@ class ComposerStaticInit_mediawiki_vendor
         'BlueSpice\\Social\\Hook\\BSSocialEntityOutputRenderBeforeContent' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Hook/BSSocialEntityOutputRenderBeforeContent.php',
         'BlueSpice\\Social\\Hook\\BSSocialEntityUserCan' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Hook/BSSocialEntityUserCan.php',
         'BlueSpice\\Social\\Hook\\BSSocialModuleDepths' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Hook/BSSocialModuleDepths.php',
-        'BlueSpice\\Social\\Hook\\BeforeEchoEventInsert\\DisableOtherNotificationsForEntityPages' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Hook/BeforeEchoEventInsert/DisableOtherNotificationsForEntityPages.php',
         'BlueSpice\\Social\\Hook\\BeforePageDisplay\\AddResources' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Hook/BeforePageDisplay/AddResources.php',
         'BlueSpice\\Social\\Hook\\BeforePageDisplay\\AddSourceBacklLink' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Hook/BeforePageDisplay/AddSourceBacklLink.php',
         'BlueSpice\\Social\\Hook\\BeforePageDisplay\\EntitySpawnerUserPermissions' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Hook/BeforePageDisplay/EntitySpawnerUserPermissions.php',
@@ -1851,6 +1870,7 @@ class ComposerStaticInit_mediawiki_vendor
         'BlueSpice\\Social\\Hook\\HtmlPageLinkRendererEnd\\MaskEntityLinks' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Hook/HtmlPageLinkRendererEnd/MaskEntityLinks.php',
         'BlueSpice\\Social\\Hook\\LoadExtensionSchemaUpdates\\AddMigrationMaintenanceScript' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Hook/LoadExtensionSchemaUpdates/AddMigrationMaintenanceScript.php',
         'BlueSpice\\Social\\Hook\\MergeAccountFromTo\\ChangeEntityOwner' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Hook/MergeAccountFromTo/ChangeEntityOwner.php',
+        'BlueSpice\\Social\\Hook\\NotifyUsers' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Hook/NotifyUsers.php',
         'BlueSpice\\Social\\Hook\\SkinBuildSidebar\\AddTimelineNavigationItem' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Hook/SkinBuildSidebar/AddTimelineNavigationItem.php',
         'BlueSpice\\Social\\IEntityListContext' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/IEntityListContext.php',
         'BlueSpice\\Social\\Job' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Job.php',
@@ -1858,9 +1878,6 @@ class ComposerStaticInit_mediawiki_vendor
         'BlueSpice\\Social\\Job\\ChangeOwner' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Job/ChangeOwner.php',
         'BlueSpice\\Social\\Job\\Update' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Job/Update.php',
         'BlueSpice\\Social\\MainLinkPanel' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/MainLinkPanel.php',
-        'BlueSpice\\Social\\Notifications\\Registrator' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Notifications/Registrator.php',
-        'BlueSpice\\Social\\Notifications\\SocialNotification' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Notifications/SocialNotification.php',
-        'BlueSpice\\Social\\Notifications\\SocialTextNotification' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Notifications/SocialTextNotification.php',
         'BlueSpice\\Social\\Parser\\Input' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Parser/Input.php',
         'BlueSpice\\Social\\Parser\\Teaser' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Parser/Teaser.php',
         'BlueSpice\\Social\\Permission\\Lockdown\\Module\\ReadPermissionCheckHandOver' => __DIR__ . '/../..' . '/extensions/BlueSpiceSocial/src/Permission/Lockdown/Module/ReadPermissionCheckHandOver.php',
@@ -1960,6 +1977,16 @@ class ComposerStaticInit_mediawiki_vendor
         'BlueSpice\\UserManager\\Hook\\BSUserManagerAfterSetGroups' => __DIR__ . '/../..' . '/extensions/BlueSpiceUserManager/src/Hook/BSUserManagerAfterSetGroups.php',
         'BlueSpice\\UserManager\\Hook\\BSUserManagerRegisterModules' => __DIR__ . '/../..' . '/extensions/BlueSpiceUserManager/src/Hook/BSUserManagerRegisterModules.php',
         'BlueSpice\\UserManager\\Hook\\BeforePageDisplay\\AddModules' => __DIR__ . '/../..' . '/extensions/BlueSpiceUserManager/src/Hook/BeforePageDisplay/AddModules.php',
+        'BlueSpice\\UserManager\\Rest\\AddUserHandler' => __DIR__ . '/../..' . '/extensions/BlueSpiceUserManager/src/Rest/AddUserHandler.php',
+        'BlueSpice\\UserManager\\Rest\\BlockUsersHandler' => __DIR__ . '/../..' . '/extensions/BlueSpiceUserManager/src/Rest/BlockUsersHandler.php',
+        'BlueSpice\\UserManager\\Rest\\ChangePasswordHandler' => __DIR__ . '/../..' . '/extensions/BlueSpiceUserManager/src/Rest/ChangePasswordHandler.php',
+        'BlueSpice\\UserManager\\Rest\\SetGroupsHandler' => __DIR__ . '/../..' . '/extensions/BlueSpiceUserManager/src/Rest/SetGroupsHandler.php',
+        'BlueSpice\\UserManager\\Rest\\UnblockUsersHandler' => __DIR__ . '/../..' . '/extensions/BlueSpiceUserManager/src/Rest/UnblockUsersHandler.php',
+        'BlueSpice\\UserManager\\Rest\\UpdateUserHandler' => __DIR__ . '/../..' . '/extensions/BlueSpiceUserManager/src/Rest/UpdateUserHandler.php',
+        'BlueSpice\\UserManager\\Rest\\UserMassActionHandler' => __DIR__ . '/../..' . '/extensions/BlueSpiceUserManager/src/Rest/UserMassActionHandler.php',
+        'BlueSpice\\UserManager\\Special\\UserManager' => __DIR__ . '/../..' . '/extensions/BlueSpiceUserManager/src/Special/UserManager.php',
+        'BlueSpice\\UserManager\\Tests\\UserManagerTest' => __DIR__ . '/../..' . '/extensions/BlueSpiceUserManager/tests/phpunit/UserManagerTest.php',
+        'BlueSpice\\UserManager\\UserManager' => __DIR__ . '/../..' . '/extensions/BlueSpiceUserManager/src/UserManager.php',
         'BlueSpice\\WatchList\\AttentionIndicator\\WatchList' => __DIR__ . '/../..' . '/extensions/BlueSpiceWatchList/src/AttentionIndicator/WatchList.php',
         'BlueSpice\\WatchList\\ContentDroplets\\WatchlistDroplet' => __DIR__ . '/../..' . '/extensions/BlueSpiceWatchList/src/ContentDroplets/WatchlistDroplet.php',
         'BlueSpice\\WatchList\\Extension' => __DIR__ . '/../..' . '/extensions/BlueSpiceWatchList/src/Extension.php',
@@ -1971,6 +1998,7 @@ class ComposerStaticInit_mediawiki_vendor
         'BlueSpice\\WikiExplorer\\Extension' => __DIR__ . '/../..' . '/extensions/BlueSpiceWikiExplorer/src/Extension.php',
         'BlueSpice\\WikiExplorer\\GlobalActionsOverview' => __DIR__ . '/../..' . '/extensions/BlueSpiceWikiExplorer/src/GlobalActionsOverview.php',
         'BlueSpice\\WikiExplorer\\HookHandler\\CommonUserInterface' => __DIR__ . '/../..' . '/extensions/BlueSpiceWikiExplorer/src/HookHandler/CommonUserInterface.php',
+        'BlueSpice\\WikiExplorer\\WikiExplorerPluginModules' => __DIR__ . '/../..' . '/extensions/BlueSpiceWikiExplorer/src/WikiExplorerPluginModules.php',
         'Bootstrap\\Bootstrap' => __DIR__ . '/../..' . '/extensions/Bootstrap/src/Bootstrap.php',
         'Bootstrap\\BootstrapManager' => __DIR__ . '/../..' . '/extensions/Bootstrap/src/BootstrapManager.php',
         'Bootstrap\\Definition\\ModuleDefinition' => __DIR__ . '/../..' . '/extensions/Bootstrap/src/Definition/ModuleDefinition.php',
@@ -2202,6 +2230,7 @@ class ComposerStaticInit_mediawiki_vendor
         'DeepCopy\\Matcher\\PropertyTypeMatcher' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Matcher/PropertyTypeMatcher.php',
         'DeepCopy\\Reflection\\ReflectionHelper' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Reflection/ReflectionHelper.php',
         'DeepCopy\\TypeFilter\\Date\\DateIntervalFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Date/DateIntervalFilter.php',
+        'DeepCopy\\TypeFilter\\Date\\DatePeriodFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Date/DatePeriodFilter.php',
         'DeepCopy\\TypeFilter\\ReplaceFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/ReplaceFilter.php',
         'DeepCopy\\TypeFilter\\ShallowCopyFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/ShallowCopyFilter.php',
         'DeepCopy\\TypeFilter\\Spl\\ArrayObjectFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/ArrayObjectFilter.php',
@@ -2562,8 +2591,8 @@ class ComposerStaticInit_mediawiki_vendor
         'Doctrine\\DBAL\\Types\\VarDateTimeImmutableType' => __DIR__ . '/..' . '/doctrine/dbal/src/Types/VarDateTimeImmutableType.php',
         'Doctrine\\DBAL\\Types\\VarDateTimeType' => __DIR__ . '/..' . '/doctrine/dbal/src/Types/VarDateTimeType.php',
         'Doctrine\\DBAL\\VersionAwarePlatformDriver' => __DIR__ . '/..' . '/doctrine/dbal/src/VersionAwarePlatformDriver.php',
-        'Doctrine\\Deprecations\\Deprecation' => __DIR__ . '/..' . '/doctrine/deprecations/lib/Doctrine/Deprecations/Deprecation.php',
-        'Doctrine\\Deprecations\\PHPUnit\\VerifyDeprecations' => __DIR__ . '/..' . '/doctrine/deprecations/lib/Doctrine/Deprecations/PHPUnit/VerifyDeprecations.php',
+        'Doctrine\\Deprecations\\Deprecation' => __DIR__ . '/..' . '/doctrine/deprecations/src/Deprecation.php',
+        'Doctrine\\Deprecations\\PHPUnit\\VerifyDeprecations' => __DIR__ . '/..' . '/doctrine/deprecations/src/PHPUnit/VerifyDeprecations.php',
         'Doctrine\\Instantiator\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/Exception/ExceptionInterface.php',
         'Doctrine\\Instantiator\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/Exception/InvalidArgumentException.php',
         'Doctrine\\Instantiator\\Exception\\UnexpectedValueException' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/Exception/UnexpectedValueException.php',
@@ -2592,6 +2621,7 @@ class ComposerStaticInit_mediawiki_vendor
         'Endroid\\QrCode\\ErrorCorrectionLevel\\ErrorCorrectionLevelLow' => __DIR__ . '/..' . '/endroid/qr-code/src/ErrorCorrectionLevel/ErrorCorrectionLevelLow.php',
         'Endroid\\QrCode\\ErrorCorrectionLevel\\ErrorCorrectionLevelMedium' => __DIR__ . '/..' . '/endroid/qr-code/src/ErrorCorrectionLevel/ErrorCorrectionLevelMedium.php',
         'Endroid\\QrCode\\ErrorCorrectionLevel\\ErrorCorrectionLevelQuartile' => __DIR__ . '/..' . '/endroid/qr-code/src/ErrorCorrectionLevel/ErrorCorrectionLevelQuartile.php',
+        'Endroid\\QrCode\\Exception\\ValidationException' => __DIR__ . '/..' . '/endroid/qr-code/src/Exception/ValidationException.php',
         'Endroid\\QrCode\\ImageData\\LabelImageData' => __DIR__ . '/..' . '/endroid/qr-code/src/ImageData/LabelImageData.php',
         'Endroid\\QrCode\\ImageData\\LogoImageData' => __DIR__ . '/..' . '/endroid/qr-code/src/ImageData/LogoImageData.php',
         'Endroid\\QrCode\\Label\\Alignment\\LabelAlignmentCenter' => __DIR__ . '/..' . '/endroid/qr-code/src/Label/Alignment/LabelAlignmentCenter.php',
@@ -2911,6 +2941,7 @@ class ComposerStaticInit_mediawiki_vendor
         'HTMLPurifier_AttrDef_CSS_Multiple' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/AttrDef/CSS/Multiple.php',
         'HTMLPurifier_AttrDef_CSS_Number' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/AttrDef/CSS/Number.php',
         'HTMLPurifier_AttrDef_CSS_Percentage' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/AttrDef/CSS/Percentage.php',
+        'HTMLPurifier_AttrDef_CSS_Ratio' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/AttrDef/CSS/Ratio.php',
         'HTMLPurifier_AttrDef_CSS_TextDecoration' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/AttrDef/CSS/TextDecoration.php',
         'HTMLPurifier_AttrDef_CSS_URI' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/AttrDef/CSS/URI.php',
         'HTMLPurifier_AttrDef_Clone' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/AttrDef/Clone.php',
@@ -3459,6 +3490,7 @@ class ComposerStaticInit_mediawiki_vendor
         'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ILinklistGroup' => __DIR__ . '/..' . '/mwstake/mediawiki-component-commonuserinterface/src/ILinklistGroup.php',
         'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ILinklistGroupFromArray' => __DIR__ . '/..' . '/mwstake/mediawiki-component-commonuserinterface/src/ILinklistGroupFromArray.php',
         'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ILinklistGroupItem' => __DIR__ . '/..' . '/mwstake/mediawiki-component-commonuserinterface/src/ILinklistGroupItem.php',
+        'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IListRoleProvider' => __DIR__ . '/..' . '/mwstake/mediawiki-component-commonuserinterface/src/IListRoleProvider.php',
         'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ILiteral' => __DIR__ . '/..' . '/mwstake/mediawiki-component-commonuserinterface/src/ILiteral.php',
         'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IMediaObject' => __DIR__ . '/..' . '/mwstake/mediawiki-component-commonuserinterface/src/IMediaObject.php',
         'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IMessageLiteral' => __DIR__ . '/..' . '/mwstake/mediawiki-component-commonuserinterface/src/IMessageLiteral.php',
@@ -3608,6 +3640,7 @@ class ComposerStaticInit_mediawiki_vendor
         'MWStake\\MediaWiki\\Component\\ContentProvisioner\\Output\\PrintOutput' => __DIR__ . '/..' . '/mwstake/mediawiki-component-contentprovisioner/src/Output/PrintOutput.php',
         'MWStake\\MediaWiki\\Component\\ContentProvisioner\\Tests\\ContentProvisioner\\DefaultContentProvisionerTest' => __DIR__ . '/..' . '/mwstake/mediawiki-component-contentprovisioner/tests/phpunit/ContentProvisioner/DefaultContentProvisionerTest.php',
         'MWStake\\MediaWiki\\Component\\ContentProvisioner\\UpdateLogStorageTrait' => __DIR__ . '/..' . '/mwstake/mediawiki-component-contentprovisioner/src/UpdateLogStorageTrait.php',
+        'MWStake\\MediaWiki\\Component\\DataStore\\BucketedResultSet' => __DIR__ . '/..' . '/mwstake/mediawiki-component-datastore/src/BucketedResultSet.php',
         'MWStake\\MediaWiki\\Component\\DataStore\\DatabaseReader' => __DIR__ . '/..' . '/mwstake/mediawiki-component-datastore/src/DatabaseReader.php',
         'MWStake\\MediaWiki\\Component\\DataStore\\DatabaseWriter' => __DIR__ . '/..' . '/mwstake/mediawiki-component-datastore/src/DatabaseWriter.php',
         'MWStake\\MediaWiki\\Component\\DataStore\\FieldType' => __DIR__ . '/..' . '/mwstake/mediawiki-component-datastore/src/FieldType.php',
@@ -3624,6 +3657,7 @@ class ComposerStaticInit_mediawiki_vendor
         'MWStake\\MediaWiki\\Component\\DataStore\\Filter\\TemplateTitle' => __DIR__ . '/..' . '/mwstake/mediawiki-component-datastore/src/Filter/TemplateTitle.php',
         'MWStake\\MediaWiki\\Component\\DataStore\\Filter\\Title' => __DIR__ . '/..' . '/mwstake/mediawiki-component-datastore/src/Filter/Title.php',
         'MWStake\\MediaWiki\\Component\\DataStore\\Filterer' => __DIR__ . '/..' . '/mwstake/mediawiki-component-datastore/src/Filterer.php',
+        'MWStake\\MediaWiki\\Component\\DataStore\\IBucketProvider' => __DIR__ . '/..' . '/mwstake/mediawiki-component-datastore/src/IBucketProvider.php',
         'MWStake\\MediaWiki\\Component\\DataStore\\IPrimaryDataProvider' => __DIR__ . '/..' . '/mwstake/mediawiki-component-datastore/src/IPrimaryDataProvider.php',
         'MWStake\\MediaWiki\\Component\\DataStore\\IReader' => __DIR__ . '/..' . '/mwstake/mediawiki-component-datastore/src/IReader.php',
         'MWStake\\MediaWiki\\Component\\DataStore\\IRecord' => __DIR__ . '/..' . '/mwstake/mediawiki-component-datastore/src/IRecord.php',
@@ -3664,6 +3698,17 @@ class ComposerStaticInit_mediawiki_vendor
         'MWStake\\MediaWiki\\Component\\DynamicConfig\\Hook\\MWStakeDynamicConfigRegisterConfigsHook' => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicconfig/src/Hook/MWStakeDynamicConfigRegisterConfigsHook.php',
         'MWStake\\MediaWiki\\Component\\DynamicConfig\\IDynamicConfig' => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicconfig/src/IDynamicConfig.php',
         'MWStake\\MediaWiki\\Component\\DynamicConfig\\Tests\\DynamicConfigManagerTest' => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicconfig/tests/phpunit/DynamicConfigManagerTest.php',
+        'MWStake\\MediaWiki\\Component\\DynamicFileDispatcher\\DynamicFileDispatcherFactory' => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicfiledispatcher/src/DynamicFileDispatcherFactory.php',
+        'MWStake\\MediaWiki\\Component\\DynamicFileDispatcher\\File\\AnonImage' => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicfiledispatcher/src/File/AnonImage.php',
+        'MWStake\\MediaWiki\\Component\\DynamicFileDispatcher\\File\\DefaultArticlePreviewImage' => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicfiledispatcher/src/File/DefaultArticlePreviewImage.php',
+        'MWStake\\MediaWiki\\Component\\DynamicFileDispatcher\\File\\DefaultGroupImage' => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicfiledispatcher/src/File/DefaultGroupImage.php',
+        'MWStake\\MediaWiki\\Component\\DynamicFileDispatcher\\IDynamicFile' => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicfiledispatcher/src/IDynamicFile.php',
+        'MWStake\\MediaWiki\\Component\\DynamicFileDispatcher\\IDynamicFileModule' => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicfiledispatcher/src/IDynamicFileModule.php',
+        'MWStake\\MediaWiki\\Component\\DynamicFileDispatcher\\MWStakeDynamicFileDispatcherRegisterModuleHook' => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicfiledispatcher/src/MWStakeDynamicFileDispatcherRegisterModuleHook.php',
+        'MWStake\\MediaWiki\\Component\\DynamicFileDispatcher\\Module\\ArticlePreviewImage' => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicfiledispatcher/src/Module/ArticlePreviewImage.php',
+        'MWStake\\MediaWiki\\Component\\DynamicFileDispatcher\\Module\\GroupImage' => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicfiledispatcher/src/Module/GroupImage.php',
+        'MWStake\\MediaWiki\\Component\\DynamicFileDispatcher\\Module\\UserProfileImage' => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicfiledispatcher/src/Module/UserProfileImage.php',
+        'MWStake\\MediaWiki\\Component\\DynamicFileDispatcher\\Rest\\Handler' => __DIR__ . '/..' . '/mwstake/mediawiki-component-dynamicfiledispatcher/src/Rest/Handler.php',
         'MWStake\\MediaWiki\\Component\\Events\\BotAgent' => __DIR__ . '/..' . '/mwstake/mediawiki-component-events/src/BotAgent.php',
         'MWStake\\MediaWiki\\Component\\Events\\Delivery\\IChannel' => __DIR__ . '/..' . '/mwstake/mediawiki-component-events/src/Delivery/IChannel.php',
         'MWStake\\MediaWiki\\Component\\Events\\Delivery\\IExternalChannel' => __DIR__ . '/..' . '/mwstake/mediawiki-component-events/src/Delivery/IExternalChannel.php',
@@ -3767,9 +3812,21 @@ class ComposerStaticInit_mediawiki_vendor
         'MediaWikiPhanConfig\\Plugin\\NoBaseExceptionVisitor' => __DIR__ . '/..' . '/mediawiki/mediawiki-phan-config/src/Plugin/NoBaseExceptionVisitor.php',
         'MediaWikiPhanConfig\\Plugin\\NoEmptyIfDefinedPlugin' => __DIR__ . '/..' . '/mediawiki/mediawiki-phan-config/src/Plugin/NoEmptyIfDefinedPlugin.php',
         'MediaWikiPhanConfig\\Plugin\\NoEmptyIfDefinedVisitor' => __DIR__ . '/..' . '/mediawiki/mediawiki-phan-config/src/Plugin/NoEmptyIfDefinedVisitor.php',
+        'MediaWiki\\Composer\\ComposerLaunchParallel' => __DIR__ . '/../..' . '/includes/composer/ComposerLaunchParallel.php',
         'MediaWiki\\Composer\\ComposerPhpunitXmlCoverageEdit' => __DIR__ . '/../..' . '/includes/composer/ComposerPhpunitXmlCoverageEdit.php',
         'MediaWiki\\Composer\\ComposerVendorHtaccessCreator' => __DIR__ . '/../..' . '/includes/composer/ComposerVendorHtaccessCreator.php',
         'MediaWiki\\Composer\\LockFileChecker' => __DIR__ . '/../..' . '/includes/composer/LockFileChecker.php',
+        'MediaWiki\\Composer\\PhpUnitSplitter\\MissingNamespaceMatchForTestException' => __DIR__ . '/../..' . '/includes/composer/PhpUnitSplitter/MissingNamespaceMatchForTestException.php',
+        'MediaWiki\\Composer\\PhpUnitSplitter\\PhpUnitTestFileScanner' => __DIR__ . '/../..' . '/includes/composer/PhpUnitSplitter/PhpUnitTestFileScanner.php',
+        'MediaWiki\\Composer\\PhpUnitSplitter\\PhpUnitTestFileScannerFilter' => __DIR__ . '/../..' . '/includes/composer/PhpUnitSplitter/PhpUnitTestFileScannerFilter.php',
+        'MediaWiki\\Composer\\PhpUnitSplitter\\PhpUnitTestListProcessor' => __DIR__ . '/../..' . '/includes/composer/PhpUnitSplitter/PhpUnitTestListProcessor.php',
+        'MediaWiki\\Composer\\PhpUnitSplitter\\PhpUnitXml' => __DIR__ . '/../..' . '/includes/composer/PhpUnitSplitter/PhpUnitXml.php',
+        'MediaWiki\\Composer\\PhpUnitSplitter\\PhpUnitXmlManager' => __DIR__ . '/../..' . '/includes/composer/PhpUnitSplitter/PhpUnitXmlManager.php',
+        'MediaWiki\\Composer\\PhpUnitSplitter\\SuiteGenerationException' => __DIR__ . '/../..' . '/includes/composer/PhpUnitSplitter/SuiteGenerationException.php',
+        'MediaWiki\\Composer\\PhpUnitSplitter\\TestDescriptor' => __DIR__ . '/../..' . '/includes/composer/PhpUnitSplitter/TestDescriptor.php',
+        'MediaWiki\\Composer\\PhpUnitSplitter\\TestListMissingException' => __DIR__ . '/../..' . '/includes/composer/PhpUnitSplitter/TestListMissingException.php',
+        'MediaWiki\\Composer\\PhpUnitSplitter\\TestSuiteBuilder' => __DIR__ . '/../..' . '/includes/composer/PhpUnitSplitter/TestSuiteBuilder.php',
+        'MediaWiki\\Composer\\PhpUnitSplitter\\UnlocatedTestException' => __DIR__ . '/../..' . '/includes/composer/PhpUnitSplitter/UnlocatedTestException.php',
         'MediaWiki\\Composer\\VersionChecker' => __DIR__ . '/../..' . '/includes/composer/VersionChecker.php',
         'MediaWiki\\Extension\\ExtJSBase\\Config' => __DIR__ . '/../..' . '/extensions/ExtJSBase/src/Config.php',
         'MediaWiki\\Extension\\ExtJSBase\\ITheme' => __DIR__ . '/../..' . '/extensions/ExtJSBase/src/ITheme.php',
@@ -3781,7 +3838,6 @@ class ComposerStaticInit_mediawiki_vendor
         'MediaWiki\\Extension\\ExtJSBase\\Theme\\MediaWikiTouch' => __DIR__ . '/../..' . '/extensions/ExtJSBase/src/Theme/MediaWikiTouch.php',
         'MediaWiki\\Extension\\IFrameTag\\Config' => __DIR__ . '/../..' . '/extensions/IframeTag/src/Config.php',
         'MediaWiki\\Extension\\IFrameTag\\Handler' => __DIR__ . '/../..' . '/extensions/IframeTag/src/Handler.php',
-        'MediaWiki\\Json\\JsonUnserializable' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/includes/compat/JsonUnserializable.php',
         'MediaWiki\\Sniffs\\AlternativeSyntax\\LeadingZeroInFloatSniff' => __DIR__ . '/..' . '/mediawiki/mediawiki-codesniffer/MediaWiki/Sniffs/AlternativeSyntax/LeadingZeroInFloatSniff.php',
         'MediaWiki\\Sniffs\\AlternativeSyntax\\UnicodeEscapeSniff' => __DIR__ . '/..' . '/mediawiki/mediawiki-codesniffer/MediaWiki/Sniffs/AlternativeSyntax/UnicodeEscapeSniff.php',
         'MediaWiki\\Sniffs\\Arrays\\AlphabeticArraySortSniff' => __DIR__ . '/..' . '/mediawiki/mediawiki-codesniffer/MediaWiki/Sniffs/Arrays/AlphabeticArraySortSniff.php',
@@ -4281,28 +4337,28 @@ class ComposerStaticInit_mediawiki_vendor
         'Onoi\\Remi\\OpenLibrary\\OLFilteredHttpResponseParser' => __DIR__ . '/..' . '/onoi/remi/src/OpenLibrary/OLFilteredHttpResponseParser.php',
         'Onoi\\Remi\\ResponseParser' => __DIR__ . '/..' . '/onoi/remi/src/ResponseParser.php',
         'Onoi\\Remi\\Viaf\\ViafFilteredHttpResponseParser' => __DIR__ . '/..' . '/onoi/remi/src/Viaf/ViafFilteredHttpResponseParser.php',
-        'Onoi\\Tesa\\CharacterExaminer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/CharacterExaminer.php',
-        'Onoi\\Tesa\\LanguageDetector\\LanguageDetector' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/LanguageDetector/LanguageDetector.php',
-        'Onoi\\Tesa\\LanguageDetector\\NullLanguageDetector' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/LanguageDetector/NullLanguageDetector.php',
-        'Onoi\\Tesa\\LanguageDetector\\TextCatLanguageDetector' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/LanguageDetector/TextCatLanguageDetector.php',
-        'Onoi\\Tesa\\Normalizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/Normalizer.php',
-        'Onoi\\Tesa\\Sanitizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/Sanitizer.php',
-        'Onoi\\Tesa\\SanitizerFactory' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/SanitizerFactory.php',
-        'Onoi\\Tesa\\StopwordAnalyzer\\ArrayStopwordAnalyzer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/StopwordAnalyzer/ArrayStopwordAnalyzer.php',
-        'Onoi\\Tesa\\StopwordAnalyzer\\CdbStopwordAnalyzer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/StopwordAnalyzer/CdbStopwordAnalyzer.php',
-        'Onoi\\Tesa\\StopwordAnalyzer\\NullStopwordAnalyzer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/StopwordAnalyzer/NullStopwordAnalyzer.php',
-        'Onoi\\Tesa\\StopwordAnalyzer\\StopwordAnalyzer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/StopwordAnalyzer/StopwordAnalyzer.php',
-        'Onoi\\Tesa\\Synonymizer\\NullSynonymizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/Synonymizer/NullSynonymizer.php',
-        'Onoi\\Tesa\\Synonymizer\\Synonymizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/Synonymizer/Synonymizer.php',
-        'Onoi\\Tesa\\Tokenizer\\CJKSimpleCharacterRegExTokenizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/Tokenizer/CJKSimpleCharacterRegExTokenizer.php',
-        'Onoi\\Tesa\\Tokenizer\\GenericRegExTokenizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/Tokenizer/GenericRegExTokenizer.php',
-        'Onoi\\Tesa\\Tokenizer\\IcuWordBoundaryTokenizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/Tokenizer/IcuWordBoundaryTokenizer.php',
-        'Onoi\\Tesa\\Tokenizer\\JaCompoundGroupTokenizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/Tokenizer/JaCompoundGroupTokenizer.php',
-        'Onoi\\Tesa\\Tokenizer\\JaTinySegmenterTokenizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/Tokenizer/JaTinySegmenterTokenizer.php',
-        'Onoi\\Tesa\\Tokenizer\\NGramTokenizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/Tokenizer/NGramTokenizer.php',
-        'Onoi\\Tesa\\Tokenizer\\PunctuationRegExTokenizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/Tokenizer/PunctuationRegExTokenizer.php',
-        'Onoi\\Tesa\\Tokenizer\\Tokenizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/Tokenizer/Tokenizer.php',
-        'Onoi\\Tesa\\Transliterator' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/Tesa/src/Transliterator.php',
+        'Onoi\\Tesa\\CharacterExaminer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/CharacterExaminer.php',
+        'Onoi\\Tesa\\LanguageDetector\\LanguageDetector' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/LanguageDetector/LanguageDetector.php',
+        'Onoi\\Tesa\\LanguageDetector\\NullLanguageDetector' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/LanguageDetector/NullLanguageDetector.php',
+        'Onoi\\Tesa\\LanguageDetector\\TextCatLanguageDetector' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/LanguageDetector/TextCatLanguageDetector.php',
+        'Onoi\\Tesa\\Normalizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/Normalizer.php',
+        'Onoi\\Tesa\\Sanitizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/Sanitizer.php',
+        'Onoi\\Tesa\\SanitizerFactory' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/SanitizerFactory.php',
+        'Onoi\\Tesa\\StopwordAnalyzer\\ArrayStopwordAnalyzer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/StopwordAnalyzer/ArrayStopwordAnalyzer.php',
+        'Onoi\\Tesa\\StopwordAnalyzer\\CdbStopwordAnalyzer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/StopwordAnalyzer/CdbStopwordAnalyzer.php',
+        'Onoi\\Tesa\\StopwordAnalyzer\\NullStopwordAnalyzer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/StopwordAnalyzer/NullStopwordAnalyzer.php',
+        'Onoi\\Tesa\\StopwordAnalyzer\\StopwordAnalyzer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/StopwordAnalyzer/StopwordAnalyzer.php',
+        'Onoi\\Tesa\\Synonymizer\\NullSynonymizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/Synonymizer/NullSynonymizer.php',
+        'Onoi\\Tesa\\Synonymizer\\Synonymizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/Synonymizer/Synonymizer.php',
+        'Onoi\\Tesa\\Tokenizer\\CJKSimpleCharacterRegExTokenizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/Tokenizer/CJKSimpleCharacterRegExTokenizer.php',
+        'Onoi\\Tesa\\Tokenizer\\GenericRegExTokenizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/Tokenizer/GenericRegExTokenizer.php',
+        'Onoi\\Tesa\\Tokenizer\\IcuWordBoundaryTokenizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/Tokenizer/IcuWordBoundaryTokenizer.php',
+        'Onoi\\Tesa\\Tokenizer\\JaCompoundGroupTokenizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/Tokenizer/JaCompoundGroupTokenizer.php',
+        'Onoi\\Tesa\\Tokenizer\\JaTinySegmenterTokenizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/Tokenizer/JaTinySegmenterTokenizer.php',
+        'Onoi\\Tesa\\Tokenizer\\NGramTokenizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/Tokenizer/NGramTokenizer.php',
+        'Onoi\\Tesa\\Tokenizer\\PunctuationRegExTokenizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/Tokenizer/PunctuationRegExTokenizer.php',
+        'Onoi\\Tesa\\Tokenizer\\Tokenizer' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/Tokenizer/Tokenizer.php',
+        'Onoi\\Tesa\\Transliterator' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/Tesa/src/Transliterator.php',
         'OpenSearch\\Client' => __DIR__ . '/..' . '/opensearch-project/opensearch-php/src/OpenSearch/Client.php',
         'OpenSearch\\ClientBuilder' => __DIR__ . '/..' . '/opensearch-project/opensearch-php/src/OpenSearch/ClientBuilder.php',
         'OpenSearch\\Common\\EmptyLogger' => __DIR__ . '/..' . '/opensearch-project/opensearch-php/src/OpenSearch/Common/EmptyLogger.php',
@@ -4766,7 +4822,6 @@ class ComposerStaticInit_mediawiki_vendor
         'PHPStan\\PhpDocParser\\Ast\\ConstExpr\\ConstExprTrueNode' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/ConstExpr/ConstExprTrueNode.php',
         'PHPStan\\PhpDocParser\\Ast\\ConstExpr\\ConstFetchNode' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/ConstExpr/ConstFetchNode.php',
         'PHPStan\\PhpDocParser\\Ast\\ConstExpr\\DoctrineConstExprStringNode' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/ConstExpr/DoctrineConstExprStringNode.php',
-        'PHPStan\\PhpDocParser\\Ast\\ConstExpr\\QuoteAwareConstExprStringNode' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/ConstExpr/QuoteAwareConstExprStringNode.php',
         'PHPStan\\PhpDocParser\\Ast\\Node' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/Node.php',
         'PHPStan\\PhpDocParser\\Ast\\NodeAttributes' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/NodeAttributes.php',
         'PHPStan\\PhpDocParser\\Ast\\NodeTraverser' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/NodeTraverser.php',
@@ -4832,6 +4887,7 @@ class ComposerStaticInit_mediawiki_vendor
         'PHPStan\\PhpDocParser\\Ast\\Type\\TypeNode' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/Type/TypeNode.php',
         'PHPStan\\PhpDocParser\\Ast\\Type\\UnionTypeNode' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Ast/Type/UnionTypeNode.php',
         'PHPStan\\PhpDocParser\\Lexer\\Lexer' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Lexer/Lexer.php',
+        'PHPStan\\PhpDocParser\\ParserConfig' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/ParserConfig.php',
         'PHPStan\\PhpDocParser\\Parser\\ConstExprParser' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Parser/ConstExprParser.php',
         'PHPStan\\PhpDocParser\\Parser\\ParserException' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Parser/ParserException.php',
         'PHPStan\\PhpDocParser\\Parser\\PhpDocParser' => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src/Parser/PhpDocParser.php',
@@ -7467,7 +7523,6 @@ class ComposerStaticInit_mediawiki_vendor
         'SMW\\MediaWiki\\Deferred\\HashFieldUpdate' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/MediaWiki/Deferred/HashFieldUpdate.php',
         'SMW\\MediaWiki\\Deferred\\TransactionalCallableUpdate' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/MediaWiki/Deferred/TransactionalCallableUpdate.php',
         'SMW\\MediaWiki\\EditInfo' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/MediaWiki/EditInfo.php',
-        'SMW\\MediaWiki\\Exception\\ExtendedPermissionsError' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/MediaWiki/Exception/ExtendedPermissionsError.php',
         'SMW\\MediaWiki\\FileRepoFinder' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/MediaWiki/FileRepoFinder.php',
         'SMW\\MediaWiki\\HookDispatcher' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/MediaWiki/HookDispatcher.php',
         'SMW\\MediaWiki\\HookDispatcherAwareTrait' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/src/MediaWiki/HookDispatcherAwareTrait.php',
@@ -8471,7 +8526,6 @@ class ComposerStaticInit_mediawiki_vendor
         'SMW\\Tests\\MediaWiki\\Deferred\\HashFieldUpdateTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/MediaWiki/Deferred/HashFieldUpdateTest.php',
         'SMW\\Tests\\MediaWiki\\Deferred\\TransactionalCallableUpdateTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/MediaWiki/Deferred/TransactionalCallableUpdateTest.php',
         'SMW\\Tests\\MediaWiki\\EditInfoTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/MediaWiki/EditInfoTest.php',
-        'SMW\\Tests\\MediaWiki\\Exception\\ExtendedPermissionsErrorTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/MediaWiki/Exception/ExtendedPermissionsErrorTest.php',
         'SMW\\Tests\\MediaWiki\\FileRepoFinderTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/MediaWiki/FileRepoFinderTest.php',
         'SMW\\Tests\\MediaWiki\\HookDispatcherAwareTraitTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/MediaWiki/HookDispatcherAwareTraitTest.php',
         'SMW\\Tests\\MediaWiki\\HooksTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/MediaWiki/HooksTest.php',
@@ -8536,6 +8590,7 @@ class ComposerStaticInit_mediawiki_vendor
         'SMW\\Tests\\MediaWiki\\PageFactoryTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/MediaWiki/PageFactoryTest.php',
         'SMW\\Tests\\MediaWiki\\PageInfoProviderTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/MediaWiki/PageInfoProviderTest.php',
         'SMW\\Tests\\MediaWiki\\PageUpdaterTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/MediaWiki/PageUpdaterTest.php',
+        'SMW\\Tests\\MediaWiki\\Page\\ConceptPageTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/MediaWiki/Page/ConceptPageTest.php',
         'SMW\\Tests\\MediaWiki\\Page\\ListBuilderTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/MediaWiki/Page/ListBuilderTest.php',
         'SMW\\Tests\\MediaWiki\\Page\\ListBuilder\\ItemListBuilderTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/MediaWiki/Page/ListBuilder/ItemListBuilderTest.php',
         'SMW\\Tests\\MediaWiki\\Page\\ListBuilder\\ValueListBuilderTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/MediaWiki/Page/ListBuilder/ValueListBuilderTest.php',
@@ -8799,6 +8854,7 @@ class ComposerStaticInit_mediawiki_vendor
         'SMW\\Tests\\SMWDIGeoCoordTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/includes/dataitems/DI_GeoCoordTest.php',
         'SMW\\Tests\\SMWDINumberTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/includes/dataitems/DI_NumberTest.php',
         'SMW\\Tests\\SMWExporterTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/includes/export/SMWExporterTest.php',
+        'SMW\\Tests\\SMWIntegrationTestCase' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/SMWIntegrationTestCase.php',
         'SMW\\Tests\\SMWQueryProcessorTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/includes/QueryProcessorTest.php',
         'SMW\\Tests\\SPARQLStore\\Exception\\BadHttpEndpointResponseExceptionTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/SPARQLStore/Exception/BadHttpEndpointResponseExceptionTest.php',
         'SMW\\Tests\\SPARQLStore\\Exception\\HttpEndpointConnectionExceptionTest' => __DIR__ . '/../..' . '/extensions/SemanticMediaWiki/tests/phpunit/SPARQLStore/Exception/HttpEndpointConnectionExceptionTest.php',
@@ -9734,6 +9790,7 @@ class ComposerStaticInit_mediawiki_vendor
         'Symfony\\Component\\Console\\Descriptor\\TextDescriptor' => __DIR__ . '/..' . '/symfony/console/Descriptor/TextDescriptor.php',
         'Symfony\\Component\\Console\\Descriptor\\XmlDescriptor' => __DIR__ . '/..' . '/symfony/console/Descriptor/XmlDescriptor.php',
         'Symfony\\Component\\Console\\EventListener\\ErrorListener' => __DIR__ . '/..' . '/symfony/console/EventListener/ErrorListener.php',
+        'Symfony\\Component\\Console\\Event\\ConsoleAlarmEvent' => __DIR__ . '/..' . '/symfony/console/Event/ConsoleAlarmEvent.php',
         'Symfony\\Component\\Console\\Event\\ConsoleCommandEvent' => __DIR__ . '/..' . '/symfony/console/Event/ConsoleCommandEvent.php',
         'Symfony\\Component\\Console\\Event\\ConsoleErrorEvent' => __DIR__ . '/..' . '/symfony/console/Event/ConsoleErrorEvent.php',
         'Symfony\\Component\\Console\\Event\\ConsoleEvent' => __DIR__ . '/..' . '/symfony/console/Event/ConsoleEvent.php',
@@ -9873,10 +9930,12 @@ class ComposerStaticInit_mediawiki_vendor
         'Symfony\\Component\\String\\Inflector\\EnglishInflector' => __DIR__ . '/..' . '/symfony/string/Inflector/EnglishInflector.php',
         'Symfony\\Component\\String\\Inflector\\FrenchInflector' => __DIR__ . '/..' . '/symfony/string/Inflector/FrenchInflector.php',
         'Symfony\\Component\\String\\Inflector\\InflectorInterface' => __DIR__ . '/..' . '/symfony/string/Inflector/InflectorInterface.php',
+        'Symfony\\Component\\String\\Inflector\\SpanishInflector' => __DIR__ . '/..' . '/symfony/string/Inflector/SpanishInflector.php',
         'Symfony\\Component\\String\\LazyString' => __DIR__ . '/..' . '/symfony/string/LazyString.php',
         'Symfony\\Component\\String\\Resources\\WcswidthDataGenerator' => __DIR__ . '/..' . '/symfony/string/Resources/WcswidthDataGenerator.php',
         'Symfony\\Component\\String\\Slugger\\AsciiSlugger' => __DIR__ . '/..' . '/symfony/string/Slugger/AsciiSlugger.php',
         'Symfony\\Component\\String\\Slugger\\SluggerInterface' => __DIR__ . '/..' . '/symfony/string/Slugger/SluggerInterface.php',
+        'Symfony\\Component\\String\\TruncateMode' => __DIR__ . '/..' . '/symfony/string/TruncateMode.php',
         'Symfony\\Component\\String\\UnicodeString' => __DIR__ . '/..' . '/symfony/string/UnicodeString.php',
         'Symfony\\Component\\VarDumper\\Caster\\AmqpCaster' => __DIR__ . '/..' . '/symfony/var-dumper/Caster/AmqpCaster.php',
         'Symfony\\Component\\VarDumper\\Caster\\ArgsStub' => __DIR__ . '/..' . '/symfony/var-dumper/Caster/ArgsStub.php',
@@ -9916,6 +9975,7 @@ class ComposerStaticInit_mediawiki_vendor
         'Symfony\\Component\\VarDumper\\Caster\\TraceStub' => __DIR__ . '/..' . '/symfony/var-dumper/Caster/TraceStub.php',
         'Symfony\\Component\\VarDumper\\Caster\\UninitializedStub' => __DIR__ . '/..' . '/symfony/var-dumper/Caster/UninitializedStub.php',
         'Symfony\\Component\\VarDumper\\Caster\\UuidCaster' => __DIR__ . '/..' . '/symfony/var-dumper/Caster/UuidCaster.php',
+        'Symfony\\Component\\VarDumper\\Caster\\VirtualStub' => __DIR__ . '/..' . '/symfony/var-dumper/Caster/VirtualStub.php',
         'Symfony\\Component\\VarDumper\\Caster\\XmlReaderCaster' => __DIR__ . '/..' . '/symfony/var-dumper/Caster/XmlReaderCaster.php',
         'Symfony\\Component\\VarDumper\\Caster\\XmlResourceCaster' => __DIR__ . '/..' . '/symfony/var-dumper/Caster/XmlResourceCaster.php',
         'Symfony\\Component\\VarDumper\\Cloner\\AbstractCloner' => __DIR__ . '/..' . '/symfony/var-dumper/Cloner/AbstractCloner.php',
@@ -11191,9 +11251,13 @@ class ComposerStaticInit_mediawiki_vendor
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Covers' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Covers.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Deprecated' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Deprecated.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Example' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Example.php',
+        'phpDocumentor\\Reflection\\DocBlock\\Tags\\Extends_' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Extends_.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Factory\\AbstractPHPStanFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Factory/AbstractPHPStanFactory.php',
+        'phpDocumentor\\Reflection\\DocBlock\\Tags\\Factory\\ExtendsFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Factory/ExtendsFactory.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Factory\\Factory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Factory/Factory.php',
+        'phpDocumentor\\Reflection\\DocBlock\\Tags\\Factory\\ImplementsFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Factory/ImplementsFactory.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Factory\\MethodFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Factory/MethodFactory.php',
+        'phpDocumentor\\Reflection\\DocBlock\\Tags\\Factory\\MethodParameterFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Factory/MethodParameterFactory.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Factory\\PHPStanFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Factory/PHPStanFactory.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Factory\\ParamFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Factory/ParamFactory.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Factory\\PropertyFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Factory/PropertyFactory.php',
@@ -11201,15 +11265,20 @@ class ComposerStaticInit_mediawiki_vendor
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Factory\\PropertyWriteFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Factory/PropertyWriteFactory.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Factory\\ReturnFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Factory/ReturnFactory.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Factory\\StaticMethod' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Factory/StaticMethod.php',
+        'phpDocumentor\\Reflection\\DocBlock\\Tags\\Factory\\TemplateExtendsFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Factory/TemplateExtendsFactory.php',
+        'phpDocumentor\\Reflection\\DocBlock\\Tags\\Factory\\TemplateFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Factory/TemplateFactory.php',
+        'phpDocumentor\\Reflection\\DocBlock\\Tags\\Factory\\TemplateImplementsFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Factory/TemplateImplementsFactory.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Factory\\VarFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Factory/VarFactory.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Formatter' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Formatter.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Formatter\\AlignFormatter' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Formatter/AlignFormatter.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Formatter\\PassthroughFormatter' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Formatter/PassthroughFormatter.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Generic' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Generic.php',
+        'phpDocumentor\\Reflection\\DocBlock\\Tags\\Implements_' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Implements_.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\InvalidTag' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/InvalidTag.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Link' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Link.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Method' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Method.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\MethodParameter' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/MethodParameter.php',
+        'phpDocumentor\\Reflection\\DocBlock\\Tags\\Mixin' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Mixin.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Param' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Param.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Property' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Property.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\PropertyRead' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/PropertyRead.php',
@@ -11222,6 +11291,10 @@ class ComposerStaticInit_mediawiki_vendor
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Since' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Since.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Source' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Source.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\TagWithType' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/TagWithType.php',
+        'phpDocumentor\\Reflection\\DocBlock\\Tags\\Template' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Template.php',
+        'phpDocumentor\\Reflection\\DocBlock\\Tags\\TemplateCovariant' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/TemplateCovariant.php',
+        'phpDocumentor\\Reflection\\DocBlock\\Tags\\TemplateExtends' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/TemplateExtends.php',
+        'phpDocumentor\\Reflection\\DocBlock\\Tags\\TemplateImplements' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/TemplateImplements.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Throws' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Throws.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Uses' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Uses.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Var_' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Var_.php',
@@ -11244,16 +11317,22 @@ class ComposerStaticInit_mediawiki_vendor
         'phpDocumentor\\Reflection\\PseudoTypes\\HtmlEscapedString' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/HtmlEscapedString.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\IntegerRange' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/IntegerRange.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\IntegerValue' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/IntegerValue.php',
+        'phpDocumentor\\Reflection\\PseudoTypes\\ListShape' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/ListShape.php',
+        'phpDocumentor\\Reflection\\PseudoTypes\\ListShapeItem' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/ListShapeItem.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\List_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/List_.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\LiteralString' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/LiteralString.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\LowercaseString' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/LowercaseString.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\NegativeInteger' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/NegativeInteger.php',
+        'phpDocumentor\\Reflection\\PseudoTypes\\NonEmptyArray' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/NonEmptyArray.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\NonEmptyList' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/NonEmptyList.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\NonEmptyLowercaseString' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/NonEmptyLowercaseString.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\NonEmptyString' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/NonEmptyString.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\NumericString' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/NumericString.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\Numeric_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/Numeric_.php',
+        'phpDocumentor\\Reflection\\PseudoTypes\\ObjectShape' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/ObjectShape.php',
+        'phpDocumentor\\Reflection\\PseudoTypes\\ObjectShapeItem' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/ObjectShapeItem.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\PositiveInteger' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/PositiveInteger.php',
+        'phpDocumentor\\Reflection\\PseudoTypes\\ShapeItem' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/ShapeItem.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\StringValue' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/StringValue.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\TraitString' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/TraitString.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\True_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/True_.php',

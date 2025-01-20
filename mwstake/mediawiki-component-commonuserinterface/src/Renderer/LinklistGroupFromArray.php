@@ -7,6 +7,7 @@ use MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\DataAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\ILinklistGroupFromArray;
+use MWStake\MediaWiki\Component\CommonUserInterface\IListRoleProvider;
 
 class LinklistGroupFromArray extends RendererBase {
 
@@ -68,9 +69,30 @@ class LinklistGroupFromArray extends RendererBase {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'cnt-aria' => $ariaAttributesBuilder->build( $aria )
+						'cnt-aria' => $ariaAttributesBuilder->toString( $aria )
 					]
 				);
+			}
+
+			if ( $component instanceof IListRoleProvider ) {
+				$role = $component->getContainerRole();
+				if ( $role !== '' ) {
+					$templateData = array_merge(
+						$templateData,
+						[
+							'cnt-role' => $role
+						]
+					);
+				}
+				$itemRole = $component->getItemRole();
+				if ( $itemRole !== '' ) {
+					$templateData = array_merge(
+						$templateData,
+						[
+							'item-role' => $itemRole
+						]
+					);
+				}
 			}
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );

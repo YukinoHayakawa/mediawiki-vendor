@@ -4,6 +4,7 @@ namespace PHPStan\PhpDocParser\Parser;
 
 use Iterator;
 use PHPStan\PhpDocParser\Lexer\Lexer;
+use PHPStan\PhpDocParser\ParserConfig;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Process\Process;
 use function file_get_contents;
@@ -19,21 +20,19 @@ use function unlink;
 class FuzzyTest extends TestCase
 {
 
-	/** @var Lexer */
-	private $lexer;
+	private Lexer $lexer;
 
-	/** @var TypeParser */
-	private $typeParser;
+	private TypeParser $typeParser;
 
-	/** @var ConstExprParser */
-	private $constExprParser;
+	private ConstExprParser $constExprParser;
 
 	protected function setUp(): void
 	{
 		parent::setUp();
-		$this->lexer = new Lexer();
-		$this->typeParser = new TypeParser(new ConstExprParser());
-		$this->constExprParser = new ConstExprParser();
+		$config = new ParserConfig([]);
+		$this->lexer = new Lexer($config);
+		$this->typeParser = new TypeParser($config, new ConstExprParser($config));
+		$this->constExprParser = new ConstExprParser($config);
 	}
 
 	/**
@@ -47,7 +46,7 @@ class FuzzyTest extends TestCase
 		$this->assertSame(
 			Lexer::TOKEN_END,
 			$tokens->currentTokenType(),
-			sprintf('Failed to parse input %s', $input)
+			sprintf('Failed to parse input %s', $input),
 		);
 	}
 
@@ -67,7 +66,7 @@ class FuzzyTest extends TestCase
 		$this->assertSame(
 			Lexer::TOKEN_END,
 			$tokens->currentTokenType(),
-			sprintf('Failed to parse input %s', $input)
+			sprintf('Failed to parse input %s', $input),
 		);
 	}
 

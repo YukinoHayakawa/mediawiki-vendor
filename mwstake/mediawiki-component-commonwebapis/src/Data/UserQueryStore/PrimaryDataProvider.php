@@ -3,6 +3,7 @@
 namespace MWStake\MediaWiki\Component\CommonWebAPIs\Data\UserQueryStore;
 
 use GlobalVarConfig;
+use MediaWiki\Message\Message;
 use MWStake\MediaWiki\Component\DataStore\Filter;
 use MWStake\MediaWiki\Component\DataStore\PrimaryDatabaseDataProvider;
 use MWStake\MediaWiki\Component\DataStore\ReaderParams;
@@ -48,6 +49,29 @@ class PrimaryDataProvider extends PrimaryDatabaseDataProvider {
 	/**
 	 * @return array
 	 */
+	public function getGroupBuckets(): array {
+		$groupBlacklist = $this->mwsgConfig->get( 'CommonWebAPIsComponentUserStoreExcludeGroups' );
+		$res = $this->db->select(
+			'user_groups',
+			[ 'DISTINCT ug_group' ],
+			[
+				'ug_group NOT IN (' . $this->db->makeList( $groupBlacklist ) . ')',
+			],
+			__METHOD__,
+			[ 'GROUP BY' => 'ug_group' ]
+		);
+		$groups = [];
+		foreach ( $res as $row ) {
+			$msg = Message::newFromKey( 'group-' . $row->ug_group );
+			$groups[$row->ug_group] = $msg->exists() ? $msg->text() : $row->ug_group;
+		}
+
+		return $groups;
+	}
+
+	/**
+	 * @return array
+	 */
 	private function getGroups() {
 		$groupBlacklist = $this->mwsgConfig->get( 'CommonWebAPIsComponentUserStoreExcludeGroups' );
 		$res = $this->db->select(
@@ -69,10 +93,17 @@ class PrimaryDataProvider extends PrimaryDatabaseDataProvider {
 	 * @return array
 	 */
 	private function getBlocks() {
+		$res = $this->db->select(
+			[ 'b' => 'block', 'bt' => 'block_target' ],
+			[ 'bt_user' ],
+			[],
+			__METHOD__,
+			[],
+			[ 'b' => [ 'INNER JOIN', 'bt.bt_id = b.bl_target' ] ]
+		);
 		$blocks = [];
-		$blocksRes = $this->db->select( 'ipblocks', '*', '', __METHOD__ );
-		foreach ( $blocksRes as $row ) {
-			$blocks[$row->ipb_user] = $row->ipb_address;
+		foreach ( $res as $row ) {
+			$blocks[] = (int)$row->bt_user;
 		}
 
 		return $blocks;
@@ -88,23 +119,13 @@ class PrimaryDataProvider extends PrimaryDatabaseDataProvider {
 		$conds = parent::makePreFilterConds( $params );
 		$query = $params->getQuery();
 		foreach ( $filters as $filter ) {
-			if ( $filter->getField() === 'user_name' ) {
-				// Usernames are stored with spaces in the query table
-				$filterValue = str_replace( '_', ' ', $filter->getValue() );
-				if (
-					$filter->getComparison() === Filter::COMPARISON_CONTAINS ||
-					$filter->getComparison() === Filter::COMPARISON_LIKE
-				) {
-					$query = $filterValue;
-				} elseif ( $filter->getComparison() === Filter::COMPARISON_EQUALS ) {
-					$conds['user_name'] = $filterValue;
-				} elseif ( $filter->getComparison() === Filter::COMPARISON_NOT_EQUALS ) {
-					$conds['user_name NOT'] = $filterValue;
-				}
+			if ( $filter->getField() === 'user_name' || $filter->getField() == 'user_real_name' ) {
+				// Incompatible with query, takes priority
+				$query = '';
+				$this->addIndexedNameFilter( $filter, $conds );
 				$filter->setApplied( true );
 			}
 		}
-
 		if ( $query !== '' ) {
 			$query = mb_strtolower( $query );
 			$conds[] = $this->db->makeList(
@@ -133,19 +154,47 @@ class PrimaryDataProvider extends PrimaryDatabaseDataProvider {
 	}
 
 	/**
-	 * @inheritDoc
+	 * @param Filter $filter
+	 * @param array &$conds
+	 * @return void
 	 */
-	protected function skipPreFilter( Filter $filter ) {
-		return $filter->getField() === 'user_name';
+	private function addIndexedNameFilter( Filter $filter, array &$conds ) {
+		$fieldMapping = [
+			'user_name' => 'mui_user_name',
+			'user_real_name' => 'mui_user_real_name'
+		];
+		$filterValue = str_replace( '_', ' ', $filter->getValue() );
+		if (
+			$filter->getComparison() === Filter::COMPARISON_CONTAINS ||
+			$filter->getComparison() === Filter::COMPARISON_LIKE
+		) {
+			$field = $fieldMapping[$filter->getField()];
+			$conds[] = "$field " . $this->db->buildLike(
+				$this->db->anyString(), $filterValue, $this->db->anyString()
+			);
+		} elseif ( $filter->getComparison() === Filter::COMPARISON_EQUALS ) {
+			$conds[$filter->getField()] = $filterValue;
+		} elseif ( $filter->getComparison() === Filter::COMPARISON_NOT_EQUALS ) {
+			$conds[$filter->getField()] = $filterValue;
+		}
 	}
 
 	/**
-	 * @param string $userId
+	 * @inheritDoc
+	 */
+	protected function skipPreFilter( Filter $filter ) {
+		return $filter->getField() === 'user_name' ||
+			$filter->getField() === 'user_real_name' ||
+			$filter->getField() === 'enabled';
+	}
+
+	/**
+	 * @param int $userId
 	 *
 	 * @return bool
 	 */
-	protected function isUserBlocked( string $userId ) {
-		return isset( $this->blocks[$userId] );
+	protected function isUserBlocked( int $userId ) {
+		return in_array( (int)$userId, $this->blocks );
 	}
 
 	/**
@@ -160,8 +209,10 @@ class PrimaryDataProvider extends PrimaryDatabaseDataProvider {
 			'user_real_name' => $row->user_real_name,
 			'user_registration' => $row->user_registration,
 			'user_editcount' => (int)$row->user_editcount,
+			'user_email' => $row->user_email,
 			'groups' => isset( $this->groups[$row->user_id] ) ? $this->groups[$row->user_id] : [],
-			'enabled' => !$this->isUserBlocked( $row->user_id ),
+			'groups_raw' => isset( $this->groups[$row->user_id] ) ? $this->groups[$row->user_id] : [],
+			'enabled' => !$this->isUserBlocked( (int)$row->user_id ),
 			// legacy fields
 			'display_name' => $row->user_real_name == null ? $row->user_name : $row->user_real_name,
 		];

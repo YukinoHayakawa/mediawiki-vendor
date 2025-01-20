@@ -2,13 +2,15 @@
 
 namespace PHPStan\PhpDocParser\Printer;
 
+use LogicException;
 use PhpParser\Comment\Doc;
-use PhpParser\Lexer\Emulative;
+use PhpParser\Internal\TokenStream;
 use PhpParser\Node as PhpNode;
 use PhpParser\NodeTraverser as PhpParserNodeTraverser;
 use PhpParser\NodeVisitor\CloningVisitor as PhpParserCloningVisitor;
 use PhpParser\NodeVisitorAbstract;
-use PhpParser\Parser\Php7;
+use PhpParser\ParserFactory;
+use PhpParser\PrettyPrinter\Standard;
 use PHPStan\PhpDocParser\Ast\AbstractNodeVisitor;
 use PHPStan\PhpDocParser\Ast\Node;
 use PHPStan\PhpDocParser\Ast\NodeTraverser;
@@ -22,11 +24,15 @@ use PHPStan\PhpDocParser\Parser\ConstExprParser;
 use PHPStan\PhpDocParser\Parser\PhpDocParser;
 use PHPStan\PhpDocParser\Parser\TokenIterator;
 use PHPStan\PhpDocParser\Parser\TypeParser;
+use PHPStan\PhpDocParser\ParserConfig;
 use PHPUnit\Framework\TestCase;
 use function file_get_contents;
+use function str_repeat;
 
 class IntegrationPrinterWithPhpParserTest extends TestCase
 {
+
+	private const TAB_WIDTH = 4;
 
 	/**
 	 * @return iterable<array{string, string, NodeVisitor}>
@@ -42,7 +48,8 @@ class IntegrationPrinterWithPhpParserTest extends TestCase
 						new IdentifierTypeNode('Bar'),
 						false,
 						'$b',
-						''
+						'',
+						false,
 					));
 				}
 				return $node;
@@ -66,32 +73,31 @@ class IntegrationPrinterWithPhpParserTest extends TestCase
 	 */
 	public function testPrint(string $file, string $expectedFile, NodeVisitor $visitor): void
 	{
-		$lexer = new Emulative([
-			'usedAttributes' => [
-				'comments',
-				'startLine', 'endLine',
-				'startTokenPos', 'endTokenPos',
-			],
-		]);
-		$phpParser = new Php7($lexer);
+		$phpParserFactory = new ParserFactory();
+		$phpParser = $phpParserFactory->createForNewestSupportedVersion();
 		$phpTraverser = new PhpParserNodeTraverser();
 		$phpTraverser->addVisitor(new PhpParserCloningVisitor());
 
-		$printer = new PhpPrinter();
 		$fileContents = file_get_contents($file);
 		if ($fileContents === false) {
 			$this->fail('Could not read ' . $file);
 		}
 
-		/** @var PhpNode[] $oldStmts */
 		$oldStmts = $phpParser->parse($fileContents);
-		$oldTokens = $lexer->getTokens();
+		if ($oldStmts === null) {
+			throw new LogicException();
+		}
+		$oldTokens = $phpParser->getTokens();
+
+		$phpTraverserIndent = new PhpParserNodeTraverser();
+		$indentDetector = new PhpPrinterIndentationDetectorVisitor(new TokenStream($oldTokens, self::TAB_WIDTH));
+		$phpTraverserIndent->addVisitor($indentDetector);
+		$phpTraverserIndent->traverse($oldStmts);
 
 		$phpTraverser2 = new PhpParserNodeTraverser();
 		$phpTraverser2->addVisitor(new class ($visitor) extends NodeVisitorAbstract {
 
-			/** @var NodeVisitor */
-			private $visitor;
+			private NodeVisitor $visitor;
 
 			public function __construct(NodeVisitor $visitor)
 			{
@@ -106,16 +112,14 @@ class IntegrationPrinterWithPhpParserTest extends TestCase
 
 				$phpDoc = $phpNode->getDocComment()->getText();
 
-				$usedAttributes = ['lines' => true, 'indexes' => true];
-				$constExprParser = new ConstExprParser(true, true, $usedAttributes);
+				$config = new ParserConfig(['lines' => true, 'indexes' => true]);
+				$constExprParser = new ConstExprParser($config);
 				$phpDocParser = new PhpDocParser(
-					new TypeParser($constExprParser, true, $usedAttributes),
+					$config,
+					new TypeParser($config, $constExprParser),
 					$constExprParser,
-					true,
-					true,
-					$usedAttributes
 				);
-				$lexer = new Lexer();
+				$lexer = new Lexer($config);
 				$tokens = new TokenIterator($lexer->tokenize($phpDoc));
 				$phpDocNode = $phpDocParser->parse($tokens);
 				$cloningTraverser = new NodeTraverser([new NodeVisitor\CloningVisitor()]);
@@ -139,6 +143,7 @@ class IntegrationPrinterWithPhpParserTest extends TestCase
 		$newStmts = $phpTraverser->traverse($oldStmts);
 		$newStmts = $phpTraverser2->traverse($newStmts);
 
+		$printer = new Standard(['indent' => str_repeat($indentDetector->indentCharacter, $indentDetector->indentSize)]);
 		$newCode = $printer->printFormatPreserving($newStmts, $oldStmts, $oldTokens);
 		$this->assertStringEqualsFile($expectedFile, $newCode);
 	}

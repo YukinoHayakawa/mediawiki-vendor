@@ -63,7 +63,8 @@ class PrimaryDataProvider extends \MWStake\MediaWiki\Component\CommonWebAPIs\Dat
 	protected function appendRowToData( \stdClass $row ) {
 		$indexTitle = $row->mti_title;
 		$uniqueId = $this->getUniqueId( $row );
-		if ( $this->isSubpage( $indexTitle ) ) {
+		if ( $this->isSubpage( $indexTitle ) &&
+			$this->nsInfo->hasSubpages( (int)$row->page_namespace ) ) {
 			if (
 				$this->queryMatchesSubpage( $indexTitle )
 			) {
@@ -128,6 +129,7 @@ class PrimaryDataProvider extends \MWStake\MediaWiki\Component\CommonWebAPIs\Dat
 			TitleTreeRecord::PAGE_TITLE => $row->page_title,
 			TitleTreeRecord::PAGE_DBKEY => $row->page_title,
 			TitleTreeRecord::IS_CONTENT_PAGE => in_array( $row->page_namespace, $this->contentNamespaces ),
+			TitleTreeRecord::ALLOWS_SUBPAGES => $this->nsInfo->hasSubpages( (int)$row->page_namespace ),
 			TitleTreeRecord::LEAF => false,
 			TitleTreeRecord::EXPANDED => $expanded,
 			TitleTreeRecord::LOADED => $loaded,
@@ -201,7 +203,8 @@ class PrimaryDataProvider extends \MWStake\MediaWiki\Component\CommonWebAPIs\Dat
 		$parentRow->page_namespace = $row->page_namespace;
 		$parentRow->children = $this->getChildren(
 			$parentRow,
-			$this->makeRecord( $row, $uniqueId, !$fromQuery, !$fromQuery, )
+			$this->makeRecord( $row, $uniqueId, !$fromQuery, !$fromQuery, ),
+			$fromQuery
 		);
 		$this->insertParents( $parentRow, $this->getUniqueId( $parentRow ) );
 	}
@@ -209,10 +212,11 @@ class PrimaryDataProvider extends \MWStake\MediaWiki\Component\CommonWebAPIs\Dat
 	/**
 	 * @param \stdClass $row
 	 * @param TitleTreeRecord|null $loadedChild
+	 * @param bool|null $fromQuery
 	 *
 	 * @return TitleTreeRecord[]
 	 */
-	private function getChildren( \stdClass $row, ?TitleTreeRecord $loadedChild ): array {
+	private function getChildren( \stdClass $row, ?TitleTreeRecord $loadedChild, $fromQuery = null ): array {
 		$childRows = $this->getSubpages( $row );
 		$children = $loadedChild ? [ $loadedChild ] : [];
 		foreach ( $childRows as $childRow ) {
@@ -221,6 +225,9 @@ class PrimaryDataProvider extends \MWStake\MediaWiki\Component\CommonWebAPIs\Dat
 				continue;
 			}
 			if ( !$this->isDirectChildOf( $row->page_title, $childRow->page_title ) ) {
+				continue;
+			}
+			if ( $fromQuery && strpos( $childRow->page_title, $this->query ) === false ) {
 				continue;
 			}
 			$child = $this->makeRecord( $childRow, $uniqueChildId, false, false );

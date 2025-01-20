@@ -7,8 +7,8 @@ use PHPStan\PhpDocParser\Ast\Attribute;
 use PHPStan\PhpDocParser\Ast\ConstExpr\ConstExprArrayItemNode;
 use PHPStan\PhpDocParser\Ast\ConstExpr\ConstExprArrayNode;
 use PHPStan\PhpDocParser\Ast\ConstExpr\ConstExprIntegerNode;
+use PHPStan\PhpDocParser\Ast\ConstExpr\ConstExprStringNode;
 use PHPStan\PhpDocParser\Ast\ConstExpr\ConstFetchNode;
-use PHPStan\PhpDocParser\Ast\ConstExpr\QuoteAwareConstExprStringNode;
 use PHPStan\PhpDocParser\Ast\Node;
 use PHPStan\PhpDocParser\Ast\NodeTraverser;
 use PHPStan\PhpDocParser\Ast\NodeVisitor;
@@ -48,6 +48,7 @@ use PHPStan\PhpDocParser\Parser\ConstExprParser;
 use PHPStan\PhpDocParser\Parser\PhpDocParser;
 use PHPStan\PhpDocParser\Parser\TokenIterator;
 use PHPStan\PhpDocParser\Parser\TypeParser;
+use PHPStan\PhpDocParser\ParserConfig;
 use PHPUnit\Framework\TestCase;
 use function array_pop;
 use function array_splice;
@@ -60,24 +61,19 @@ use const PHP_EOL;
 class PrinterTest extends TestCase
 {
 
-	/** @var TypeParser */
-	private $typeParser;
+	private TypeParser $typeParser;
 
-	/** @var PhpDocParser */
-	private $phpDocParser;
+	private PhpDocParser $phpDocParser;
 
 	protected function setUp(): void
 	{
-		$usedAttributes = ['lines' => true, 'indexes' => true];
-		$constExprParser = new ConstExprParser(true, true, $usedAttributes);
-		$this->typeParser = new TypeParser($constExprParser, true, $usedAttributes);
+		$config = new ParserConfig(['lines' => true, 'indexes' => true]);
+		$constExprParser = new ConstExprParser($config);
+		$this->typeParser = new TypeParser($config, $constExprParser);
 		$this->phpDocParser = new PhpDocParser(
+			$config,
 			$this->typeParser,
 			$constExprParser,
-			true,
-			true,
-			$usedAttributes,
-			true
 		);
 	}
 
@@ -344,7 +340,7 @@ class PrinterTest extends TestCase
 			public function enterNode(Node $node)
 			{
 				if ($node instanceof PhpDocNode) {
-					$node->children[0] = new PhpDocTagNode('@param', new ParamTagValueNode(new IdentifierTypeNode('Baz'), false, '$a', ''));
+					$node->children[0] = new PhpDocTagNode('@param', new ParamTagValueNode(new IdentifierTypeNode('Baz'), false, '$a', '', false));
 					return $node;
 				}
 
@@ -384,7 +380,7 @@ class PrinterTest extends TestCase
 			public function enterNode(Node $node)
 			{
 				if ($node instanceof PhpDocNode) {
-					array_unshift($node->children, new PhpDocTagNode('@param', new ParamTagValueNode(new IdentifierTypeNode('Baz'), false, '$a', '')));
+					array_unshift($node->children, new PhpDocTagNode('@param', new ParamTagValueNode(new IdentifierTypeNode('Baz'), false, '$a', '', false)));
 
 					return $node;
 				}
@@ -422,7 +418,7 @@ class PrinterTest extends TestCase
 			{
 				if ($node instanceof PhpDocNode) {
 					array_splice($node->children, 1, 0, [
-						new PhpDocTagNode('@param', new ParamTagValueNode(new IdentifierTypeNode('Baz'), false, '$a', '')),
+						new PhpDocTagNode('@param', new ParamTagValueNode(new IdentifierTypeNode('Baz'), false, '$a', '', false)),
 					]);
 
 					return $node;
@@ -488,7 +484,7 @@ class PrinterTest extends TestCase
 			public function enterNode(Node $node)
 			{
 				if ($node instanceof PhpDocNode) {
-					$node->children[count($node->children) - 1] = new PhpDocTagNode('@param', new ParamTagValueNode(new IdentifierTypeNode('Baz'), false, '$a', ''));
+					$node->children[count($node->children) - 1] = new PhpDocTagNode('@param', new ParamTagValueNode(new IdentifierTypeNode('Baz'), false, '$a', '', false));
 					return $node;
 				}
 
@@ -604,7 +600,7 @@ class PrinterTest extends TestCase
 					$node->templateTypes[] = new TemplateTagValueNode(
 						'T',
 						new IdentifierTypeNode('int'),
-						''
+						'',
 					);
 				}
 
@@ -1028,7 +1024,7 @@ class PrinterTest extends TestCase
 			public function enterNode(Node $node)
 			{
 				if ($node instanceof ArrayShapeItemNode) {
-					$node->keyName = new QuoteAwareConstExprStringNode('test', QuoteAwareConstExprStringNode::SINGLE_QUOTED);
+					$node->keyName = new ConstExprStringNode('test', ConstExprStringNode::SINGLE_QUOTED);
 				}
 
 				return $node;
@@ -1251,7 +1247,7 @@ class PrinterTest extends TestCase
 					$node->templateTypes[] = new TemplateTagValueNode(
 						'T',
 						new IdentifierTypeNode('int'),
-						''
+						'',
 					);
 				}
 
@@ -1272,27 +1268,24 @@ class PrinterTest extends TestCase
 			$addMethodTemplateType,
 		];
 
-		$changeCallableReturnTypeFactory = function (TypeNode $type): NodeVisitor {
-			return new class ($type) extends AbstractNodeVisitor {
+		$changeCallableReturnTypeFactory = static fn (TypeNode $type): NodeVisitor => new class ($type) extends AbstractNodeVisitor {
 
-				/** @var TypeNode */
-				private $type;
+			private TypeNode $type;
 
-				public function __construct(TypeNode $type)
-				{
-					$this->type = $type;
+			public function __construct(TypeNode $type)
+			{
+				$this->type = $type;
+			}
+
+			public function enterNode(Node $node)
+			{
+				if ($node instanceof CallableTypeNode) {
+					$node->returnType = $this->type;
 				}
 
-				public function enterNode(Node $node)
-				{
-					if ($node instanceof CallableTypeNode) {
-						$node->returnType = $this->type;
-					}
+				return $node;
+			}
 
-					return $node;
-				}
-
-			};
 		};
 
 		yield [
@@ -1325,44 +1318,38 @@ class PrinterTest extends TestCase
 			])),
 		];
 
-		$changeCallableReturnTypeCallbackFactory = function (callable $callback): NodeVisitor {
-			return new class ($callback) extends AbstractNodeVisitor {
+		$changeCallableReturnTypeCallbackFactory = fn (callable $callback): NodeVisitor => new class ($callback) extends AbstractNodeVisitor {
 
-				/** @var callable(TypeNode): TypeNode */
-				private $callback;
+			/** @var callable(TypeNode): TypeNode */
+			private $callback;
 
-				public function __construct(callable $callback)
-				{
-					$this->callback = $callback;
+			public function __construct(callable $callback)
+			{
+				$this->callback = $callback;
+			}
+
+			public function enterNode(Node $node)
+			{
+				if ($node instanceof CallableTypeNode) {
+					$cb = $this->callback;
+					$node->returnType = $cb($node->returnType);
 				}
 
-				public function enterNode(Node $node)
-				{
-					if ($node instanceof CallableTypeNode) {
-						$cb = $this->callback;
-						$node->returnType = $cb($node->returnType);
-					}
+				return $node;
+			}
 
-					return $node;
-				}
-
-			};
 		};
 
 		yield [
 			'/** @param callable(): int $a */',
 			'/** @param callable(): string $a */',
-			$changeCallableReturnTypeCallbackFactory(static function (TypeNode $typeNode): TypeNode {
-				return new IdentifierTypeNode('string');
-			}),
+			$changeCallableReturnTypeCallbackFactory(static fn (TypeNode $typeNode) => new IdentifierTypeNode('string')),
 		];
 
 		yield [
 			'/** @param callable(): (int) $a */',
 			'/** @param callable(): string $a */',
-			$changeCallableReturnTypeCallbackFactory(static function (TypeNode $typeNode): TypeNode {
-				return new IdentifierTypeNode('string');
-			}),
+			$changeCallableReturnTypeCallbackFactory(static fn (TypeNode $typeNode) => new IdentifierTypeNode('string')),
 		];
 
 		yield [
@@ -1946,7 +1933,8 @@ class PrinterTest extends TestCase
 	 */
 	public function testPrintFormatPreserving(string $phpDoc, string $expectedResult, NodeVisitor $visitor): void
 	{
-		$lexer = new Lexer(true);
+		$config = new ParserConfig([]);
+		$lexer = new Lexer($config);
 		$tokens = new TokenIterator($lexer->tokenize($phpDoc));
 		$phpDocNode = $this->phpDocParser->parse($tokens);
 		$cloningTraverser = new NodeTraverser([new NodeVisitor\CloningVisitor()]);
@@ -1963,7 +1951,7 @@ class PrinterTest extends TestCase
 
 		$this->assertEquals(
 			$this->unsetAttributes($newNode),
-			$this->unsetAttributes($this->phpDocParser->parse(new TokenIterator($lexer->tokenize($newPhpDoc))))
+			$this->unsetAttributes($this->phpDocParser->parse(new TokenIterator($lexer->tokenize($newPhpDoc)))),
 		);
 	}
 
@@ -2019,7 +2007,7 @@ class PrinterTest extends TestCase
 				[
 					GenericTypeNode::VARIANCE_INVARIANT,
 					GenericTypeNode::VARIANCE_INVARIANT,
-				]
+				],
 			),
 			'array<int, int|string>',
 		];
@@ -2027,18 +2015,18 @@ class PrinterTest extends TestCase
 			new CallableTypeNode(new IdentifierTypeNode('callable'), [], new UnionTypeNode([
 				new IdentifierTypeNode('int'),
 				new IdentifierTypeNode('string'),
-			])),
+			]), []),
 			'callable(): (int|string)',
 		];
 		yield [
-			new CallableTypeNode(new IdentifierTypeNode('callable'), [], new ArrayTypeNode(new ArrayTypeNode(new ArrayTypeNode(new IdentifierTypeNode('int'))))),
+			new CallableTypeNode(new IdentifierTypeNode('callable'), [], new ArrayTypeNode(new ArrayTypeNode(new ArrayTypeNode(new IdentifierTypeNode('int')))), []),
 			'callable(): int[][][]',
 		];
 		yield [
 			new ArrayTypeNode(
 				new ArrayTypeNode(
-					new CallableTypeNode(new IdentifierTypeNode('callable'), [], new ArrayTypeNode(new IdentifierTypeNode('int')))
-				)
+					new CallableTypeNode(new IdentifierTypeNode('callable'), [], new ArrayTypeNode(new IdentifierTypeNode('int')), []),
+				),
 			),
 			'(callable(): int[])[][]',
 		];
@@ -2081,21 +2069,21 @@ class PrinterTest extends TestCase
 		yield [
 			new OffsetAccessTypeNode(
 				new ConstTypeNode(new ConstFetchNode('self', 'TYPES')),
-				new IdentifierTypeNode('int')
+				new IdentifierTypeNode('int'),
 			),
 			'self::TYPES[int]',
 		];
 		yield [
-			new ArrayShapeNode([
+			ArrayShapeNode::createSealed([
 				new ArrayShapeItemNode(
 					new IdentifierTypeNode('name'),
 					false,
-					new IdentifierTypeNode('string')
+					new IdentifierTypeNode('string'),
 				),
 				new ArrayShapeItemNode(
-					new QuoteAwareConstExprStringNode('Full Name', QuoteAwareConstExprStringNode::SINGLE_QUOTED),
+					new ConstExprStringNode('Full Name', ConstExprStringNode::SINGLE_QUOTED),
 					false,
-					new IdentifierTypeNode('string')
+					new IdentifierTypeNode('string'),
 				),
 			]),
 			"array{name: string, 'Full Name': string}",
@@ -2105,12 +2093,12 @@ class PrinterTest extends TestCase
 				new ObjectShapeItemNode(
 					new IdentifierTypeNode('name'),
 					false,
-					new IdentifierTypeNode('string')
+					new IdentifierTypeNode('string'),
 				),
 				new ObjectShapeItemNode(
-					new QuoteAwareConstExprStringNode('Full Name', QuoteAwareConstExprStringNode::SINGLE_QUOTED),
+					new ConstExprStringNode('Full Name', ConstExprStringNode::SINGLE_QUOTED),
 					false,
-					new IdentifierTypeNode('string')
+					new IdentifierTypeNode('string'),
 				),
 			]),
 			"object{name: string, 'Full Name': string}",
@@ -2126,10 +2114,11 @@ class PrinterTest extends TestCase
 		$phpDoc = $printer->print($node);
 		$this->assertSame($expectedResult, $phpDoc);
 
-		$lexer = new Lexer();
+		$config = new ParserConfig([]);
+		$lexer = new Lexer($config);
 		$this->assertEquals(
 			$this->unsetAttributes($node),
-			$this->unsetAttributes($this->typeParser->parse(new TokenIterator($lexer->tokenize($phpDoc))))
+			$this->unsetAttributes($this->typeParser->parse(new TokenIterator($lexer->tokenize($phpDoc)))),
 		);
 	}
 
@@ -2144,7 +2133,8 @@ class PrinterTest extends TestCase
 					new IdentifierTypeNode('int'),
 					false,
 					'$a',
-					''
+					'',
+					false,
 				)),
 			]),
 			'/**
@@ -2162,10 +2152,11 @@ class PrinterTest extends TestCase
 		$phpDoc = $printer->print($node);
 		$this->assertSame($expectedResult, $phpDoc);
 
-		$lexer = new Lexer();
+		$config = new ParserConfig([]);
+		$lexer = new Lexer($config);
 		$this->assertEquals(
 			$this->unsetAttributes($node),
-			$this->unsetAttributes($this->phpDocParser->parse(new TokenIterator($lexer->tokenize($phpDoc))))
+			$this->unsetAttributes($this->phpDocParser->parse(new TokenIterator($lexer->tokenize($phpDoc)))),
 		);
 	}
 

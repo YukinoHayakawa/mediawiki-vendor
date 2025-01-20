@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'TextCat' => array($vendorDir . '/wikimedia/textcat/src'),
-    'SemanticMediaWiki' => array($baseDir . '/extensions/SemanticMediaWiki/includes/SemanticMediaWiki.php', $baseDir . '/extensions/SemanticMediaWiki/includes/SemanticMediaWiki.php'),
+    'SemanticMediaWiki' => array($baseDir . '/extensions/SemanticMediaWiki/includes/SemanticMediaWiki.php'),
     'ParsedownExtra' => array($vendorDir . '/erusev/parsedown-extra'),
     'ParsedownExtended' => array($vendorDir . '/benjaminhoegh/parsedown-extended/src'),
     'Parsedown' => array($vendorDir . '/erusev/parsedown'),

@@ -21,6 +21,9 @@ class AriaAttributesBuilder {
 		$attribs = [];
 
 		foreach ( $data  as $key => $value ) {
+			if ( $value === '' ) {
+				continue;
+			}
 			$attrib = Sanitizer::safeEncodeTagAttributes( [
 				"aria-$key" => $value
 			] );
