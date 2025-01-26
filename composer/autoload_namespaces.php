@@ -6,18 +6,15 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'TextCat' => array($vendorDir . '/wikimedia/textcat/src'),
-    'SemanticMediaWiki' => array($baseDir . '/extensions/SemanticMediaWiki/includes/SemanticMediaWiki.php'),
-    'ParsedownExtra' => array($vendorDir . '/erusev/parsedown-extra'),
-    'ParsedownExtended' => array($vendorDir . '/benjaminhoegh/parsedown-extended/src'),
-    'Parsedown' => array($vendorDir . '/erusev/parsedown'),
+    'Twig_' => array($vendorDir . '/twig/twig/lib'),
+    'PHPQueue' => array($vendorDir . '/coderkungfu/php-queue/src'),
     'Net' => array($vendorDir . '/pear/net_smtp', $vendorDir . '/pear/net_socket'),
-    'Mail' => array($vendorDir . '/pear/mail', $vendorDir . '/pear/mail_mime'),
+    'Mail' => array($vendorDir . '/pear/mail_mime', $vendorDir . '/pear/mail'),
     'Liuggio' => array($vendorDir . '/liuggio/statsd-php-client/src'),
     'Less' => array($vendorDir . '/wikimedia/less.php/lib'),
-    'JsonMapper' => array($vendorDir . '/netresearch/jsonmapper/src'),
-    'HTMLPurifier' => array($vendorDir . '/ezyang/htmlpurifier/library'),
+    'ForceUTF8\\' => array($vendorDir . '/neitanod/forceutf8/src'),
     'Console' => array($vendorDir . '/pear/console_getopt'),
+    'Clio' => array($vendorDir . '/clio/clio/src'),
     'CSSMin' => array($vendorDir . '/wikimedia/minify/src'),
     '' => array($vendorDir . '/cssjanus/cssjanus/src'),
 );

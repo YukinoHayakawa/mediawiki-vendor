@@ -1,28 +1,57 @@
 <?php
 /**
  * @private
- * @see less.tree.Call in less.js 3.0.0 https://github.com/less/less.js/blob/v3.0.0/dist/less.js#L6336
+ * @see less-3.13.1.js#Call.prototype
  */
-class Less_Tree_Call extends Less_Tree implements Less_Tree_HasValueProperty {
-	public $value;
-
+class Less_Tree_Call extends Less_Tree {
 	public $name;
 	public $args;
-	/** @var bool */
-	public $mathOn;
+	public $calc;
 	public $index;
 	public $currentFileInfo;
 
 	public function __construct( $name, $args, $index, $currentFileInfo = null ) {
 		$this->name = $name;
 		$this->args = $args;
-		$this->mathOn = ( $name !== 'calc' );
+		$this->calc = $name === 'calc';
 		$this->index = $index;
 		$this->currentFileInfo = $currentFileInfo;
 	}
 
 	public function accept( $visitor ) {
 		$this->args = $visitor->visitArray( $this->args );
+	}
+
+	/**
+	 * @see less-2.5.3.js#functionCaller.prototype.call
+	 */
+	private function functionCaller( $function, array $arguments ) {
+		// This code is terrible and should be replaced as per this issue...
+		// https://github.com/less/less.js/issues/2477
+		$filtered = [];
+		foreach ( $arguments as $argument ) {
+			if ( $argument instanceof Less_Tree_Comment ) {
+				continue;
+			}
+			$filtered[] = $argument;
+		}
+		foreach ( $filtered as $index => $argument ) {
+			if ( $argument instanceof Less_Tree_Expression ) {
+				$filtered[$index] = $argument->mapToFunctionCallArgument();
+			}
+		}
+		return $function( ...$filtered );
+	}
+
+	/**
+	 * @param Less_Environment $env
+	 * @return void
+	 */
+	private function exitCalc( $env, $currentMathContext ) {
+		if ( $this->calc || $env->inCalc ) {
+			$env->exitCalc();
+		}
+		$env->mathOn = $currentMathContext;
 	}
 
 	//
@@ -35,29 +64,24 @@ class Less_Tree_Call extends Less_Tree implements Less_Tree_HasValueProperty {
 	// of them is a LESS variable that only PHP knows the value of,
 	// like: `saturate(@mycolor)`.
 	// The function should receive the value, not the variable.
-	//
-	public function compile( $env = null ) {
-		// Turn off math for calc(). https://phabricator.wikimedia.org/T331688
-		$currentMathContext = Less_Environment::$mathOn;
-		Less_Environment::$mathOn = $this->mathOn;
+	// TODO less.js#3.13.1 provide better parity with upstream.
+	public function compile( $env ) {
+		/**
+		 * Turn off math for calc(), and switch back on for evaluating nested functions
+		 */
+		$currentMathContext = $env->mathOn;
+		$env->mathOn = !$this->calc;
+
+		if ( $this->calc || $env->inCalc ) {
+			$env->enterCalc();
+		}
 
 		$args = [];
 		foreach ( $this->args as $a ) {
 			$args[] = $a->compile( $env );
 		}
 
-		foreach ( $args as $key => $arg ) {
-			if ( $arg instanceof Less_Tree_Expression ) {
-				$arg->throwAwayComments();
-
-				if ( count( $arg->value ) === 1 ) {
-					$subNode = $arg->value[0];
-					array_splice( $args, $key, 1, [ $subNode ] );
-				}
-			}
-		}
-
-		Less_Environment::$mathOn = $currentMathContext;
+		$env->mathOn = $currentMathContext;
 
 		$nameLC = strtolower( $this->name );
 		switch ( $nameLC ) {
@@ -76,6 +100,15 @@ class Less_Tree_Call extends Less_Tree implements Less_Tree_HasValueProperty {
 			case 'svg-gradient':
 				$nameLC = 'svggradient';
 				break;
+			case 'image-size':
+				$nameLC = 'imagesize';
+				break;
+			case 'image-width':
+				$nameLC = 'imagewidth';
+				break;
+			case 'image-height':
+				$nameLC = 'imageheight';
+				break;
 		}
 
 		$result = null;
@@ -83,16 +116,19 @@ class Less_Tree_Call extends Less_Tree implements Less_Tree_HasValueProperty {
 			$result = Less_Tree_DefaultFunc::compile();
 		} else {
 			$func = null;
-			if ( method_exists( Less_Functions::class, $nameLC ) ) {
-				$functions = new Less_Functions( $env, $this->currentFileInfo );
-				$func = [ $functions, $nameLC ];
+			$functions = new Less_Functions( $env, $this->currentFileInfo );
+			$funcBuiltin = [ $functions, $nameLC ];
+			// Avoid method_exists() as that considers private utility functions too
+			if ( is_callable( $funcBuiltin ) ) {
+				$func = $funcBuiltin;
 			} elseif ( isset( $env->functions[$nameLC] ) && is_callable( $env->functions[$nameLC] ) ) {
 				$func = $env->functions[$nameLC];
 			}
 			// If the function name isn't known to LESS, output it unchanged as CSS.
 			if ( $func ) {
 				try {
-					$result = $func( ...$args );
+					$result = $this->functionCaller( $func, $args );
+					$this->exitCalc( $env, $currentMathContext );
 				} catch ( Exception $e ) {
 					// Preserve original trace, especially from custom functions.
 					// https://github.com/wikimedia/less.php/issues/38
@@ -108,7 +144,7 @@ class Less_Tree_Call extends Less_Tree implements Less_Tree_HasValueProperty {
 		if ( $result !== null ) {
 			return $result;
 		}
-
+		$this->exitCalc( $env, $currentMathContext );
 		return new self( $this->name, $args, $this->index, $this->currentFileInfo );
 	}
 
@@ -127,9 +163,5 @@ class Less_Tree_Call extends Less_Tree implements Less_Tree_HasValueProperty {
 
 		$output->add( ')' );
 	}
-
-	// public function toCSS(){
-	//    return $this->compile()->toCSS();
-	//}
 
 }

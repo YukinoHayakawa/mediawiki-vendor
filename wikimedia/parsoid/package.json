@@ -22,15 +22,15 @@
 		"api-testing": "1.6.0",
 		"chai": "^4.1.2",
 		"colors": "^1.2.4",
-		"eslint": "8.31.0",
-		"eslint-config-wikimedia": "0.25.0",
+		"eslint": "8.57.0",
+		"eslint-config-wikimedia": "0.28.2",
 		"mocha": "git+https://github.com/arlolra/mocha.git#fix-ansi-regex",
 		"nock": "^9.2.5"
 	},
 	"scripts": {
 		"eslint": "eslint --cache --ext .js,.json .",
 		"eslint-fix": "eslint --cache --ext .js,.json --fix .",
-		"regen-php-tokenizer": "node bin/inspectTokenizer.js --source --php -o src/Wt2Html/Grammar.php",
+		"regen-php-tokenizer": "node bin/inspectTokenizer.js --source --php -o src/Wt2Html/Grammar.php --header-comment-file ./bin/grammarheader-npm.txt",
 		"regen-php-tokenizer-trace": "node bin/inspectTokenizer.js --source --php -o src/Wt2Html/Grammar.php --trace",
 		"regen-php-tests-tokenizer": "node node_modules/wikipeg/bin/wikipeg --php --class-name Grammar src/ParserTests/Grammar.pegphp src/ParserTests/Grammar.php",
 		"api-testing": "mocha --timeout 0 tests/api-testing",
