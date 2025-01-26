@@ -43,11 +43,13 @@ class UnusedUseStatementSniff implements Sniff {
 		'@see' => null,
 		'@throws' => null,
 		'@var' => null,
-		// phan
+		// Static code analyzers like Phan, PHPStan, or Psalm
 		'@phan-param' => null,
 		'@phan-property' => null,
 		'@phan-return' => null,
 		'@phan-var' => null,
+		'@phpstan-import-type' => '/\bfrom\h+(.*)/',
+		'@psalm-import-type' => '/\bfrom\h+(.*)/',
 		// Deprecated
 		'@expectedException' => null,
 		'@method' => null,
@@ -133,12 +135,19 @@ class UnusedUseStatementSniff implements Sniff {
 
 			} elseif ( $tokens[$i]['code'] === T_DOC_COMMENT_TAG ) {
 				// Usage in a doc comment
-				if ( !array_key_exists( $tokens[$i]['content'], self::CLASS_TAGS )
+				$tag = $tokens[$i]['content'];
+				if ( !array_key_exists( $tag, self::CLASS_TAGS )
 					|| $tokens[$i + 2]['code'] !== T_DOC_COMMENT_STRING
 				) {
 					continue;
 				}
-				$docType = $this->extractType( $tokens[$i + 2]['content'] );
+				$content = $tokens[$i + 2]['content'];
+				if ( is_string( self::CLASS_TAGS[$tag] ) &&
+					preg_match( self::CLASS_TAGS[$tag], $content, $matches )
+				) {
+					$content = $matches[1];
+				}
+				$docType = $this->extractType( $content );
 				if ( !preg_match_all( $classNamesPattern, $docType, $matches ) ) {
 					continue;
 				}

@@ -22,6 +22,7 @@
 	-->
 	<rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop" />
 	<rule ref="Generic.CodeAnalysis.JumbledIncrementer" />
+	<rule ref="Generic.CodeAnalysis.RequireExplicitBooleanOperatorPrecedence" />
 	<rule ref="Generic.CodeAnalysis.UnconditionalIfStatement" />
 	<rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier" />
 	<!--
@@ -207,11 +208,13 @@
 
 	<rule ref="PEAR.Functions.ValidDefaultValue.NotAtEnd" />
 
+	<rule ref="Universal.CodeAnalysis.NoDoubleNegative" />
 	<rule ref="Universal.Constants.LowercaseClassResolutionKeyword" />
 	<rule ref="Universal.Constants.UppercaseMagicConstants" />
 	<rule ref="Universal.ControlStructures.DisallowAlternativeSyntax" />
 	<rule ref="Universal.Lists.DisallowLongListSyntax" />
 	<rule ref="Universal.Operators.TypeSeparatorSpacing" />
+	<rule ref="Universal.PHP.LowercasePHPTag" />
 	<rule ref="Universal.UseStatements.KeywordSpacing" />
 	<rule ref="Universal.UseStatements.LowercaseFunctionConst" />
 	<rule ref="Universal.UseStatements.NoUselessAliases" />
